@@ -1,6 +1,5 @@
 # Nvim
-> Zelong Guo, @ GFZ, Potsdam  
-2024-04-20 13:23  
+> Zelong Guo, @ GFZ, Potsdam, Germany  
 
 > update: 2023-05-10 19:50  
 
