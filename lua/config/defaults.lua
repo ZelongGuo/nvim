@@ -14,7 +14,7 @@ end
 vim.opt.secure = false
 
 
--- START FROM HERE 
+-- Tab settings
 vim.opt.expandtab = false
 vim.opt.tabstop = 2
 vim.opt.smarttab = true
@@ -22,6 +22,7 @@ vim.o.shiftwidth = 2
 vim.o.autoindent = true
 vim.o.list = true
 vim.o.listchars = 'tab:|\\ ,trail:▫'
+
 vim.o.scrolloff = 4
 vim.o.viewoptions = 'cursor,folds,slash,unix'
 vim.o.wrap = true
@@ -31,6 +32,7 @@ vim.o.foldmethod = 'indent'
 vim.o.foldlevel = 99
 vim.o.foldenable = true
 vim.o.foldlevelstart = 99
+
 vim.o.formatoptions = vim.o.formatoptions:gsub('tc', '')
 vim.o.splitright = true
 vim.o.splitbelow = true
@@ -39,7 +41,6 @@ vim.o.ignorecase = true
 vim.o.smartcase = true
 vim.o.visualbell = true
 vim.o.colorcolumn = '100'
-
 
 
 -- Speed up editor

@@ -30,7 +30,7 @@ local nmappings = {
 	-- " Delte a character, same to 'backspace'
 	{ from = "<C-j>", to = "<C-h>", mode = mode_i, opts = { noremap = ture}}, 
 
-	-- 
+	--
 	{ from = ",f", to = "<Esc>/<++><CR>:nohlsearch<CR>c4l", mode = mode_i, opts = { noremap = ture}}, 
 	{ from = "<leader><leader>", to = "<Esc>/<++><CR>:nohlsearch<CR>c4l", mode = mode_n, opts = { noremap = ture}}, 
 
