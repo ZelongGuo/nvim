@@ -234,7 +234,9 @@ endfunc
 " to uinstall your plug, just comment the below corresponding plug, and then
 " delete it under the .vim/plugged directory. 
 
-call plug#begin('$HOME/.config/nvim/vimplug')
+"call plug#begin('$HOME/.config/nvim/plugged')
+" Now moved the plugged/ folder into a new place same with lazy ...
+call plug#begin('$HOME/.local/share/nvim/plugged')
 " Color Scheme
 "Plug 'ZelongGuo/nvim-deus'
 "Plug 'ZelongGuo/eleline.vim'
