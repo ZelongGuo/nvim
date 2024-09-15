@@ -1,2 +1,5 @@
-plugged/
+# ----- system -----
 .DS_Store
+
+# -----  nvim  -----
+plugged/
