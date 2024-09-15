@@ -48,16 +48,22 @@ for _, mapping in ipairs(nmappings) do
 	vim.keymap.set(mapping.mode or "n", mapping.from, mapping.to, { noremap = true })
 end
 
+
+--[[
+
 local function run_vim_shortcut(shortcut)
 	local escaped_shortcut = vim.api.nvim_replace_termcodes(shortcut, true, false, true)
 	vim.api.nvim_feedkeys(escaped_shortcut, 'n', true)
 end
 
--- close win below
-vim.keymap.set("n", "<leader>q", function()
-	require("trouble").close()
-	local wins = vim.api.nvim_tabpage_list_wins(0)
-	if #wins > 1 then
-		run_vim_shortcut([[<C-w>j:q<CR>]])
-	end
-end, { noremap = true, silent = true })
+-- ]]
+
+-- --close windowns below
+-- vim.keymap.set("n", "<leader>q", function()
+-- 	require("trouble").close()
+-- 	local wins = vim.api.nvim_tabpage_list_wins(0)
+-- 	if #wins > 1 then
+-- 		run_vim_shortcut([[<C-w>j:q<CR>]])
+-- 	end
+-- end, { noremap = true, silent = true }) 
+
