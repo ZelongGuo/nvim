@@ -21,7 +21,7 @@ vim.opt.smarttab = true
 vim.o.shiftwidth = 2
 vim.o.autoindent = true
 vim.o.list = true
-vim.o.listchars = 'tab:|\\ ,trail:▫'
+vim.o.listchars = 'tab:┊\\ ,trail:▫'
 
 vim.o.scrolloff = 4
 vim.o.viewoptions = 'cursor,folds,slash,unix'

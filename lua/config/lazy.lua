@@ -23,14 +23,6 @@ vim.g.maplocalleader = "\\"
 
 -- Setup lazy.nvim
 require("lazy").setup({
--- 		require(plugins.vim-colorschemes),
-		{
-				-- vim.opt.background = "light",
-				"flazz/vim-colorschemes",
-				config = function()
-						vim.opt.background = "light",
-						vim.cmd("colorscheme Atelier_ForestLight")
-				end,
-		},
-
+		require("plugins.colorscheme"),
+		require("plugins.status-line"),
 })
