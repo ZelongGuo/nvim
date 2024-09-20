@@ -1,5 +1,14 @@
--- True color
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
+
+-- Latex
+vim.g.tex_flavor = "latex"
+
+
+-- True Color
 vim.opt.termguicolors = true
+-- vim.env to set the system environment variable (external shell is not needed)
 vim.env.NVIM_TUI_ENABLE_TRUE_COLOR = 1
 
 --[[
@@ -10,47 +19,66 @@ if vim.fn.has("termguicolors") == 1 then
 end
 --]]
 
--- vim.opt.exrc = true
-vim.opt.secure = false
+
+-- Disable Compatibility of Old Vim Versions
+vim.opt.compatible = false
 
 
--- Tab settings
+-- Tab Settings
+vim.opt.expandtab = false
 vim.opt.expandtab = false
 vim.opt.tabstop = 2
 vim.opt.smarttab = true
-vim.o.shiftwidth = 2
-vim.o.autoindent = true
-vim.o.list = true
-vim.o.listchars = 'tab:┊\\ ,trail:▫'
-
-vim.o.scrolloff = 4
-vim.o.viewoptions = 'cursor,folds,slash,unix'
-vim.o.wrap = true
-vim.o.textwidth = 0
-vim.o.indentexpr = ''
-vim.o.foldmethod = 'indent'
-vim.o.foldlevel = 99
-vim.o.foldenable = true
-vim.o.foldlevelstart = 99
-
-vim.o.formatoptions = vim.o.formatoptions:gsub('tc', '')
-vim.o.splitright = true
-vim.o.splitbelow = true
-vim.o.showmode = false
-vim.o.ignorecase = true
-vim.o.smartcase = true
-vim.o.visualbell = true
-vim.o.colorcolumn = '100'
+vim.opt.shiftwidth = 4
+vim.opt.autoindent = true
 
 
--- Speed up editor
+-- Show Invisible Characters, e.g., tab and space key
+vim.opt.list = true
+vim.opt.listchars = 'tab:┊\\ ,trail:▫'
+vim.opt.formatoptions = vim.o.formatoptions:gsub('tc', '')
+
+
+-- Customized for Better View
+vim.opt.scrolloff = 4
+vim.opt.viewoptions = 'cursor,folds,slash,unix'
+vim.opt.wrap = true
+vim.opt.textwidth = 0
+
+
+-- Code Folding, better with plugin treesitter
+vim.opt.foldenable = true
+-- vim.opt.foldmethod = "marker"
+-- vim.opt.foldmarker = {"<center>", "</center>"}  -- for HTML images
+vim.opt.foldmethod = 'indent'
+vim.opt.foldlevel = 99
+vim.opt.foldlevelstart = 99
+vim.opt.indentexpr = ''
+
+
+-- Vim Windows
+vim.opt.splitright = true
+vim.opt.splitbelow = true
+vim.opt.showmode = false   -- disable showing modes
+
+
+-- Upper and Lower Case and Searching
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+
+
+-- Speed Up Editor
 vim.opt.ttyfast = true
 
--- Buffer and folder changes without saving
+
+-- Buffer and Folder Changes Without Saving
 vim.opt.hidden = true
 vim.opt.autochdir = true
+vim.opt.viminfo = "'100,\"0"   -- do not saving marks
+vim.opt.confirm = true 	       -- ask before exiting modified buffer
 
--- Highlight and search
+
+-- Highlight and Search
 vim.cmd("syntax enable")
 vim.cmd("syntax on")
 vim.opt.cursorline = true
@@ -59,39 +87,41 @@ vim.opt.hlsearch = true
 vim.cmd("nohlsearch")
 vim.opt.incsearch = true
 
+
 -- Spell
 vim.opt.spell = true
+vim.opt.spelllang = "en"
+-- vim.opt.spellfile = "~/.config/nvim/"  -- set dict file
+-- vim.opt.spellcapcheck =  -- set capital check mode
 
--- Disable mouse
+
+-- Disable Mouse
 vim.opt.mouse = ""
 
--- Line Nr
+
+-- Line nr
 vim.opt.number = true
 vim.opt.relativenumber = true
 
--- Disable timeout waiting 
+
+-- Disable Timeout Waiting
 vim.opt.timeout = false
 vim.opt.timeoutlen = 0
 vim.opt.ttimeoutlen = 0
--- Cursor hold time, speed up the plugins  
+-- cursor hold time, speed up the plugins
 vim.opt.updatetime = 100
 
--- Show command in right-bottom corner
+
+-- Show Command in Right-bottom Corner
 vim.opt.showcmd = true
 
--- Command completion menu
+
+-- Command Completion Menu
 vim.opt.wildmenu = true
 
--- Code folding
-vim.opt.foldmethod = "marker"
-vim.opt.foldmarker = {"<center>", "</center>"}
 
--- Code indent
-vim.opt.cindent = true
-vim.opt.shiftwidth = 4
-
--- Not saving marks
-vim.opt.viminfo = "'100,\"0"
-
+-- Others
+vim.opt.colorcolumn = '100'
+vim.opt.visualbell = true
 
 

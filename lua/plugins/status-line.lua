@@ -1,4 +1,7 @@
 -- Vim status lines
+--
+-- TODO: shift vim-airline
+--
 return {
 	-- "theniceboy/eleline.vim",
 	-- branch = "no-scrollbar",

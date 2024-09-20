@@ -15,14 +15,39 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- Make sure to setup `mapleader` and `maplocalleader` before
--- loading lazy.nvim so that mappings are correct.
--- This is also a good place to setup other settings (vim.opt)
-vim.g.mapleader = " "
-vim.g.maplocalleader = "\\"
+-- Make sure to setup `mapleader` and `maplocalleader` before loading lazy.nvim so that mappings are correct.
+-- vim.g.mapleader = " "
+-- vim.g.maplocalleader = " "
+
+
+-- Lazy_cmd for configure lazy.vim, the setting is in "~/.local/share/nvim/lazy/lazy.nvim/lua/view/congfig.lua"
+-- TODO: Need to check the lazy.view.config carefully, because there are some conflics between nvim keybinding and the default lazy.nvim keybinding ...
+-- TODO: How could we unbind the keys like L in nvim.lazy?
+local lazy_cmd = require("lazy.view.config").commands
+local lazy_keys = {
+		{ cmd = "install", key = "i" },
+		{ cmd = "update",  key = "u" },
+		{ cmd = "sync",    key = "s" },
+		{ cmd = "clean",   key = "cl" },
+		{ cmd = "check",   key = "ch" },
+		{ cmd = "log",     key = "l" },
+		{ cmd = "restore", key = "rs" },
+		{ cmd = "profile", key = "p" },
+}
+-- mapping the default keys in lazy.vim to others by adding <leader>
+for _, v in ipairs(lazy_keys) do
+		lazy_cmd[v.cmd].key = "<Space>" .. v.key
+		-- lazy_cmd[v.cmd].key_plugin = "<leader>" .. v.key
+end
+vim.keymap.set("n", "<leader>la", ":Lazy<CR>", { noremap = true })
+
 
 -- Setup lazy.nvim
 require("lazy").setup({
 		require("plugins.colorscheme"),
 		require("plugins.status-line"),
+
+		-- nvim-treesitter for folding
+		
+		-- dashboard for Nvim startup, better with search plugins ...
 })
