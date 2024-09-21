@@ -28,7 +28,22 @@
 └── vimrc                基础配置
 
 ~/.config/nvim/
-|--- jk
+├── Readme.md
+├── init.lua
+├── lazy-lock.json
+└── lua
+    ├── config
+    │   ├── defaults.lua
+    │   ├── keymaps.lua
+    │   └── lazy.lua
+    ├── plugins
+    │   ├── bufferline.lua
+    │   ├── colorscheme.lua
+    │   ├── statusline.lua
+    │   ├── telescope.lua
+    │   └── yazi.lua
+    └── utils
+        └── functions.lua
 
 ```
 
