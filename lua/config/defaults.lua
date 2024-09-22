@@ -29,13 +29,16 @@ vim.opt.expandtab = false
 vim.opt.expandtab = false
 vim.opt.tabstop = 2
 vim.opt.smarttab = true
-vim.opt.shiftwidth = 4
+vim.opt.shiftwidth = 2
 vim.opt.autoindent = true
 
 
 -- Show Invisible Characters, e.g., tab and space key
+-- This setting may affect the indent plugins
 vim.opt.list = true
 vim.opt.listchars = 'tab:┊\\ ,trail:▫'
+--vim.opt.listchars = 'tab:|\\ ,trail:▫'
+--vim.opt.listchars = 'tab: \\ ,trail:▫'
 vim.opt.formatoptions = vim.o.formatoptions:gsub('tc', '')
 
 
