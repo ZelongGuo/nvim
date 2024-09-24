@@ -56,35 +56,80 @@
 > More tabs and buffers management see related plugins:
 telescope ....
 
-| keys | operations |
-|------|------------|
-| `tn` | new tab    |
+#### Tabs management
+- default key maps
+| keys  | operations               |
+|-------|--------------------------|
+| `tn`  | new **empty** tab        |
+| `tN`  | new **duplicated** tab   |
+| `tl`  | move to next tab         |
+| `tl`  | move to prev tab         |
+| `tml` | move current tab to next |
+| `tmj` | move current tab to prev |
 
-> TODO: setting for toggling between horizontal and vertical buffer views ...
+- tabs management in **bufferline.vim**
+| keys             | operations     |
+|------------------|----------------|
+| `t1`             | go to 1st tab  |
+| `t2`             | go to 2nd tab  |
+| ...              | ....           |
+| `t9`             | go to 9th tab  |
+| `t <C-l>`        | go to last tab |
+| `t <C-j>` = `t1` | go to 1st tab  |
 
-### **TELESCOPE**
+
+#### Buffers (windows / panels) management under current tab
+- default key maps
+| keys                          | operations                                         |
+|-------------------------------|----------------------------------------------------|
+| **Create buffers:**           |                                                    |
+| `sn`                          | new **empty** buffer (default to right vertically) |
+| `si`                          | new **empty** buffer   UP   HORIZONTAL             |
+| `sk`                          | new **empty** buffer BOTTOM HORIZONTAL             |
+| `sj`                          | new **empty** buffer LEFT   VERTICALLY             |
+| `sl`                          | new **empty** buffer RIGHT  VERTICALLY, (= `sn`)   |
+| `sI`                          | new **duplicated** buffer UP                       |
+| `sK`                          | new **duplicated** buffer DOWN                     |
+| `sJ`                          | new **duplicated** buffer LEFT                     |
+| `sL`                          | new **duplicated** buffer RIGHT                    |
+| **Move buffers:**             |                                                    |
+| `<leader>i`                   | move to UP buffer                                  |
+| `<leader>k`                   | move to DOWN buffer                                |
+| `<leader>j`                   | move to LEFT buffer                                |
+| `<leader>l`                   | move to RIGHT buffer                               |
+| **Switch between buffers:**   |                                                    |
+| `sml` (= `smj` = `si` = `sk`) | rotate the buffers                                 |
+| **Resize buffers:**           |                                                    |
+| `<UP>`                        | resize +5                                          |
+| `<DOWN>`                      | resize +5                                          |
+| `<LEFT>`                      | vertical resize -5                                 |
+| `<RIGHT>`                     | vertical resize +5                                 |
+
+> TODO: Setting for toggling between horizontal and vertical buffer views?
+
+- tabs management in **telescope.vim**
 > Further read of telescope help is needed for getting smoother experiences ...
 
-#### Telescope Startup & Searching Set-ups:
-| keys        | operations                                       |
-|-------------|--------------------------------------------------|
-| `leader ff` | find files                                       |
-| `leader fg` | find characters, `live_grep`                     |
-| `leader fh` | help pages                                       |
-| `leader fb` | find buffers                                     |
-| `leader ft` | find tabs (rely on the telescope-tab dependency) |
+Telescope Startup & Searching Set-ups:  
+| keys         | operations                                       |
+|--------------|--------------------------------------------------|
+| `<leader>ff` | find files                                       |
+| `<leader>fg` | find characters, `live_grep`                     |
+| `<leader>fh` | help pages                                       |
+| `<leader>fb` | find buffers                                     |
+| `<leader>ft` | find tabs (rely on the telescope-tab dependency) |
 
-#### Navigation in Insert and Normal Modes:
+Navigation in Insert and Normal Modes:  
 | keys            | operations                   |
 |-----------------|------------------------------|
 | **Insert Mode** |                              |
-| `UP`            | prev history                 |
-| `DOWN`          | next history                 |
-| `C-i`           | move up                      |
-| `C-k`           | move down                    |
-| `C-j`           | move left                    |
-| `C-l`           | move right                   |
-| `C-c`           | close                        |
+| `<UP>`          | prev history                 |
+| `<DOWN>`        | next history                 |
+| `<C-i>`         | move up                      |
+| `<C-k>`         | move down                    |
+| `<C-j>`         | move left                    |
+| `<C-l>`         | move right                   |
+| `<C-c>`         | close                        |
 | **Normal Mode** |                              |
 | `i`             | move up                      |
 | `k`             | move down                    |
@@ -92,18 +137,18 @@ telescope ....
 | `l`             | move right                   |
 | `gg`            | move to top                  |
 | `G`             | move to bottom               |
-| `ESC`           | close                        |
+| `<ESC>`         | close                        |
 | `?`             | keys shortcuts, `which keys` |
 
-#### Buffers and Tabs Opening Ways:
-| keys    | operations                                                               |
-|---------|--------------------------------------------------------------------------|
-| `CR`    | open in **current buffer** (may follow `tn`), `select_default`           |
-| *`C-t`* | *open in a new tab, **(not recommended)***                               |
-| *`C-s`* | *open in a new vertical buffer under current tab, **(not recommended)*** |
+Buffers and Tabs Opening Ways:  
+| keys      | operations                                                               |
+|-----------|--------------------------------------------------------------------------|
+| `<CR>`    | open in **current buffer** (may follow `tn`), `select_default`           |
+| *`<C-t>`* | *open in a new tab, **(not recommended)***                               |
+| *`<C-s>`* | *open in a new vertical buffer under current tab, **(not recommended)*** |
 
 > *Note: here only vertical split supported, using default key maps to toggle buffer views ...*
-*`C-t` and `C-s` are not recommended because  it may be better if you use nvim default key maps more ...*
+*`<C-t>` and `<C-s>` are not recommended because  it may be better if you use nvim default key maps more ...*
 
 
 ### Installation
