@@ -84,7 +84,6 @@ telescope ....
 | `C-k`           | move down                    |
 | `C-j`           | move left                    |
 | `C-l`           | move right                   |
-| `C-t`           | open in a new tab            |
 | `C-c`           | close                        |
 | **Normal Mode** |                              |
 | `i`             | move up                      |
@@ -93,19 +92,18 @@ telescope ....
 | `l`             | move right                   |
 | `gg`            | move to top                  |
 | `G`             | move to bottom               |
-| `C-t`           | open in a new tab            |
 | `ESC`           | close                        |
 | `?`             | keys shortcuts, `which keys` |
 
 #### Buffers and Tabs Opening Ways:
-| keys    | operations                                                     |
-|---------|----------------------------------------------------------------|
-| `CR`    | open in **current buffer** (may follow `tn`), `select_default` |
-| *`C-t`* | *open in a new tab*                                            |
-| *`C-s`* | *open in a new vertical buffer under current tab*              |
+| keys    | operations                                                           |
+|---------|----------------------------------------------------------------------|
+| `CR`    | open in **current buffer** (may follow `tn`), `select_default`       |
+| *`C-t`* | *open in a new tab, (not recommended)*                               |
+| *`C-s`* | *open in a new vertical buffer under current tab, (not recommended)* |
 
 > *Note: here only vertical split supported, using default key maps to toggle buffer views ...*
-*`C-t` and `C-s` are not recomandded because  it may be better if you use nvim default key maps more ...*
+*`C-t` and `C-s` are not recommended because  it may be better if you use nvim default key maps more ...*
 
 
 ### Installation
