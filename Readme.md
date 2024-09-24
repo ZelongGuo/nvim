@@ -57,7 +57,7 @@
 telescope ....
 
 #### Tabs management
-- default key maps
+- default key maps  
 | keys  | operations               |
 |-------|--------------------------|
 | `tn`  | new **empty** tab        |
@@ -67,7 +67,7 @@ telescope ....
 | `tml` | move current tab to next |
 | `tmj` | move current tab to prev |
 
-- tabs management in **bufferline.vim**
+- tabs management in **bufferline.vim**  
 | keys             | operations     |
 |------------------|----------------|
 | `t1`             | go to 1st tab  |
@@ -79,7 +79,7 @@ telescope ....
 
 
 #### Buffers (windows / panels) management under current tab
-- default key maps
+- default key maps  
 | keys                          | operations                                         |
 |-------------------------------|----------------------------------------------------|
 | **Create buffers:**           |                                                    |
@@ -105,10 +105,10 @@ telescope ....
 | `<LEFT>`                      | vertical resize -5                                 |
 | `<RIGHT>`                     | vertical resize +5                                 |
 
-> TODO: Setting for toggling between horizontal and vertical buffer views?
+> TODO: Setting for toggling between horizontal and vertical buffer views?  
 
-- tabs management in **telescope.vim**
-> Further read of telescope help is needed for getting smoother experiences ...
+- tabs management in **telescope.vim**  
+> Further read of telescope help is needed for getting smoother experiences ...  
 
 Telescope Startup & Searching Set-ups:  
 | keys         | operations                                       |
