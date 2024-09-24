@@ -65,7 +65,7 @@ Default key maps
 | `tn`  | new **empty** tab        |
 | `tN`  | new **duplicated** tab   |
 | `tl`  | move to next tab         |
-| `tl`  | move to prev tab         |
+| `tj`  | move to prev tab         |
 | `tml` | move current tab to next |
 | `tmj` | move current tab to prev |
 
@@ -88,19 +88,19 @@ Default key maps
 |-------------------------------|----------------------------------------------------|
 | **Create buffers:**           |                                                    |
 | `sn`                          | new **empty** buffer (default to right vertically) |
-| `si`                          | new **empty** buffer   UP   HORIZONTAL             |
-| `sk`                          | new **empty** buffer BOTTOM HORIZONTAL             |
-| `sj`                          | new **empty** buffer LEFT   VERTICALLY             |
-| `sl`                          | new **empty** buffer RIGHT  VERTICALLY, (= `sn`)   |
-| `sI`                          | new **duplicated** buffer UP                       |
-| `sK`                          | new **duplicated** buffer DOWN                     |
-| `sJ`                          | new **duplicated** buffer LEFT                     |
-| `sL`                          | new **duplicated** buffer RIGHT                    |
+| `si`                          | new **empty** buffer up horizontal                 |
+| `sk`                          | new **empty** buffer bottom horizontal             |
+| `sj`                          | new **empty** buffer left vertically               |
+| `sl`                          | new **empty** buffer right vertically, (=`sn`)     |
+| `sI`                          | new **duplicated** buffer up                       |
+| `sK`                          | new **duplicated** buffer down                     |
+| `sJ`                          | new **duplicated** buffer left                     |
+| `sL`                          | new **duplicated** buffer right                    |
 | **Move buffers:**             |                                                    |
-| `<leader>i`                   | move to UP buffer                                  |
-| `<leader>k`                   | move to DOWN buffer                                |
-| `<leader>j`                   | move to LEFT buffer                                |
-| `<leader>l`                   | move to RIGHT buffer                               |
+| `<leader>i`                   | move to up buffer                                  |
+| `<leader>k`                   | move to down buffer                                |
+| `<leader>j`                   | move to left buffer                                |
+| `<leader>l`                   | move to right buffer                               |
 | **Switch between buffers:**   |                                                    |
 | `sml` (= `smj` = `si` = `sk`) | rotate the buffers                                 |
 | **Resize buffers:**           |                                                    |
@@ -124,17 +124,17 @@ Telescope Startup & Searching Set-ups:
 | `<leader>ft` | find tabs (rely on the telescope-tab dependency) |
 
 Navigation in Insert and Normal Modes:  
-| keys            | operations   | keys            | operations                   |
-|-----------------|--------------|-----------------|------------------------------|
-| **Insert Mode** |              | **Normal Mode** |                              |
-| `<UP>`          | prev history | `i`             | move up                      |
-| `<DOWN>`        | next history | `k`             | move down                    |
-| `<C-i>`         | move up      | `j`             | move left                    |
-| `<C-k>`         | move down    | `l`             | move right                   |
-| `<C-j>`         | move left    | `gg`            | move to top                  |
-| `<C-l>`         | move right   | `G`             | move to bottom               |
-| `<C-c>`         | close        | `<ESC>`         | close                        |
-|                |              | `?`             | keys shortcuts, `which keys` |
+| keys             | operations   | keys             | operations                   |
+|------------------|--------------|------------------|------------------------------|
+| **Insert Mode:** |              | **Normal Mode:** |                              |
+| `<C-i>`          | move up      | `i`              | move up                      |
+| `<C-j>`          | move left    | `j`              | move left                    |
+| `<C-k>`          | move down    | `k`              | move down                    |
+| `<C-l>`          | move right   | `l`              | move right                   |
+| `<C-c>`          | close        | `<ESC>`          | close                        |
+| `<UP>`           | prev history | `gg`             | move to top                  |
+| `<DOWN>`         | next history | `G`              | move to bottom               |
+|                  |              | `?`              | keys shortcuts, `which keys` |
 
 Buffers and Tabs Opening Ways:  
 | keys      | operations                                                               |
