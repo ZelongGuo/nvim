@@ -53,48 +53,59 @@
 ## Key Binding and Plugins
 
 ### Buffers and tabs management
-More tabs and buffers management see related plugins:
+> More tabs and buffers management see related plugins:
 telescope ....
 
-### telescope
+| keys | operations |
+|------|------------|
+| `tn` | new tab    |
+
+> TODO: setting for toggling between horizontal and vertical buffer views ...
+
+### **TELESCOPE**
 > Further read of telescope help is needed for getting smoother experiences ...
 
-#### Telescope Startup & Searching Set-ups
+#### Telescope Startup & Searching Set-ups:
 | keys        | operations                                       |
 |-------------|--------------------------------------------------|
 | `leader ff` | find files                                       |
-| `leader fg` | find characters, live grep                       |
+| `leader fg` | find characters, `live_grep`                     |
 | `leader fh` | help pages                                       |
 | `leader fb` | find buffers                                     |
 | `leader ft` | find tabs (rely on the telescope-tab dependency) |
 
-#### Navigation in Insert and Normal Modes
-| keys            | operations        |
-|-----------------|-------------------|
-| **Insert Mode** |                   |
-| `UP`            | prev history      |
-| `DOWN`          | next history      |
-| `C-i`           | move up           |
-| `C-k`           | move down         |
-| `C-j`           | move left         |
-| `C-l`           | move right        |
-| `C-t`           | open in a new tab |
-| `C-c`           | close             |
-| **Normal Mode** |                   |
-| `i`             | move up           |
-| `k`             | move down         |
-| `j`             | move left         |
-| `l`             | move right        |
-| `gg`            | move to top       |
-| `G`             | move to bottom    |
-| `C-t`           | open in a new tab |
-| `ESC`           | close             |
+#### Navigation in Insert and Normal Modes:
+| keys            | operations                   |
+|-----------------|------------------------------|
+| **Insert Mode** |                              |
+| `UP`            | prev history                 |
+| `DOWN`          | next history                 |
+| `C-i`           | move up                      |
+| `C-k`           | move down                    |
+| `C-j`           | move left                    |
+| `C-l`           | move right                   |
+| `C-t`           | open in a new tab            |
+| `C-c`           | close                        |
+| **Normal Mode** |                              |
+| `i`             | move up                      |
+| `k`             | move down                    |
+| `j`             | move left                    |
+| `l`             | move right                   |
+| `gg`            | move to top                  |
+| `G`             | move to bottom               |
+| `C-t`           | open in a new tab            |
+| `ESC`           | close                        |
+| `?`             | keys shortcuts, `which keys` |
 
-#### Buffers and Tabs Opening Ways
-| keys   | operations |
-|--------|------------|
-| `CR` | move up    |
+#### Buffers and Tabs Opening Ways:
+| keys    | operations                                                     |
+|---------|----------------------------------------------------------------|
+| `CR`    | open in **current buffer** (may follow `tn`), `select_default` |
+| *`C-t`* | *open in a new tab*                                            |
+| *`C-s`* | *open in a new vertical buffer under current tab*              |
 
+> *Note: here only vertical split supported, using default key maps to toggle buffer views ...*
+*`C-t` and `C-s` are not recomandded because  it may be better if you use nvim default key maps more ...*
 
 
 ### Installation
