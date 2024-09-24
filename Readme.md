@@ -96,11 +96,11 @@ telescope ....
 | `?`             | keys shortcuts, `which keys` |
 
 #### Buffers and Tabs Opening Ways:
-| keys    | operations                                                           |
-|---------|----------------------------------------------------------------------|
-| `CR`    | open in **current buffer** (may follow `tn`), `select_default`       |
-| *`C-t`* | *open in a new tab, (not recommended)*                               |
-| *`C-s`* | *open in a new vertical buffer under current tab, (not recommended)* |
+| keys    | operations                                                               |
+|---------|--------------------------------------------------------------------------|
+| `CR`    | open in **current buffer** (may follow `tn`), `select_default`           |
+| *`C-t`* | *open in a new tab, **(not recommended)***                               |
+| *`C-s`* | *open in a new vertical buffer under current tab, **(not recommended)*** |
 
 > *Note: here only vertical split supported, using default key maps to toggle buffer views ...*
 *`C-t` and `C-s` are not recommended because  it may be better if you use nvim default key maps more ...*
