@@ -69,24 +69,26 @@ telescope ....
 | <leader>ft  | find tabs (rely on the telescope-tab dependency) |
 
 #### Navigation in Insert and Normal Modes
-| keys   | operations        | mode   |
-|--------|-------------------|--------|
-| <UP>   | prev history      | Insert |
-| <DOWN> | next history      | Insert |
-| <C-i>  | move up           | Insert |
-| <C-k>  | move down         | Insert |
-| <C-j>  | move left         | Insert |
-| <C-l>  | move right        | Insert |
-| <C-t>  | open in a new tab | Insert |
-| <C-c>  | close             | Insert |
-| i      | move up           | Normal |
-| k      | move down         | Normal |
-| j      | move left         | Normal |
-| l      | move right        | Normal |
-| gg     | move to top       | Normal |
-| G      | move to bottom    | Normal |
-| <C-t>  | open in a new tab | Normal |
-| <ESC>  | close             | Normal |
+| keys            | operations        |
+|-----------------|-------------------|
+| **Insert Mode** |                   |
+| <UP>            | prev history      |
+| <DOWN>          | next history      |
+| <C-i>           | move up           |
+| <C-k>           | move down         |
+| <C-j>           | move left         |
+| <C-l>           | move right        |
+| <C-t>           | open in a new tab |
+| <C-c>           | close             |
+| **Normal Mode** |                   |
+| i               | move up           |
+| k               | move down         |
+| j               | move left         |
+| l               | move right        |
+| gg              | move to top       |
+| G               | move to bottom    |
+| <C-t>           | open in a new tab |
+| <ESC>           | close             |
 
 #### Buffers and Tabs Opening Ways
 | keys  | operations        |
