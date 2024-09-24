@@ -62,38 +62,38 @@ telescope ....
 #### Telescope Startup & Searching Set-ups
 | keys        | operations                                       |
 |-------------|--------------------------------------------------|
-| <leader>ff  | find files                                       |
-| <leader>fg  | find characters, live grep                       |
-| <leader>fh  | help pages                                       |
-| <leader>fb  | find buffers                                     |
-| <leader>ft  | find tabs (rely on the telescope-tab dependency) |
+| `leader ff` | find files                                       |
+| `leader fg` | find characters, live grep                       |
+| `leader fh` | help pages                                       |
+| `leader fb` | find buffers                                     |
+| `leader ft` | find tabs (rely on the telescope-tab dependency) |
 
 #### Navigation in Insert and Normal Modes
 | keys            | operations        |
 |-----------------|-------------------|
 | **Insert Mode** |                   |
-| <UP>            | prev history      |
-| <DOWN>          | next history      |
-| <C-i>           | move up           |
-| <C-k>           | move down         |
-| <C-j>           | move left         |
-| <C-l>           | move right        |
-| <C-t>           | open in a new tab |
-| <C-c>           | close             |
+| `UP`            | prev history      |
+| `DOWN`          | next history      |
+| `C-i`           | move up           |
+| `C-k`           | move down         |
+| `C-j`           | move left         |
+| `C-l`           | move right        |
+| `C-t`           | open in a new tab |
+| `C-c`           | close             |
 | **Normal Mode** |                   |
-| i               | move up           |
-| k               | move down         |
-| j               | move left         |
-| l               | move right        |
-| gg              | move to top       |
-| G               | move to bottom    |
-| <C-t>           | open in a new tab |
-| <ESC>           | close             |
+| `i`             | move up           |
+| `k`             | move down         |
+| `j`             | move left         |
+| `l`             | move right        |
+| `gg`            | move to top       |
+| `G`             | move to bottom    |
+| `C-t`           | open in a new tab |
+| `ESC`           | close             |
 
 #### Buffers and Tabs Opening Ways
-| keys  | operations        |
-|-------|-------------------|
-| <CR>  | move up           |
+| keys   | operations |
+|--------|------------|
+| `CR` | move up    |
 
 
 
