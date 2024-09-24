@@ -1,7 +1,7 @@
 
 # NeoVim
 
-> Now I have moved to lua script, if you are using vim or just want using vim script, please see another branch. The configuration of vim script may be little different between lua script.
+> Now I have moved to lua script, if you are using vim or just want using vim script, please see another branch. The configuration of vim script may be quite different between lua script.
 
 ## tree TODO .....
 ```
@@ -48,9 +48,51 @@
 ```
 
 ## Requirmants
-- NeoVIM v0.9.2
+- NeoVIM v0.10+
 
-## Key Binding
+## Key Binding and Plugins
+
+### Buffers and tabs management
+More tabs and buffers management see related plugins:
+telescope ....
+
+### telescope
+> Further read of telescope help is needed for getting smoother experiences ...
+
+#### Telescope Startup & Searching Set-ups
+| keys        | operations                                       |
+|-------------|--------------------------------------------------|
+| <leader>ff  | find files                                       |
+| <leader>fg  | find characters, live grep                       |
+| <leader>fh  | help pages                                       |
+| <leader>fb  | find buffers                                     |
+| <leader>ft  | find tabs (rely on the telescope-tab dependency) |
+
+#### Navigation in Insert and Normal Modes
+| keys   | operations        | mode   |
+|--------|-------------------|--------|
+| <UP>   | prev history      | Insert |
+| <DOWN> | next history      | Insert |
+| <C-i>  | move up           | Insert |
+| <C-k>  | move down         | Insert |
+| <C-j>  | move left         | Insert |
+| <C-l>  | move right        | Insert |
+| <C-t>  | open in a new tab | Insert |
+| <C-c>  | close             | Insert |
+| i      | move up           | Normal |
+| k      | move down         | Normal |
+| j      | move left         | Normal |
+| l      | move right        | Normal |
+| gg     | move to top       | Normal |
+| G      | move to bottom    | Normal |
+| <C-t>  | open in a new tab | Normal |
+| <ESC>  | close             | Normal |
+
+#### Buffers and Tabs Opening Ways
+| keys  | operations        |
+|-------|-------------------|
+| <CR>  | move up           |
+
 
 
 ### Installation
