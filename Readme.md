@@ -57,7 +57,9 @@
 telescope ....
 
 #### Tabs management
-- default key maps  
+
+Default key maps  
+
 | keys  | operations               |
 |-------|--------------------------|
 | `tn`  | new **empty** tab        |
@@ -67,7 +69,8 @@ telescope ....
 | `tml` | move current tab to next |
 | `tmj` | move current tab to prev |
 
-- tabs management in **bufferline.vim**  
+Tabs management in **bufferline.vim**  
+
 | keys             | operations     |
 |------------------|----------------|
 | `t1`             | go to 1st tab  |
@@ -79,7 +82,8 @@ telescope ....
 
 
 #### Buffers (windows / panels) management under current tab
-- default key maps  
+Default key maps  
+
 | keys                          | operations                                         |
 |-------------------------------|----------------------------------------------------|
 | **Create buffers:**           |                                                    |
@@ -107,7 +111,7 @@ telescope ....
 
 > TODO: Setting for toggling between horizontal and vertical buffer views?  
 
-- tabs management in **telescope.vim**  
+Tabs management in **telescope.vim**  
 > Further read of telescope help is needed for getting smoother experiences ...  
 
 Telescope Startup & Searching Set-ups:  
@@ -120,25 +124,17 @@ Telescope Startup & Searching Set-ups:
 | `<leader>ft` | find tabs (rely on the telescope-tab dependency) |
 
 Navigation in Insert and Normal Modes:  
-| keys            | operations                   |
-|-----------------|------------------------------|
-| **Insert Mode** |                              |
-| `<UP>`          | prev history                 |
-| `<DOWN>`        | next history                 |
-| `<C-i>`         | move up                      |
-| `<C-k>`         | move down                    |
-| `<C-j>`         | move left                    |
-| `<C-l>`         | move right                   |
-| `<C-c>`         | close                        |
-| **Normal Mode** |                              |
-| `i`             | move up                      |
-| `k`             | move down                    |
-| `j`             | move left                    |
-| `l`             | move right                   |
-| `gg`            | move to top                  |
-| `G`             | move to bottom               |
-| `<ESC>`         | close                        |
-| `?`             | keys shortcuts, `which keys` |
+| keys            | operations   | keys            | operations                   |
+|-----------------|--------------|-----------------|------------------------------|
+| **Insert Mode** |              | **Normal Mode** |                              |
+| `<UP>`          | prev history | `i`             | move up                      |
+| `<DOWN>`        | next history | `k`             | move down                    |
+| `<C-i>`         | move up      | `j`             | move left                    |
+| `<C-k>`         | move down    | `l`             | move right                   |
+| `<C-j>`         | move left    | `gg`            | move to top                  |
+| `<C-l>`         | move right   | `G`             | move to bottom               |
+| `<C-c>`         | close        | `<ESC>`         | close                        |
+|                |              | `?`             | keys shortcuts, `which keys` |
 
 Buffers and Tabs Opening Ways:  
 | keys      | operations                                                               |
