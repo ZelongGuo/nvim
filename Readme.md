@@ -48,9 +48,45 @@
 ```
 
 ## Requirmants
-- NeoVIM v0.10+
+- NeoVIM v0.10+, for more please refer to requirements.txt
 
 ## Key Binding and Plugins
+
+### Default mappings  
+| keys                 | operations                                | Mode   |
+|----------------------|-------------------------------------------|--------|
+| **Cursor Move:**     |                                           |        |
+| `i`                  | up                                        | Normal |
+| `k`                  | down                                      | Normal |
+| `j`                  | left                                      | Normal |
+| `l`                  | right                                     | Normal |
+| `I`                  | 5i                                        | Normal |
+| `K`                  | 5k                                        | Normal |
+| `J`                  | 5j                                        | Normal |
+| `L`                  | 5l                                        | Normal |
+| `W`                  | jump 5 words backward                     | Normal |
+| `B`                  | jump 5 words forward                      | Normal |
+| `<C-i>`              | jump to the top of the current screen     | Normal |
+| `<C-k>`              | jump to the bottom of the current screen  | Normal |
+| `<C-m>`              | jump to the middle of the current screen  | Normal |
+| `<C-j>`              | jump to the beginning of the current line | Normal |
+| `<C-l>`              | jump to the end of the current line       | Normal |
+| `f`                  | find backward                             | Normal |
+| **`F`**              | find forward                              | Normal |
+| `H`                  | insert from the beginning of the line     | N -> I |
+| `A`                  | insert from the end of the line           | N -> I |
+| `<C-j>`              | backspace                                 | Insert |
+| `<C-l>`              | delete    dfdf dsfdfv                     | Insert |
+| ~~**Placeholder:**~~ |                                           |        |
+| `<leader><leader>`   | go to next place holder (N)               | Normal |
+| `,f`                 | go to next place holder (I)               | Insert |
+| **Highlight:**       |                                           |        |
+| `<leader><CR>`       | cancel highlights                         | Normal |
+| **Others:**          |                                           |        |
+| `<jk>`               | back to Normal mode                       | I & V  |
+| `S`                  | save current file                         | Normal |
+| `Q`                  | quit                                      | Normal |
+
 
 ### Buffers and tabs management
 > More tabs and buffers management see related plugins:
@@ -104,10 +140,10 @@ Default key maps
 | **Switch between buffers:**   |                                                    |
 | `sml` (= `smj` = `si` = `sk`) | rotate the buffers                                 |
 | **Resize buffers:**           |                                                    |
-| `<UP>`                        | resize +5                                          |
-| `<DOWN>`                      | resize +5                                          |
-| `<LEFT>`                      | vertical resize -5                                 |
-| `<RIGHT>`                     | vertical resize +5                                 |
+| `<Up>`                        | resize +5                                          |
+| `<Down>`                      | resize +5                                          |
+| `<Left>`                      | vertical resize -5                                 |
+| `<Right>`                     | vertical resize +5                                 |
 
 > TODO: Setting for toggling between horizontal and vertical buffer views?  
 
@@ -131,9 +167,9 @@ Navigation in Insert and Normal Modes:
 | `<C-j>`          | move left    | `j`              | move left                    |
 | `<C-k>`          | move down    | `k`              | move down                    |
 | `<C-l>`          | move right   | `l`              | move right                   |
-| `<C-c>`          | close        | `<ESC>`          | close                        |
-| `<UP>`           | prev history | `gg`             | move to top                  |
-| `<DOWN>`         | next history | `G`              | move to bottom               |
+| `<C-c>`          | close        | `<Esc>`          | close                        |
+| `<Up>`           | prev history | `gg`             | move to top                  |
+| `<Down>`         | next history | `G`              | move to bottom               |
 |                  |              | `?`              | keys shortcuts, `which keys` |
 
 Buffers and Tabs Opening Ways:  
@@ -144,7 +180,8 @@ Buffers and Tabs Opening Ways:
 | *`<C-s>`* | *open in a new vertical buffer under current tab, **(not recommended)*** |
 
 > *Note: here only vertical split supported, using default key maps to toggle buffer views ...*
-*`<C-t>` and `<C-s>` are not recommended because  it may be better if you use nvim default key maps more ...*
+*`<C-t>` and `<C-s>` are not recommended because it may be better if you use nvim default key maps more ...*
+
 
 
 ### Installation
