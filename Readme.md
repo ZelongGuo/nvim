@@ -156,6 +156,7 @@ Telescope Startup & Searching Set-ups:
 | `<leader>ff` | find files                                       |
 | `<leader>fg` | find characters, `live_grep`                     |
 | `<leader>fh` | help pages                                       |
+| `<leader>fr` | recent files                                     |
 | `<leader>fb` | find buffers                                     |
 | `<leader>ft` | find tabs (rely on the telescope-tab dependency) |
 
@@ -182,6 +183,7 @@ Buffers and Tabs Opening Ways:
 > *Note: here only vertical split supported, using default key maps to toggle buffer views ...*
 *`<C-t>` and `<C-s>` are not recommended because it may be better if you use nvim default key maps more ...*
 
+*The nvim startup plugin alpha-vim could could lead you a new buffer to open recent files.**  
 
 
 ### Installation
