@@ -78,7 +78,7 @@ vim.opt.ttyfast = true
 vim.opt.hidden = true
 vim.opt.autochdir = true
 vim.opt.viminfo = "'100,\"0"   -- do not saving marks
-vim.opt.confirm = true 	       -- ask before exiting modified buffer
+-- vim.opt.confirm = true 	       -- ask before exiting modified buffer
 
 
 -- Highlight and Search

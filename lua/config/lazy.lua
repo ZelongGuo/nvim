@@ -45,12 +45,14 @@ vim.keymap.set("n", "<leader>la", ":Lazy<CR>", { noremap = true })
 -- Setup lazy.nvim
 require("lazy").setup({
 		
-		-- Color schemes, status line and buffer line
+		-- Color schemes, status line, tab-buffer line and indent line
 		require("plugins.colorscheme"),
 		require("plugins.statusline"),
-		require("plugins.bufferline"),
-		-- Indent line
+		require("plugins.tab-bufferline"),
 		require("plugins.indent"),
+
+		-- Nvim Startup
+		require("plugins.startup"),
 
 		-- File navigation manager
 		-- also saifulapm/neotree-file-nesting-config
@@ -64,4 +66,7 @@ require("lazy").setup({
 		
 		
 		-- dashboard for Nvim startup, better with search plugins ...
+
+		-- Markdown-related 
+		require("plugins.markdown") -- markdown-table-mode
 })
