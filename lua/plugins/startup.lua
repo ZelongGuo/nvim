@@ -9,9 +9,10 @@ return {
 
 		-- Set Header, here we use startify theme rather than dashboard to keep the contents to left
 		startify.section.header.val = {
-			[[*-----------*                                                ]],
-			[[| Look what?|                                                ]],
-			[[*-----------*                                                ]],
+			[[*----------------*                                           ]],
+			[[| Hey! Look what?|                                           ]],
+			[[*----------------*                                           ]],
+			[[   o                                                         ]],
 			[[    o             boing         boing         boing          ]],
 			[[     o  e-e           . - .         . - .         . - .      ]],
 			[[       (\_/)\       '       `.   ,'       `.   ,'       .    ]],
@@ -36,12 +37,25 @@ return {
 
 		-- Add footer showing the number of loaded plugins
 		local lazy = require("lazy")
-		startify.section.footer.val = { { type = "text", val = "🚀 Lazy Message 󰒲 : " .. lazy.stats().count .. " plugins already loaded ..."} }
+		startify.section.footer.val = { { type = "text",  val =  "🚀 Lazy Message 󰒲 : " .. lazy.stats().count .. " plugins already loaded ...", } }
 
 		-- apply current configurations
 		alpha.setup(startify.config)
 	end,
 }
+
+		-- [[                 ]],
+		-- [[╔╗╔┌─┐┌─┐╦  ╦┬┌┬┐]],
+		-- [[║║║├┤ │ │╚╗╔╝││││]],
+		-- [[╝╚╝└─┘└─┘ ╚╝ ┴┴ ┴]],
+		-- [[                 ]],
+
+			-- [[                  ]],
+			-- [[   _   _   _   _  ]],
+			-- [[  / \ / \ / \ / \ ]],
+			-- [[ ( N | V | I | M )]],
+			-- [[  \_/ \_/ \_/ \_/ ]],
+			-- [[                  ]],
 
 
 -- return {
