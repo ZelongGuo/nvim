@@ -4,7 +4,7 @@
 > Now I have moved to lua script, if you are using vim or just want using vim script, please see another branch. The configuration of vim script may be quite different between lua script.
 
 ## tree TODO .....
-```
+```bash
 ~/.config/nvim/
 ├── debug.lua
 ├── init.lua            neovim配置入口
@@ -27,22 +27,22 @@
 ├── test/                各种乱七八糟的文件，测试效果用的
 └── vimrc                基础配置
 
-~/.config/nvim/
+~/.config/nvim/ 
 ├── Readme.md
-├── init.lua
-├── lazy-lock.json
+├── init.lua                   # vim confnguration entrance
+├── lazy-lock.json             # plugins version info
 └── lua
-    ├── config
-    │   ├── defaults.lua
-    │   ├── keymaps.lua
-    │   └── lazy.lua
-    ├── plugins
+    ├── config                 # vim config details
+    │   ├── defaults.lua       # default set-ups
+    │   ├── keymaps.lua        # kwy mappings
+    │   └── lazy.lua           # lazy.vim entrance
+    ├── plugins                # plugins of lazy.vim
     │   ├── bufferline.lua
     │   ├── colorscheme.lua
     │   ├── statusline.lua
     │   ├── telescope.lua
     │   └── yazi.lua
-    └── utils
+    └── utils                  # utilities 
         └── functions.lua
 
 ```
