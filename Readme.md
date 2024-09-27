@@ -1,4 +1,3 @@
-
 # NeoVim
 
 > Now I have moved to lua script, if you are using vim or just want using vim script, please see another branch. The configuration of vim script may be quite different between lua script.
@@ -29,9 +28,10 @@
 
 ~/.config/nvim/ 
 ├── Readme.md
+└── ftplugin/                  # the filetype info which would be load based on file type
 ├── init.lua                   # vim confnguration entrance
 ├── lazy-lock.json             # plugins version info
-└── lua
+└── lua/
     ├── config                 # vim config details
     │   ├── defaults.lua       # default set-ups
     │   ├── keymaps.lua        # kwy mappings
@@ -42,7 +42,7 @@
     │   ├── statusline.lua
     │   ├── telescope.lua
     │   └── yazi.lua
-    └── utils                  # utilities 
+    └── utils/                  # utilities
         └── functions.lua
 
 ```
