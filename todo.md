@@ -5,29 +5,35 @@ Tips:
 
 TODO:
 
-- about the alpha-vim
-  - check https://github.com/AdamWhittingham/vim-config to add recent links or files
-  - add how many plugins already started?
-  - make the display to the left?
+- *nvim-tree key mappings*
 
-- Ultisnipist!
+- lsp: jump, go to definition etc ..., mason  
 
-- update the readme file, refer to the nice boy ...
+- nvim-cmp: automatic completion  
+- tree sitter : highlight  
 
-- when using <leader>fh to look for help page, sometimes still come across the opened help page would create a new buffer under the current buffer, rather than overwrite the current buffer...
+- Ultisnipist!  
 
-- read the help page of vim ... Looking through all of them ...
-- More actions about telescope.vim, like LSP to find some specific functions in the file? And also other functionalities please watch the videos on online platforms ...
+- complete ftplugin/, add more file types ...
 
+- update the readme file, refer to the nice boy ...  
+
+- when using <leader>fh to look for help page, sometimes still come across the opened help page would create a new buffer under the current buffer, rather than overwrite the current buffer...  
+
+- read the help page of vim ... Looking through all of them ...  
+- More actions about telescope.vim, like LSP to find some specific functions in the file? And also other functionalities please watch the videos on online platforms ...  
+
+- telescope cannot find file, e.g, when we are editing the init.lua within neovim, and we cannot find and open the telescope.lua using telescope, there must be something went wrong ...  
+  Updated: now could search files within git root driectory, if it's not git repository, then search from current cwd. Maybe added: also search from other directories? Using the vim-rooter plugins? Expand more directories?   
+  Updated: Now you can use <leader>fr to open recent files. But it still cannot work if we wanna edit my github.io repository for example, can we expand the searching directory?  
+
+-- comment and comment box
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Solved partially:
-- telescope cannot find file, e.g, when we are editing the init.lua within neovim, and we cannot find and open the telescope.lua using telescope, there must be something went wrong ...
-  Updated: now could search files within git root driectory, if it's not git repository, then search from current cwd. Maybe added: also search from other directories? Using the vim-rooter plugins? Expand more directories?
-
-- when you are searching and trying to open a new file with telescope, how to make it a default behaviour to opening it with a new tab
-  Updated: Now have solved. But when the tab's name is [No Name], what could we do to open the file with current tab?
+Solved partially:  
+- when you are searching and trying to open a new file with telescope, how to make it a default behaviour to opening it with a new tab  
+  Updated: Now have solved. But when the tab's name is [No Name], what could we do to open the file with current tab?  
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -53,4 +59,11 @@ Solved:
 
 - change the wait time for combination mapping, e.g, jk under the visual mode? I think it's the same problem if we use the b/w + other key as a combination to split windows and buffers ...  
   Updated: NO, MAYBE we stick with using s for windows because b/w are all often used ...
+
+- about the alpha-vim
+  - check https://github.com/AdamWhittingham/vim-config to add recent links or files
+  - add how many plugins already started?
+  - make the display to the left?
+  Update: All done.
+
 
