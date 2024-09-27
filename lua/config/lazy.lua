@@ -51,12 +51,12 @@ require("lazy").setup({
 		require("plugins.tab-bufferline"),
 		require("plugins.indent"),
 
-		-- Nvim Startup
+		-- Nvim startup greeting
 		require("plugins.startup"),
 
 		-- File navigation manager
-		-- also saifulapm/neotree-file-nesting-config
-		-- require("plugins.yazi"),
+		-- require("plugins.yazi"), -- also saifulapm/neotree-file-nesting-config
+		require("plugins.nvim-tree"),
 		
 		-- Searching files and text
 		require("plugins.telescope"), -- TODO
@@ -68,5 +68,8 @@ require("lazy").setup({
 		-- dashboard for Nvim startup, better with search plugins ...
 
 		-- Markdown-related 
-		require("plugins.markdown") -- markdown-table-mode
+		require("plugins.markdown"), -- markdown-table-mode
+
+		-- Snippets
+		-- require("plugins.snippets"), -- UltiSnips
 })
