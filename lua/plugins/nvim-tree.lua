@@ -1,72 +1,98 @@
 return {
+  "nvim-tree/nvim-tree.lua",
+  dependencies = "nvim-tree/nvim-web-devicons",
+ 	event = "VeryLazy",
 
-	"nvim-tree/nvim-tree.lua",
-	dependencies = "nvim-tree/nvim-web-devicons",
-	-- event = "VeryLazy",
+  config = function()
+    local nvimtree = require("nvim-tree")
+    local api = require("nvim-tree.api")
 
-	config = function()
-		local nvimtree = require("nvim-tree")
-		-- recommended settings from nvim-tree documentation, disable netrw
-		vim.g.loaded_netrw = 1
-		vim.g.loaded_netrwPlugin = 1
-  	-- optionally enable 24-bit colour
-  	vim.opt.termguicolors = true
+		------------------------------------- Disable Netrw ----------------------------------------
+    -- Disable netrw
+    vim.g.loaded_netrw = 1
+    vim.g.loaded_netrwPlugin = 1
+    vim.opt.termguicolors = true
 
-		-- ------------------------------------------------------------------------------
-  	-- local function my_on_attach(bufnr)
-		-- 	local api = require("nvim-tree.api")
-		-- 	local function opts(desc)
-		-- 		return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
-		-- 	 end
+		----------------------------- Global Mapping For File Buffer -------------------------------
+		-- Globally (not on_attach) setting to open nvim-tree in current (file) buffer
+    vim.keymap.set('n', 'tt', api.tree.toggle, { noremap = true, silent = true, nowait = true})
 
-		-- 	-- default mappings
-		-- 	api.config.mappings.default_on_attach(bufnr)
-		-- 	
-		-- 	-- custom mappings
-  	--   -- vim.keymap.set('n', '<C-t>', api.tree.change_root_to_parent, opts('Up'))
-  	--   -- vim.keymap.set('n', '?',     api.tree.toggle_help,          opts('Help'))
-  	--   vim.keymap.set('n', 'zh', api.tree.toggle_hidden_filter,  opts('Toggle Filter: Dotfiles'))
-  	--   vim.keymap.set('n', 'q',  api.tree.close, opts('Close'))
-  	-- end
-		------------------------------------------------------------------------------
+		--------------------- Customized Mapping For Nvim_Tree Buffer Only -------------------------
+		-- The function of on_attach makes the key mappings only work in nvim-tree buffer
+    -- Custom on_attach function to set mappings specific to nvim-tree buffer,
+		-- otherwise there will be key conflict such as "l" and "j" in nvim-buffer and file buffer
 		
-		nvimtree.setup({
-			view = { width = 38, relativenumber = true, side = "left", },
-			-- change folder arrow icons
-			renderer = {
-				indent_markers = { enable = true, },
-				icons = {
-					glyphs = {
-						folder = {
-							arrow_closed = "", -- "", -- arrow when folder is closed
-							arrow_open = "", --"", -- arrow when folder is open
-						},
-					},
-				},
-			},
-
-			-- disable window_picker for explorer to work well with window splits
-			actions = { open_file = { window_picker = { enable = false, }, }, },
-
-			filters = { custom = { ".DS_Store" }, },
-			git = { ignore = false, },
-
-			-- pass my key mappings to setup
-			-- on_attach = my_on_attach,
-		})
-
-		-- Setting key mappings
-		local api = require('nvim-tree.api')
-		local function opts(desc)
-		return { desc = 'nvim-tree: ' .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+		-- Define functions of jump up and down 5 nodes
+		local function jump_up_5_nodes()
+  		for _ = 1, 5 do
+  		  api.node.navigate.sibling.prev()  -- jump up 5 nodes
+  		end
 		end
-  	vim.keymap.set('n', 'tt', api.tree.toggle,  opts('Open or Close the Tree'))
-  	vim.keymap.set('n', 'zh', api.tree.toggle_hidden_filter,  opts('Toggle Filter: Dotfiles'))
-  	vim.keymap.set('n', 'q',  api.tree.close, opts('Close'))
+		local function jump_down_5_nodes()
+  		for _ = 1, 5 do
+  		  api.node.navigate.sibling.next()  -- jump up 5 nodes
+  		end
+		end
 
-		--  vim.keymap.set('n', 'l', api.node.open.edit, opts('Open the file or folder'))
-		-- 	vim.keymap.set('n', 'r', api.fs.rename, opts('Rename'))
-		
-		end,
+    local function my_on_attach(bufnr)
+      local function opts(desc)
+        return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+      end
+      -- Default mappings for nvim-tree, check nvim-tree-mappings-default
+      api.config.mappings.default_on_attach(bufnr)
 
+      -- Custom mappings specific to nvim-tree buffer
+      vim.keymap.set('n', 'zh', api.tree.toggle_hidden_filter, opts('Toggle Filter: Dotfiles'))
+      vim.keymap.set('n', 'q', api.tree.close, opts('Close'))
+ 			vim.keymap.set('n', '<BS>', api.tree.change_root_to_parent, opts('Up'))
+     	vim.keymap.set('n', 'j',  api.node.navigate.parent_close, opts('Up'))
+     	vim.keymap.set('n', 'l',  api.node.open.edit, opts('Open'))
+     	vim.keymap.set('n', 'I', jump_up_5_nodes, opts('Jump up 5 nodes'))
+     	vim.keymap.set('n', 'K', jump_down_5_nodes, opts('Jump up 5 nodes'))
+			-- other mapping like creating files etc please see the help page ...
+    end
+
+		-------------------------- Nvim-Tree Setup Start From Here ---------------------------------
+    -- Setup nvim-tree with custom on_attach
+    nvimtree.setup({
+      view = {
+        width = 38,
+        relativenumber = true,
+        side = "left",
+      },
+      renderer = {
+        indent_markers = { enable = true },
+        icons = {
+          glyphs = {
+            folder = {
+              arrow_closed = "",
+              arrow_open = "",
+            },
+          },
+        },
+      },
+      actions = {
+        open_file = { window_picker = { enable = false } },
+      },
+      filters = { custom = { ".DS_Store" } },
+      git = { ignore = false },
+
+ 			-- re-focus to current file in the re-opened tree
+      update_focused_file = {
+        enable = true,
+        update_root = {
+          enable = true,
+          ignore_list = {},
+        },
+        exclude = false,
+      },
+
+      -- Pass custom on_attach function to setup
+      on_attach = my_on_attach,
+
+    })
+  end,
 }
+
+
+
