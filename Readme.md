@@ -56,36 +56,36 @@
 | keys                 | operations                                | Mode   |
 |----------------------|-------------------------------------------|--------|
 | **Cursor Move:**     |                                           |        |
-| `i`                  | up                                        | Normal |
-| `k`                  | down                                      | Normal |
-| `j`                  | left                                      | Normal |
-| `l`                  | right                                     | Normal |
-| `I`                  | 5i                                        | Normal |
-| `K`                  | 5k                                        | Normal |
-| `J`                  | 5j                                        | Normal |
-| `L`                  | 5l                                        | Normal |
-| `W`                  | jump 5 words backward                     | Normal |
-| `B`                  | jump 5 words forward                      | Normal |
-| `<C-i>`              | jump to the top of the current screen     | Normal |
-| `<C-k>`              | jump to the bottom of the current screen  | Normal |
-| `<C-m>`              | jump to the middle of the current screen  | Normal |
-| `<C-j>`              | jump to the beginning of the current line | Normal |
-| `<C-l>`              | jump to the end of the current line       | Normal |
-| `f`                  | find backward                             | Normal |
-| **`F`**              | find forward                              | Normal |
+| `i`                  | up                                        | N      |
+| `k`                  | down                                      | N      |
+| `j`                  | left                                      | N      |
+| `l`                  | right                                     | N      |
+| `I`                  | 5i                                        | N      |
+| `K`                  | 5k                                        | N      |
+| `J`                  | 5j                                        | N      |
+| `L`                  | 5l                                        | N      |
+| `W`                  | jump 5 words backward                     | N      |
+| `B`                  | jump 5 words forward                      | N      |
+| `<C-i>`              | jump to the top of the current screen     | N      |
+| `<C-k>`              | jump to the bottom of the current screen  | N      |
+| `<C-m>`              | jump to the middle of the current screen  | N      |
+| `<C-j>`              | jump to the beginning of the current line | N      |
+| `<C-l>`              | jump to the end of the current line       | N      |
+| `f`                  | find backward                             | N      |
+| **`F`**              | find forward                              | N      |
 | `H`                  | insert from the beginning of the line     | N -> I |
 | `A`                  | insert from the end of the line           | N -> I |
-| `<C-j>`              | backspace                                 | Insert |
-| `<C-l>`              | delete    dfdf dsfdfv                     | Insert |
+| `<C-j>`              | backspace                                 | I      |
+| `<C-l>`              | delete                                    | I      |
 | ~~**Placeholder:**~~ |                                           |        |
-| `<leader><leader>`   | go to next place holder (N)               | Normal |
-| `,f`                 | go to next place holder (I)               | Insert |
+| `<leader><leader>`   | go to next place holder (N)               | N      |
+| `,f`                 | go to next place holder (I)               | I      |
 | **Highlight:**       |                                           |        |
-| `<leader><CR>`       | cancel highlights                         | Normal |
+| `<leader><CR>`       | cancel highlights                         | N      |
 | **Others:**          |                                           |        |
 | `<jk>`               | back to Normal mode                       | I & V  |
-| `S`                  | save current file                         | Normal |
-| `Q`                  | quit                                      | Normal |
+| `S`                  | save current file                         | N      |
+| `Q`                  | quit                                      | N      |
 
 
 ### Buffers and tabs management
