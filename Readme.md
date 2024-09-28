@@ -53,7 +53,7 @@
 ## Key Binding and Plugins
 
 ### Default mappings  
-| keys                 | operations                                | Mode   |
+| keys                 | operations                                | mode   |
 |----------------------|-------------------------------------------|--------|
 | **Cursor Move:**     |                                           |        |
 | `i`                  | up                                        | N      |
@@ -94,27 +94,15 @@ telescope ....
 
 #### Tabs management
 
-Default key maps  
-
-| keys  | operations               |
-|-------|--------------------------|
-| `tn`  | new **empty** tab        |
-| `tN`  | new **duplicated** tab   |
-| `tl`  | move to next tab         |
-| `tj`  | move to prev tab         |
-| `tml` | move current tab to next |
-| `tmj` | move current tab to prev |
-
-Tabs management in **bufferline.vim**  
-
-| keys             | operations     |
-|------------------|----------------|
-| `t1`             | go to 1st tab  |
-| `t2`             | go to 2nd tab  |
-| ...              | ....           |
-| `t9`             | go to 9th tab  |
-| `t <C-l>`        | go to last tab |
-| `t <C-j>` = `t1` | go to 1st tab  |
+| keys        | operations               | keys               | operations     |
+|-------------|--------------------------|--------------------|----------------|
+| **Default** |                          | **bufferline.vim** |                |
+| `tn`        | new **empty** tab        | `t1`               | go to 1st tab  |
+| `tN`        | new **duplicated** tab   | `t2`               | go to 2nd tab  |
+| `tl`        | move to next tab         | ...                | ....           |
+| `tj`        | move to prev tab         | `t9`               | go to 9th tab  |
+| `tml`       | move current tab to next | `t <C-l>`          | go to last tab |
+| `tmj`       | move current tab to prev | `t <C-j>` = `t1`   | go to 1st tab  |
 
 
 #### Buffers (windows / panels) management under current tab
@@ -183,7 +171,7 @@ Buffers and Tabs Opening Ways:
 > *Note: here only vertical split supported, using default key maps to toggle buffer views ...*
 *`<C-t>` and `<C-s>` are not recommended because it may be better if you use nvim default key maps more ...*
 
-*The nvim startup plugin alpha-vim could could lead you a new buffer to open recent files.**  
+*The nvim startup plugin alpha-vim could could lead you a new buffer to open recent files.*  
 
 
 ### Installation
