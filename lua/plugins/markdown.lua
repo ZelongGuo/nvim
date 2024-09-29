@@ -1,11 +1,11 @@
 return {
 
-	-- Makrdown table mode
+  -- Makrdown table mode
   'Kicamon/markdown-table-mode.nvim',
-	ft = {"markdown"},
+  ft = {"markdown"},
 
   config = function()
-		-- all defaults settings
+    -- all defaults settings
     require('markdown-table-mode').setup()
   end
 }

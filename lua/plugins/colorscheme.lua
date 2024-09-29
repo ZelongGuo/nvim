@@ -1,12 +1,12 @@
 --  vim-colorschemes
 return{
-		"flazz/vim-colorschemes",
-		lazy = false,     -- disable lazy loading
-		priority = 1000,  -- high priority
-		config = function()
-				vim.opt.background = "light",
-				vim.cmd("colorscheme Atelier_ForestLight")
-		end,
+  "flazz/vim-colorschemes",
+  lazy = false,     -- disable lazy loading
+  priority = 1000,  -- high priority
+  config = function()
+    vim.opt.background = "light",
+    vim.cmd("colorscheme Atelier_ForestLight")
+  end,
 }
 
 -- The Light schemes

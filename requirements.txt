@@ -1,3 +1,11 @@
 - telescope:
   brew install ripgrep
 	brew install fd
+
+- colorizer:  
+  To show the color real-time
+
+- Scrollbar:
+  - "kevinhwang91/nvim-hlslens", for searching  
+	- "lewis6991/gitsigns.nvim", for showing git signs  
+

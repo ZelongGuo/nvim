@@ -50,6 +50,10 @@ require("lazy").setup({
 		require("plugins.statusline"),
 		require("plugins.tab-bufferline"),
 		require("plugins.indent"),
+		-- Scrollbar
+		require("plugins.scrollbar"),
+		-- colorizer
+		require("plugins.colorizer"),
 
 		-- Nvim startup greeting
 		require("plugins.startup"),

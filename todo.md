@@ -5,7 +5,9 @@ Tips:
 
 TODO:
 
-- *nvim-tree key mappings*
+- indent lines in vim, tab and space in the default.lua ...
+
+- scrollbar: Set git sings, highlight search  ...
 
 - lsp: jump, go to definition etc ..., mason  
 
@@ -34,6 +36,8 @@ TODO:
 Solved partially:  
 - when you are searching and trying to open a new file with telescope, how to make it a default behaviour to opening it with a new tab  
   Updated: Now have solved. But when the tab's name is [No Name], what could we do to open the file with current tab?  
+
+- *nvim-tree key mappings*: partly done
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 
