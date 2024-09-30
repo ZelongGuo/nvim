@@ -34,8 +34,8 @@ vim.opt.autoindent = true
 
 -- Show Invisible Characters, e.g., tab and space key
 -- This setting may affect the indent plugins
---vim.opt.list = true
---vim.opt.listchars = 'tab:┊\\ ,trail:▫'
+vim.opt.list = true
+vim.opt.listchars = 'tab:┊\\ ,trail:▫'
 --vim.opt.listchars = 'tab:┊\\ ,trail:▫'
 --vim.opt.listchars = 'tab:|\\ ,trail:▫'
 --vim.opt.listchars = 'tab: \\ ,trail:▫'
@@ -90,6 +90,10 @@ vim.opt.hlsearch = true
 vim.cmd("nohlsearch")
 vim.opt.incsearch = true
 
+-- Parentheses Highlight Which Has Been Overwritten By doom-one
+vim.opt.matchpairs:append("<:>")      -- add <> also to be matched
+-- vim.opt.showmatch = true
+-- vim.opt.matchtime = 5
 
 -- Spell
 vim.opt.spell = true
@@ -97,10 +101,8 @@ vim.opt.spelllang = "en"
 -- vim.opt.spellfile = "~/.config/nvim/"  -- set dict file
 -- vim.opt.spellcapcheck =  -- set capital check mode
 
-
 -- Disable Mouse
 vim.opt.mouse = ""
-
 
 -- Line nr
 vim.opt.number = true

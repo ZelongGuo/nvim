@@ -3,13 +3,14 @@
 -- sainnhe/edge, tokyonight.nvim, apprentice.nvim, everforest-nvim, sainnhe/everforest
 -- ishan9299/nvim-solarized-lua, savq/melange-nvim, Th3Whit3Wolf/space-nvim, Th3Whit3Wolf/one-nvim
 return {
-  "NTBBloodbath/doom-one.nvim",
+  "ZelongGuo/doom-one.nvim",
+  branch = "dev",
   layzy = false,     -- disable lazy loading
   priority = 1000,   -- high priority
 
   setup = function()
     -- Add color to cursor
-    vim.g.doom_one_cursor_coloring = false
+    vim.g.doom_one_cursor_coloring = true
     -- Set :terminal colors
     vim.g.doom_one_terminal_colors = true
     -- Enable italic comments
@@ -45,8 +46,6 @@ return {
    end,
 
 }
-
-
 
 -- return{
 --   "flazz/vim-colorschemes",

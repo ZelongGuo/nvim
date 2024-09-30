@@ -79,10 +79,10 @@ return {
     	-- re-focus to current file in the re-opened tree
       update_focused_file = {
         enable = true,
-        update_root = {
-          enable = true,
-          ignore_list = {},
-        },
+        -- update_root = {
+        --   enable = true,
+        --   ignore_list = {},
+        -- },
         exclude = false,
       },
     

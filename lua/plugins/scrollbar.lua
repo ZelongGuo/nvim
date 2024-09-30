@@ -32,7 +32,7 @@ return {
       throrrle_ms = 100,
       handle = {
         text = " ",
-        color = "#928374", -- color of the scrollbar (handle)
+        color = "gray88", --"#928374", -- color of the scrollbar (handle)
         blend = 30, -- Integer between 0 and 100. 0 for fully opaque and 100 to full transparent. Defaults to 30.
         highlight = "CursorColumn",
         hide_if_all_visible = true,

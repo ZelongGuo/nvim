@@ -1,11 +1,9 @@
--- Suggested dependencies also ripgrep and fd, which could be install by homebrew:
--- brew install ripgrep
--- brew install fd
--- More details could be found either in telescope or ripgrep
-
 return {
+  -- Suggested dependencies also ripgrep and fd, which could be install by homebrew:
+  -- brew install ripgrep
+  -- brew install fd
+  -- More details could be found either in telescope or ripgrep
   'nvim-telescope/telescope.nvim', 	-- tag = '0.1.8',
-
   dependencies = {
     'nvim-lua/plenary.nvim',
     {
@@ -23,7 +21,7 @@ return {
     -- Telescope Setups
     local telescope = require('telescope')
     local actions = require("telescope.actions")
-    
+
     telescope.setup({
       defaults = {
         -- General Default Settings
@@ -56,7 +54,7 @@ return {
             ["<C-k>"]  = actions.move_selection_next,
             ["<C-j>"]  = actions.preview_scrolling_up,
             ["<C-l>"]  = actions.preview_scrolling_down,
-            
+ 
             ["C-c"]    = actions.close,
             ["C-t"]    = actions.select_tab,
             ["<CR>"]   = actions.select_default,    -- default will overwrite current only tab
@@ -91,7 +89,7 @@ return {
     local my_fd = function()
       local opts = {}
       local git_root = vim.fn.systemlist("git rev-parse --show-toplevel")[1]
-      
+
       if git_root and git_root ~= "" then
         opts.cwd = git_root  -- Set the work directory to Git root directory
       else

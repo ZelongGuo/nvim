@@ -1,4 +1,9 @@
 return {
+  -- Tree-Sitter could produce an abstract syntax tree (AST).
+  -- Run `:InspectTree` to check what the AST look like.
+  -- To compare view without highlight, try to open a file with `nvim <filename> --noplugin`
+  -- Tree-sitter itself does not provide highlight, it only provide parser; while the genuine highlight providing is nvim-treesitter which is absolutely based on tree-sitter.
+ 
   "nvim-treesitter/nvim-treesitter",
 
   klazy = false,

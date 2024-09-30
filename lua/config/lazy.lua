@@ -25,55 +25,62 @@ vim.opt.rtp:prepend(lazypath)
 -- TODO: How could we unbind the keys like L in nvim.lazy?
 local lazy_cmd = require("lazy.view.config").commands
 local lazy_keys = {
-		{ cmd = "install", key = "i" },
-		{ cmd = "update",  key = "u" },
-		{ cmd = "sync",    key = "s" },
-		{ cmd = "clean",   key = "cl" },
-		{ cmd = "check",   key = "ch" },
-		{ cmd = "log",     key = "l" },
-		{ cmd = "restore", key = "rs" },
-		{ cmd = "profile", key = "p" },
+	{ cmd = "install", key = "i" },
+	{ cmd = "update",  key = "u" },
+	{ cmd = "sync",    key = "s" },
+	{ cmd = "clean",   key = "cl" },
+	{ cmd = "check",   key = "ch" },
+	{ cmd = "log",     key = "l" },
+	{ cmd = "restore", key = "rs" },
+	{ cmd = "profile", key = "p" },
 }
 -- mapping the default keys in lazy.vim to others by adding <leader>
 for _, v in ipairs(lazy_keys) do
-		lazy_cmd[v.cmd].key = "<Space>" .. v.key
-		-- lazy_cmd[v.cmd].key_plugin = "<leader>" .. v.key
+	lazy_cmd[v.cmd].key = "<Space>" .. v.key
+	-- lazy_cmd[v.cmd].key_plugin = "<leader>" .. v.key
 end
-vim.keymap.set("n", "<leader>la", ":Lazy<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>pl", ":Lazy<CR>", { noremap = true })
 
 
 -- Setup lazy.nvim
 require("lazy").setup({
-		
-		-- Color schemes, status line, tab-buffer line and indent line
-		require("plugins.colorscheme"),
-		require("plugins.statusline"),
-		require("plugins.tab-bufferline"),
-		require("plugins.indent"),
-		-- Scrollbar
-		require("plugins.scrollbar"),
-		-- colorizer
-		require("plugins.colorizer"),
+  -- Color schemes, status line, tab-buffer line
+	require("plugins.colorscheme"),
+	require("plugins.statusline"),
+	require("plugins.tab-bufferline"),
+  -- Indent line and folding
+	require("plugins.indent"),
+  -- require("plugins.fold"),
+	-- Scrollbar
+	require("plugins.scrollbar"),
+	-- colorizer
+	require("plugins.colorizer"),
 
-		-- Nvim startup greeting
-		require("plugins.startup"),
+	-- Nvim startup greeting
+	require("plugins.startup"),
 
-		-- File navigation manager
-		-- require("plugins.yazi"), -- also saifulapm/neotree-file-nesting-config
-		require("plugins.nvim-tree"),
-		
-		-- Searching files and text
-		require("plugins.telescope"), -- TODO
-				-- treesister
+	-- File navigation manager
+	-- require("plugins.yazi"), -- also saifulapm/neotree-file-nesting-config
+	require("plugins.nvim-tree"),
+	
+	-- Searching files and text
+	require("plugins.telescope"), -- TODO
+	-- treesister
 
-		-- nvim-treesitter for folding
-		
-		
-		-- dashboard for Nvim startup, better with search plugins ...
+	-- Git
+	require("plugins.git"),
 
-		-- Markdown-related 
-		require("plugins.markdown"), -- markdown-table-mode
+	-- Tree-Sitter
+	require("plugins.tree-sitter"),
 
-		-- Snippets
-		-- require("plugins.snippets"), -- UltiSnips
+	-- nvim-treesitter for folding
+	
+	
+	-- dashboard for Nvim startup, better with search plugins ...
+
+	-- Markdown-related 
+	require("plugins.markdown"), -- markdown-table-mode
+
+	-- Snippets
+	-- require("plugins.snippets"), -- UltiSnips
 })

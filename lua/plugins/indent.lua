@@ -25,55 +25,58 @@ return {
 --         ...share/nvim/lazy/hlchunk.nvim/lua/hlchunk/utils/timer.lua:16: in function <...share/nvim/lazy/hlchunk.nvim/lua/hlchunk/utils/timer.lua:15>
 
 -- return {
---   "shellRaining/hlchunk.nvim",
---   init = function()
---     -- Automatically trigger this plugin settings when the cursor moved under the normal and insert modes
---     -- vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, { pattern = "*", command = "EnableHL", })
+--   {
+--     "shellRaining/hlchunk.nvim",
 -- 
---     -- Dynamical chunk color with the vim theme
---     local cb = function()
---       -- echo g:colors_name
---       if vim.g.colors_name == "doom-one" then  -- light theme
---         return "seagreen" 
---       else -- dark theme
---         return "#806d9c"   -- yellow
+--     init = function()
+--       -- Automatically trigger this plugin settings when the cursor moved under the normal and insert modes
+--       -- vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, { pattern = "*", command = "EnableHL", })
+-- 
+--       -- Dynamical chunk color with the vim theme
+--       local cb = function()
+--         -- echo g:colors_name
+--         if vim.g.colors_name == "doom-one" then  -- light theme
+--           return "seagreen" 
+--         else -- dark theme
+--           return "#806d9c"   -- yellow
+--         end
 --       end
---     end
 -- 
---     require('hlchunk').setup({
---       chunk = {
---         enable = true,
---         use_treesitter = true,
---         style = {
---           --{	fg = "#806d9c"},
---           {	fg = cb },
---           {	fg = "red"}, -- if there is error then, the chunk color is red
+--       require('hlchunk').setup({
+--         chunk = {
+--           enable = true,
+--           use_treesitter = true,
+--           style = {
+--             --{	fg = "#806d9c"},
+--             {	fg = cb },
+--             {	fg = "red"}, -- if there is error then, the chunk color is red
+--           },
 --         },
---       },
 -- 
---       indent = {
---         enable = true,
---         -- chars = { "│", "¦", "┆", "┊", },
---         chars = { "│" },
---         use_treesitter = false,
---         style = {
---           "gray80"
---         }
---       },
+--         indent = {
+--           enable = true,
+--           -- chars = { "│", "¦", "┆", "┊", },
+--           chars = { "│" },
+--           use_treesitter = false,
+--           style = {
+--             "gray80"
+--           }
+--         },
 -- 
---       blank = {
+--         blank = {
+--           enable = false,
+--           priority = 9,
+--           chars = {
+--             ":",
+--           },
+--           style = {"black"},
+--         },
+-- 
+--         line_num = {
 --         enable = false,
---         priority = 9,
---         chars = {
---           ":",
+--         use_treesitter = false,
 --         },
---         style = {"black"},
---       },
--- 
---       line_num = {
---       enable = false,
---       use_treesitter = false,
---       },
---     })
---   end
+--       })
+--     end
+--   },
 -- }

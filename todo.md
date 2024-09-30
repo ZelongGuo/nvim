@@ -5,34 +5,34 @@ Tips:
 
 TODO:
 
-- indent lines in vim, tab and space in the default.lua ...
-  Updated: the blank space canot work ...
-
-- scrollbar: Set git sings, highlight search  ...
-
-- git: gitsign, lazygit, scrollbar ...
-
 - lsp: jump, go to definition etc ..., mason  
 
 - nvim-cmp: automatic completion  
-- tree sitter : highlight  
 
-- Ultisnipist!  
+- Ultisnipist!
 
 - complete ftplugin/, add more file types ...
 
-- update the readme file, refer to the nice boy ...  
+- update the readme file, refer to the nice boy ...
 
-- when using <leader>fh to look for help page, sometimes still come across the opened help page would create a new buffer under the current buffer, rather than overwrite the current buffer...  
+- when using <leader>fh to look for help page, sometimes still come across the opened help page would create a new buffer under the current buffer, rather than overwrite the current buffer...
 
-- read the help page of vim ... Looking through all of them ...  
-- More actions about telescope.vim, like LSP to find some specific functions in the file? And also other functionalities please watch the videos on online platforms ...  
+- read the help page of vim ... Looking through all of them ...
+- More actions about telescope.vim, like LSP to find some specific functions in the file? And also other functionalities please watch the videos on online platforms ...
 
-- telescope cannot find file, e.g, when we are editing the init.lua within neovim, and we cannot find and open the telescope.lua using telescope, there must be something went wrong ...  
+- telescope cannot find file, e.g, when we are editing the init.lua within neovim, and we cannot find and open the telescope.lua using telescope, there must be something went wrong ..
+
   Updated: now could search files within git root driectory, if it's not git repository, then search from current cwd. Maybe added: also search from other directories? Using the vim-rooter plugins? Expand more directories?   
-  Updated: Now you can use <leader>fr to open recent files. But it still cannot work if we wanna edit my github.io repository for example, can we expand the searching directory?  
+  Updated: Now you can use <leader>fr to open recent files. But it still cannot work if we wanna edit my github.io repository for example, can we expand the searching directory  
 
--- comment and comment box
+- comment and comment box
+
+- indent lines in vim, tab and space in the default.lua ...
+  Updated: the blank space canot work ...
+
+- git: gitsign, lazygit, scrollbar ... To get to know the detailed operations.
+
+- tree-sitter: folding (also related with lsp)
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -73,4 +73,14 @@ Solved:
   - make the display to the left?
   Update: All done.
 
+- scrollbar: Set git sings, highlight search  ...
+  Update: Done
+
+- nvim-treesitter: () match
+  Update: Done with doom-one
+
+- tree sitter : highlight  
+What is tree-sitter?  
+Tree-Sitter could produce an ***abstract syntax tree (AST)***. Run `:InspectTree` to check what the AST look like. To compare view without highlight, try to open a file with `nvim <filename> --noplugin`  
+**Tree-sitter** itself does not provide **highlight**, it only provide ***parser***; while the genuine highlight providing is ***nvim-treesitter*** which is absolutely based on tree-sitter.
 
