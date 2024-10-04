@@ -74,12 +74,15 @@ require("lazy").setup({
 	require("plugins.tree-sitter"),
 
 	-- nvim-treesitter for folding
+ 
+  -- Nvim autocompletion
+  require("plugins.nvim-cmp"),
 	
-	
-	-- dashboard for Nvim startup, better with search plugins ...
 
 	-- Markdown-related 
 	require("plugins.markdown"), -- markdown-table-mode
+
+	require("plugins.tex"),
 
 	-- Snippets
 	-- require("plugins.snippets"), -- UltiSnips
