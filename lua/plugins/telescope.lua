@@ -4,6 +4,7 @@ return {
   -- brew install fd
   -- More details could be found either in telescope or ripgrep
   'nvim-telescope/telescope.nvim', 	-- tag = '0.1.8',
+  event = "VimEnter",
   dependencies = {
     'nvim-lua/plenary.nvim',
     {

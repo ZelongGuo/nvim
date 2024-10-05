@@ -4,6 +4,9 @@ Tips:
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 
 TODO:
+- vimtx: learn what are tex live and mactex
+
+- nvim-cmp: [this link](https://www.youtube.com/watch?v=NL8D8EkphUw) and [this link](https://www.bilibili.com/video/BV1qT4y1a7tw/?spm_id_from=333.337.search-card.all.click&vd_source=43006d0ac56cf552e035de156730a015) 
 
 - lsp: jump, go to definition etc ..., mason  
 
