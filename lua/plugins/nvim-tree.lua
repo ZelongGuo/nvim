@@ -2,6 +2,7 @@ return {
   "nvim-tree/nvim-tree.lua",
   dependencies = "nvim-tree/nvim-web-devicons",
   event = "VeryLazy",
+  -- cmd = "NvimTreeToggle",
 
   config = function()
     local nvimtree = require("nvim-tree")
@@ -48,6 +49,9 @@ return {
       vim.keymap.set('n', 'l',  api.node.open.edit, opts('Open'))
       vim.keymap.set('n', 'I', jump_up_5_nodes, opts('Jump up 5 nodes'))
       vim.keymap.set('n', 'K', jump_down_5_nodes, opts('Jump up 5 nodes'))
+      -- copy absolute path
+      vim.keymap.set('n', 'yp', api.fs.copy.absolute_path, opts('copy absolute path'))
+      vim.keymap.set('n', 'yy', api.fs.copy.node, opts('Copy a file or folder'))
       -- other mapping like creating files etc please see the help page ...
     end
 
