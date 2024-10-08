@@ -1,0 +1,2 @@
+-- Language Server Protocol: a protocol used for interacting (e.g., jumping, completion etc) between EDITOR PLUGINS and the LANGUAGE SERVER.
+-- Developing Tools -> LSP -> Languages
