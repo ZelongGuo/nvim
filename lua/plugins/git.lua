@@ -3,6 +3,7 @@ return {
   -- git sings for side bar
   {
 		"lewis6991/gitsigns.nvim",
+    event = "UIEnter",
 		config = function()
 			require('gitsigns').setup({
 				signs = {

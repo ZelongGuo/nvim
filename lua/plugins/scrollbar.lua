@@ -1,5 +1,6 @@
 return {
   "petertriho/nvim-scrollbar",
+  event = "UIEnter",
   dependencies = {
     "kevinhwang91/nvim-hlslens",
     "lewis6991/gitsigns.nvim",
