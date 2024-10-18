@@ -26,9 +26,10 @@ vim.opt.compatible = false
 
 -- Tab Settings
 vim.opt.expandtab = true  -- if expand tab with blank spaces
-vim.opt.tabstop = 2
+vim.opt.tabstop = 4
 vim.opt.smarttab = true
-vim.opt.shiftwidth = 2
+vim.opt.shiftwidth = 4
+vim.opt.softtabstop = 4
 vim.opt.autoindent = true
 
 
@@ -46,7 +47,7 @@ vim.opt.formatoptions = vim.o.formatoptions:gsub('tc', '')
 vim.opt.scrolloff = 4
 vim.opt.viewoptions = 'cursor,folds,slash,unix'
 vim.opt.wrap = true
-vim.opt.textwidth = 0
+vim.opt.textwidth = 100
 
 
 -- Code Folding, better with plugin treesitter
