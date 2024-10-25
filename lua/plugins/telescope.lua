@@ -1,3 +1,4 @@
+-- :Telescope to show all the pickers
 return {
   -- Suggested dependencies also ripgrep and fd, which could be install by homebrew:
   -- brew install ripgrep
@@ -6,9 +7,10 @@ return {
   'nvim-telescope/telescope.nvim', 	-- tag = '0.1.8',
   event = "VimEnter",
   dependencies = {
-    'nvim-lua/plenary.nvim',
+    {'nvim-lua/plenary.nvim', lazy = true },
     {
       "LukasPietzschmann/telescope-tabs",
+      lazy = true,
       config = function()
         local tstabs = require('telescope-tabs')
         tstabs.setup({})
@@ -104,6 +106,7 @@ return {
     vim.keymap.set('n', '<leader>fb', builtin.buffers, { noremap = true, nowait = true, desc = 'Telescope buffers' })
     vim.keymap.set('n', '<leader>fh', builtin.help_tags, { noremap = true, nowait = true, desc = 'Telescope help tags' })
     vim.keymap.set('n', '<leader>fr', builtin.oldfiles, { noremap = true, nowait = true, desc = 'Lists previously open files' })
+    vim.keymap.set('n', '<leader>fc', ":Telescope neoclip<CR>", { noremap = true, nowait = true, desc = 'open neoclip plugin for yank and macro' })
 
   end,
  }
