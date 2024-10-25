@@ -55,6 +55,8 @@ require("lazy").setup({
     require("plugins.scrollbar"),
     -- colorizer
     require("plugins.colorizer"),
+    -- editor
+    require("plugins.editor"),
  
     -- Nvim startup greeting
     require("plugins.startup"),
