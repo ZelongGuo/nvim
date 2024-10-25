@@ -3,7 +3,7 @@ return {
   'akinsho/bufferline.nvim',
   event = "UIEnter",
   
-  dependencies = 'nvim-tree/nvim-web-devicons',
+  dependencies = { 'nvim-tree/nvim-web-devicons', lazy = true },
   
   -- Configuring the plugin
   opts = {

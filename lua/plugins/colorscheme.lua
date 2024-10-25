@@ -5,7 +5,7 @@
 return {
   "ZelongGuo/doom-one.nvim",
   branch = "dev",
-  layzy = false,     -- disable lazy loading
+  lazy = false,     -- disable lazy loading
   priority = 1000,   -- high priority
 
   setup = function()
