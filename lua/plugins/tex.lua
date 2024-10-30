@@ -3,6 +3,7 @@ return {
   --
 	"lervag/vimtex",
   lazy = false,
+  priority = 1100,
 	init = function()
 		vim.g.vimtex_view_method = "skim"
 		-- vim.g.vimtex_mappings_enabled = 0
