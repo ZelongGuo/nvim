@@ -15,7 +15,7 @@ function M.config()
     local neoclip = require("neoclip")
 
     neoclip.setup({
-        history = 100,
+        history = 1000,
         enable_persistent_history = true,
         length_limit = 1048576,  -- 1MB
         continuous_sync = false,
