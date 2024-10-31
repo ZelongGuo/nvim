@@ -1,9 +1,12 @@
 return {
   "nvim-tree/nvim-tree.lua",
   dependencies = { "nvim-tree/nvim-web-devicons", lazy = true },
-  -- event = "VeryLazy",
   -- cmd = "NvimTreeToggle",
-  keys = { "tt", ":NvimTreeToggle<CR>", desc = "NvimTree" },
+  keys = {
+    { "tt", ":NvimTreeToggle<CR>", desc = "NvimTree" },
+    -- { "<Space>fh", ":Telescope help_tags<CR>", desc = "Telescope Help" },
+  },
+  event = "VeryLazy", -- also activate here to load so that telescope help page could open nvim-tree help page ...
 
   config = function()
     local nvimtree = require("nvim-tree")

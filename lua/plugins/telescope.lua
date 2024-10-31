@@ -5,7 +5,8 @@ return {
   -- brew install fd
   -- More details could be found either in telescope or ripgrep
   'nvim-telescope/telescope.nvim', 	-- tag = '0.1.8',
-  event = "VimEnter",
+  -- event = "UIEnter", or
+  event = "VeryLazy",
   dependencies = {
     {'nvim-lua/plenary.nvim', lazy = true },
     {
@@ -101,12 +102,14 @@ return {
 
       builtin.find_files(opts)  -- invoke Telescope to search files
     end
+
     vim.keymap.set('n', '<leader>ff', my_fd, { noremap = true, nowait = true, desc = 'Telescope find files in Git root or cwd' })
     vim.keymap.set('n', '<leader>fg', builtin.live_grep, { noremap = true, nowait = true, desc = 'Telescope live grep finding strings in open buffers' })
     vim.keymap.set('n', '<leader>fb', builtin.buffers, { noremap = true, nowait = true, desc = 'Telescope buffers' })
     vim.keymap.set('n', '<leader>fh', builtin.help_tags, { noremap = true, nowait = true, desc = 'Telescope help tags' })
     vim.keymap.set('n', '<leader>fr', builtin.oldfiles, { noremap = true, nowait = true, desc = 'Lists previously open files' })
-    vim.keymap.set('n', '<leader>fc', ":Telescope neoclip<CR>", { noremap = true, nowait = true, desc = 'open neoclip plugin for yank and macro' })
+    telescope.load_extension('neoclip')  -- neoclip should be loaded
+    vim.keymap.set('n', '<leader>fc', ":Telescope neoclip<CR>", { desc = 'open neoclip plugin for yank and macro' })
 
   end,
  }
