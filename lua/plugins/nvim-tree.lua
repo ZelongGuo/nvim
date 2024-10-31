@@ -45,7 +45,7 @@ return {
       -- Default mappings for nvim-tree, check nvim-tree-mappings-default
       api.config.mappings.default_on_attach(bufnr)
 
-      -- Custom mappings specific to nvim-tree buffer
+      -- Custom mappings specific to nvim-tree buffer, similar to Ranger
       vim.keymap.set('n', 'zh', api.tree.toggle_hidden_filter, opts('Toggle Filter: Dotfiles'))
       vim.keymap.set('n', 'q', api.tree.close, opts('Close'))
       vim.keymap.set('n', '<BS>', api.tree.change_root_to_parent, opts('Up'))
@@ -53,8 +53,13 @@ return {
       vim.keymap.set('n', 'l',  api.node.open.edit, opts('Open'))
       vim.keymap.set('n', 'I', jump_up_5_nodes, opts('Jump up 5 nodes'))
       vim.keymap.set('n', 'K', jump_down_5_nodes, opts('Jump up 5 nodes'))
-      -- copy absolute path
-      vim.keymap.set('n', 'yp', api.fs.copy.absolute_path, opts('copy absolute path'))
+      -- create file and folder
+      vim.keymap.set('n', 'T', api.fs.create, opts('Touch: Create a file or folder'))
+      vim.keymap.set('n', 'M', api.fs.create, opts('mkdir: Create a file or folder'))
+      -- rename files / folders
+      vim.keymap.set('n', 'a', api.fs.rename, opts('Rename a file or folder'))
+      -- copy files and absolute path
+      vim.keymap.set('n', 'yp', api.fs.copy.absolute_path, opts('Copy absolute path'))
       vim.keymap.set('n', 'yy', api.fs.copy.node, opts('Copy a file or folder'))
       -- other mapping like creating files etc please see the help page ...
     end
