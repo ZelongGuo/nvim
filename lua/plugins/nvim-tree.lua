@@ -58,6 +58,7 @@ return {
       vim.keymap.set('n', 'M', api.fs.create, opts('mkdir: Create a file or folder'))
       -- rename files / folders
       vim.keymap.set('n', 'a', api.fs.rename, opts('Rename a file or folder'))
+      vim.keymap.set('n', 'A', api.fs.rename_full, opts('Rename a file or folder with full path'))
       -- copy files and absolute path
       vim.keymap.set('n', 'yp', api.fs.copy.absolute_path, opts('Copy absolute path'))
       vim.keymap.set('n', 'yy', api.fs.copy.node, opts('Copy a file or folder'))
