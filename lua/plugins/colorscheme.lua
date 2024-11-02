@@ -2,15 +2,16 @@
 --  Other light themes:
 -- sainnhe/edge, tokyonight.nvim, apprentice.nvim, everforest-nvim, sainnhe/everforest
 -- ishan9299/nvim-solarized-lua, savq/melange-nvim, Th3Whit3Wolf/space-nvim, Th3Whit3Wolf/one-nvim
-return {
-  "ZelongGuo/doom-one.nvim",
-  branch = "dev",
-  lazy = false,     -- disable lazy loading
-  priority = 1000,   -- high priority
+local M = {
+    "ZelongGuo/doom-one.nvim",
+     branch = "dev",
+     lazy = false,     -- disable lazy loading
+     priority = 1000,   -- high priority
+}
 
-  setup = function()
+function M.setup()
     -- Add color to cursor
-    vim.g.doom_one_cursor_coloring = true
+    vim.g.doom_one_cursor_coloring = false
     -- Set :terminal colors
     vim.g.doom_one_terminal_colors = true
     -- Enable italic comments
@@ -38,14 +39,14 @@ return {
     vim.g.doom_one_plugin_indent_blankline = true
     vim.g.doom_one_plugin_vim_illuminate = true
     vim.g.doom_one_plugin_lspsaga = false
-	end,
- 
-  config = function()
-    vim.opt.background = "light",
-    vim.cmd("colorscheme doom-one")
-   end,
+end
 
-}
+function M.config()
+    vim.opt.background = "dark",
+    vim.cmd("colorscheme doom-one")
+end
+
+return M
 
 -- return{
 --   "flazz/vim-colorschemes",
