@@ -2,6 +2,7 @@
 --  Other light themes:
 -- sainnhe/edge, tokyonight.nvim, apprentice.nvim, everforest-nvim, sainnhe/everforest
 -- ishan9299/nvim-solarized-lua, savq/melange-nvim, Th3Whit3Wolf/space-nvim, Th3Whit3Wolf/one-nvim
+
 local M = {
     "ZelongGuo/doom-one.nvim",
      branch = "dev",
@@ -44,6 +45,13 @@ end
 function M.config()
     vim.opt.background = "dark",
     vim.cmd("colorscheme doom-one")
+
+
+    -- Better represent the cursor color in insert mode, maybe could be added to the doom-one
+    -- vim.cmd("highlight iCursor guifg=#ffffff guibg=#00ff00") 
+
+
+
 end
 
 return M
