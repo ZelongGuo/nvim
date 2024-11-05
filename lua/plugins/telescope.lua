@@ -1,89 +1,98 @@
 -- :Telescope to show all the pickers
-return {
-  -- Suggested dependencies also ripgrep and fd, which could be install by homebrew:
-  -- brew install ripgrep
-  -- brew install fd
-  -- More details could be found either in telescope or ripgrep
-  'nvim-telescope/telescope.nvim', 	-- tag = '0.1.8',
-  -- event = "UIEnter", or
-  event = "VeryLazy",
-  dependencies = {
-    {'nvim-lua/plenary.nvim', lazy = true },
-    {
-      "LukasPietzschmann/telescope-tabs",
-      lazy = true,
-      config = function()
-        local tstabs = require('telescope-tabs')
-        tstabs.setup({})
-        vim.keymap.set('n', '<leader>ft', tstabs.list_tabs, { desc = "open the picker and show all the tabs" })
-      end
+local M = {
+    -- Suggested dependencies also ripgrep and fd, which could be install by homebrew:
+    -- brew install ripgrep
+    -- brew install fd
+    -- ore details could be found either in telescope or ripgrep
+    'nvim-telescope/telescope.nvim', 	-- tag = '0.1.8',
+    event = "UIEnter", -- or
+    -- event = "VeryLazy", -- Note if VeryLazy then colorscheme would not be completely loaded and
+    -- <leader>fc would invalid
+    dependencies = {
+        {'nvim-lua/plenary.nvim', lazy = true },
+        {
+            "LukasPietzschmann/telescope-tabs",
+            lazy = true,
+            config = function()
+                local tstabs = require('telescope-tabs')
+                tstabs.setup({})
+                vim.keymap.set('n', '<leader>ft', tstabs.list_tabs, { desc = "open the picker and show all the tabs" })
+            end
+        },
     },
-  },
 
-  -- NOTE: more configurations could be found with :help telescope
-  config = function()
+}
+
+function M.config()
     -- Telescope Setups
     local telescope = require('telescope')
     local actions = require("telescope.actions")
 
     telescope.setup({
-      defaults = {
-        -- General Default Settings
-        color_devicons = true,
-        prompt_prefix = "🔍 ",
-        selection_caret = " ", -- "🐾",
-        -- path_display = { "truncate" },
-        path_display = { "smart" },
-        -- file_previewer = require("telescope.previewers").vim_buffer_cat.new,
-        -- grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
+        defaults = {
+            -- General Default Settings
+            color_devicons = true,
+            prompt_prefix = "🔍 ",
+            selection_caret = " ", -- "🐾",
+            -- path_display = { "truncate" },
+            path_display = { "smart" },
+            -- file_previewer = require("telescope.previewers").vim_buffer_cat.new,
+            -- grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
 
-        -- Windows Settings
-        layout_config = {
-          horizontal = {
-            preview_width = 0.5, -- define preview window half of the total window size
-            -- result_width = 0.5, -- define preview window half of the total window size
-            preview_cutoff = 30, -- show 30 characters in the preview window
-          },
-          width = { padding = 8 },  -- setting the telescope window width
-          height = {padding = 3}, -- setting the telescope window hight
-        },
+            -- Windows Settings
+            layout_config = {
+                horizontal = {
+                    preview_width = 0.5, -- define preview window half of the total window size
+                    -- result_width = 0.5, -- define preview window half of the total window size
+                    preview_cutoff = 30, -- show 30 characters in the preview window
+                },
+                width = { padding = 8 },  -- setting the telescope window width
+                height = {padding = 3}, -- setting the telescope window hight
+            },
 
-        -- Mappings Within Telescope for Normal and Insert Mode
-        mappings = {
-          -- Insert Mode
-          i = {
-            ["<UP>"]   = actions.cycle_history_prev,
-            ["<DOWN>"] = actions.cycle_history_next,
-            ["<C-i>"]  = actions.move_selection_previous,
-            ["<C-k>"]  = actions.move_selection_next,
-            ["<C-j>"]  = actions.preview_scrolling_up,
-            ["<C-l>"]  = actions.preview_scrolling_down,
+            -- Mappings Within Telescope for Normal and Insert Mode
+            mappings = {
+                -- Insert Mode
+                i = {
+                    ["<UP>"]   = actions.cycle_history_prev,
+                    ["<DOWN>"] = actions.cycle_history_next,
+                    ["<C-i>"]  = actions.move_selection_previous,
+                    ["<C-k>"]  = actions.move_selection_next,
+                    ["<C-j>"]  = actions.preview_scrolling_up,
+                    ["<C-l>"]  = actions.preview_scrolling_down,
  
-            ["C-c"]    = actions.close,
-            ["C-t"]    = actions.select_tab,
-            ["<CR>"]   = actions.select_default,    -- default will overwrite current only tab
-            -- open the file with a new vertical buffer in current tab, here we only set the vertical split, if you want a horizontal split, using default key maps
-            ["<C-s>"]   = actions.select_vertical,
-          },
+                    ["C-c"]    = actions.close,
+                    ["C-t"]    = actions.select_tab,
+                    ["<CR>"]   = actions.select_default,    -- default will overwrite current only tab
+                    -- open the file with a new vertical buffer in current tab, here we only set the vertical split, if you want a horizontal split, using default key maps
+                    ["<C-s>"]   = actions.select_vertical,
+                },
 
-          n = {
-            ["i"]      = actions.move_selection_previous,
-            ["k"]      = actions.move_selection_next,
-            ["j"]      = actions.preview_scrolling_up,
-            ["l"]      = actions.preview_scrolling_down,
-            ["gg"]     = actions.move_to_top,
-            ["G"]      = actions.move_to_bottom,
-            -- ["<PageUp>"]   = actions.results_scrolling_up,
-            -- ["<PageDown>"] = actions.results_scrolling_down,
+                n = {
+                    ["i"]      = actions.move_selection_previous,
+                    ["k"]      = actions.move_selection_next,
+                    ["j"]      = actions.preview_scrolling_up,
+                    ["l"]      = actions.preview_scrolling_down,
+                    ["gg"]     = actions.move_to_top,
+                    ["G"]      = actions.move_to_bottom,
+                    -- ["<PageUp>"]   = actions.results_scrolling_up,
+                    -- ["<PageDown>"] = actions.results_scrolling_down,
 
-            ["<esc>"]  = actions.close,
-            ["?"]      = actions.which_key,
-            ["C-t"]    = actions.select_tab,
-            ["<CR>"]   = actions.select_default,
-            ["<C-s>"]   = actions.select_vertical,
-          },
+                    ["<esc>"]  = actions.close,
+                    ["?"]      = actions.which_key,
+                    ["C-t"]    = actions.select_tab,
+                    ["<CR>"]   = actions.select_default,
+                    ["<C-s>"]   = actions.select_vertical,
+                },
+            },
         },
-      },
+
+        pickers = {
+            colorscheme = {
+                enable_preview = true,  -- preview window
+            },
+        },
+
     })
 
     -- Telescope Key Mappings from Terminal
@@ -108,10 +117,13 @@ return {
     vim.keymap.set('n', '<leader>fb', builtin.buffers, { noremap = true, nowait = true, desc = 'Telescope buffers' })
     vim.keymap.set('n', '<leader>fh', builtin.help_tags, { noremap = true, nowait = true, desc = 'Telescope help tags' })
     vim.keymap.set('n', '<leader>fr', builtin.oldfiles, { noremap = true, nowait = true, desc = 'Lists previously open files' })
+    -- vim.keymap.set('n', '<leader>fc', ":Telescope colorscheme<CR>", { noremap = true, nowait = true, desc = 'Change colorscheme' })
+    vim.keymap.set('n', '<leader>fc', builtin.colorscheme, { noremap = true, nowait = true, desc = 'Change colorscheme' })
+
     telescope.load_extension('neoclip')  -- neoclip should be loaded
-    vim.keymap.set('n', '<leader>fc', ":Telescope neoclip<CR>", { desc = 'open neoclip plugin for yank and macro' })
+    vim.keymap.set('n', '<leader>fy', ":Telescope neoclip<CR>", { desc = 'open neoclip plugin for yank and macro' })
 
-  end,
- }
+end
 
+return M
 
