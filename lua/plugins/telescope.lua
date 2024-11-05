@@ -89,8 +89,9 @@ function M.config()
 
         pickers = {
             colorscheme = {
-                enable_preview = true,  -- preview window
-            },
+                enable_preview = true,   -- preview window
+                ignore_builtins = false, -- ignore the default colorschemes or not
+             },
         },
 
     })

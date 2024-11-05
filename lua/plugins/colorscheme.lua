@@ -51,7 +51,7 @@ local Doomone = {
 ----------------------------------------------------------------------------------------------
 local Material = {
     "marko-cerovac/material.nvim",
-    keys = { '<leader>fc', ':Telescope colorscheme<CR>', desc = "load Materail when open telescope colorscheme" },
+    event = "VeryLazy",
     -- priority = 1000,
     -- config = function()
     --     vim.opt.background = "light",  -- note the background also matters
