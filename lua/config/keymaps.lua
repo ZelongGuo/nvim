@@ -80,6 +80,9 @@ local nmappings = {
 	{ mode = mode_i, from = "<C-j>", to = "<C-h>" },  -- Same to 'backspace'
 	{ mode = mode_i, from = "<C-l>", to = "<Del>" },  -- Same to 'backspace'
 
+    -- Source My VIMRC
+    { mode = mode_n, from = "<leader>R", to = ":source $MYVIMRC<CR>" },
+
 
 	-- Source the current file
 	-- source %
