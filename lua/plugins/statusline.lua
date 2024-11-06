@@ -9,7 +9,7 @@ return {
   -- to make sure all required plugins and colorschemes are loaded before setup
   -- event = "UiEnter",
   lazy = false,
-  priority = 1100,  -- loade before colorschemes
+  priority = 1100,  -- load before colorschemes
   config = function()
     require('lualine').setup {
       options = {

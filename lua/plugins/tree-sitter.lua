@@ -6,8 +6,9 @@ return {
   --
     "nvim-treesitter/nvim-treesitter",
 
-    lazy = false,
-    priority = 1000,
+    -- lazy = false,
+    -- priority = 1000,
+    event = "UIEnter",
     build = ":TSUpdate",
  
     config = function()
