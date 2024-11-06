@@ -51,13 +51,14 @@ local Doomone = {
 ----------------------------------------------------------------------------------------------
 local Material = {
     "marko-cerovac/material.nvim",
-    event = "VeryLazy",
+    keys = { '<leader>fc', ':Telescope colorscheme<CR>', desc = "for the first time load Materail when open telescope colorscheme" },
     -- priority = 1000,
-    -- config = function()
-    --     vim.opt.background = "light",  -- note the background also matters
-    --     vim.cmd("colorscheme material"),
-    --     vim.g.material_style = "deep ocean"
-    -- end,
+    config = function()
+        -- vim.opt.background = "light",  -- note the background also matters
+        -- vim.cmd("colorscheme material"),
+        -- vim.g.material_style = "deep ocean"
+        vim.keymap.set('n', '<leader>fc', ':Telescope colorscheme<CR>', { desc = "open telescope colorscheme for more times" })
+    end,
 
     opts = {
         contrast = {

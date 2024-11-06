@@ -5,14 +5,13 @@ local M = {
     -- brew install fd
     -- ore details could be found either in telescope or ripgrep
     'nvim-telescope/telescope.nvim', 	-- tag = '0.1.8',
-    event = "UIEnter", -- or
-    -- event = "VeryLazy", -- Note if VeryLazy then colorscheme would not be completely loaded and
-    -- <leader>fc would invalid
+     event = "VeryLazy",
     dependencies = {
         {'nvim-lua/plenary.nvim', lazy = true },
         {
             "LukasPietzschmann/telescope-tabs",
-            lazy = true,
+            -- lazy = true,
+            keys = { '<leader>ft', ':Telescope telescope-tabs list_tabs<CR>', desc = "for the first time lazy load telescope-tabs when open telescope" },
             config = function()
                 local tstabs = require('telescope-tabs')
                 tstabs.setup({})
