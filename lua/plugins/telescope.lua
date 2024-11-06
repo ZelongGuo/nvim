@@ -5,7 +5,7 @@ local M = {
     -- brew install fd
     -- ore details could be found either in telescope or ripgrep
     'nvim-telescope/telescope.nvim', 	-- tag = '0.1.8',
-     event = "VeryLazy",
+    event = "VeryLazy",
     dependencies = {
         {'nvim-lua/plenary.nvim', lazy = true },
         {
@@ -59,7 +59,6 @@ function M.config()
                     ["<C-k>"]  = actions.move_selection_next,
                     ["<C-j>"]  = actions.preview_scrolling_up,
                     ["<C-l>"]  = actions.preview_scrolling_down,
- 
                     ["C-c"]    = actions.close,
                     ["C-t"]    = actions.select_tab,
                     ["<CR>"]   = actions.select_default,    -- default will overwrite current only tab
@@ -89,7 +88,7 @@ function M.config()
         pickers = {
             colorscheme = {
                 enable_preview = true,   -- preview window
-                ignore_builtins = false, -- ignore the default colorschemes or not
+                ignore_builtins = true, -- ignore the default colorschemes or not
              },
         },
 
@@ -117,10 +116,10 @@ function M.config()
     vim.keymap.set('n', '<leader>fb', builtin.buffers, { noremap = true, nowait = true, desc = 'Telescope buffers' })
     vim.keymap.set('n', '<leader>fh', builtin.help_tags, { noremap = true, nowait = true, desc = 'Telescope help tags' })
     vim.keymap.set('n', '<leader>fr', builtin.oldfiles, { noremap = true, nowait = true, desc = 'Lists previously open files' })
-    -- vim.keymap.set('n', '<leader>fc', ":Telescope colorscheme<CR>", { noremap = true, nowait = true, desc = 'Change colorscheme' })
     vim.keymap.set('n', '<leader>fc', builtin.colorscheme, { noremap = true, nowait = true, desc = 'Change colorscheme' })
 
-    telescope.load_extension('neoclip')  -- neoclip should be loaded
+    -- External Plugins
+    -- telescope.load_extension('neoclip')  -- neoclip should be loaded
     vim.keymap.set('n', '<leader>fy', ":Telescope neoclip<CR>", { desc = 'open neoclip plugin for yank and macro' })
 
 end
