@@ -1,28 +1,50 @@
 return {
+    -- git sings for side bar
+    {
+        "lewis6991/gitsigns.nvim",
+        event = "UIEnter",
+        config = function()
+            require('gitsigns').setup({
 
-  -- git sings for side bar
-  {
-		"lewis6991/gitsigns.nvim",
-    event = "UIEnter",
-		config = function()
-			require('gitsigns').setup({
-				signs = {
-					add          = { text = '▎' },
-					change       = { text = '░' },
-					delete       = { text = '_' },
-					topdelete    = { text = '▔' },
-					changedelete = { text = '▒' },
-					untracked    = { text = '┆' },
-				},
-			})
-			vim.keymap.set("n", "<leader>g-", ":Gitsigns prev_hunk<CR>", { noremap = true, silent = true })
-			vim.keymap.set("n", "<leader>g=", ":Gitsigns next_hunk<CR>", { noremap = true, silent = true })
-			vim.keymap.set("n", "<leader>gb", ":Gitsigns blame_line<CR>", { noremap = true, silent = true })
-			vim.keymap.set("n", "<leader>gr", ":Gitsigns reset_hunk<CR>", { noremap = true, silent = true })
-		end
-	},
+                signs = {
+                    add          = { text = '▎' },
+                    change       = { text = '░' },
+                    delete       = { text = '_' },
+                    topdelete    = { text = '▔' },
+                    changedelete = { text = '▒' },
+                    untracked    = { text = '┆' },
+                    },
+                })
+            vim.keymap.set("n", "<leader>g-", ":Gitsigns prev_hunk<CR>", { noremap = true, silent = true })
+            vim.keymap.set("n", "<leader>g=", ":Gitsigns next_hunk<CR>", { noremap = true, silent = true })
+            vim.keymap.set("n", "<leader>gb", ":Gitsigns blame_line<CR>", { noremap = true, silent = true })
+            vim.keymap.set("n", "<leader>gr", ":Gitsigns reset_hunk<CR>", { noremap = true, silent = true })
+        end
+    },
 
-  --1 -- lazy git for repository
+    -- -- lazy git for repository
+    -- {
+    --     "kdheepak/lazygit.nvim",
+    --     lazy = false,
+    --     keys = { { "<leader>lg", ":LazyGit<CR>", desc = "LazyGit" } }
+    --     cmd = {
+    --         "LazyGit",
+    --         "LazyGitConfig",
+    --         "LazyGitCurrentFile",
+    --         "LazyGitFilter",
+    --         "LazyGitFilterCurrentFile",
+    --     },
+    --     -- optional for floating window border decoration
+    --     dependencies = {
+    --         "nvim-telescope/telescope.nvim",
+    --         "nvim-lua/plenary.nvim",
+    --     },
+
+    --     config = function()
+    --         require("telescope").load_extension("lazygit")
+    --     end,
+    -- },
+
 	--1 {
 	--1 	"kdheepak/lazygit.nvim",
 	--1 	keys = { "<c-g>" },
@@ -40,4 +62,5 @@ return {
 	--1 -- 		vim.g.blamer_relative_time = true
 	--1 -- 	end
 	--1 -- }
+    --
 }

@@ -28,15 +28,15 @@ return {
     "iamcco/markdown-preview.nvim",
     cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
     build = "cd app && yarn install",
+    ft = { "markdown" },
     init = function()
       vim.g.mkdp_filetypes = { "markdown" }
       vim.g.mkdp_theme = { "light" }
 
-      vim.keymap.set('n', 'R', ':MarkdownPreview<CR>', { noremap = false, silent = true })
-      vim.keymap.set('n', 'E', ':MarkdownPreviewStop<CR>', { noremap = false, silent = true })
+      vim.keymap.set('n', '<leader>r', ':MarkdownPreview<CR>', { noremap = false, silent = true })
+      -- vim.keymap.set('n', 'E', ':MarkdownPreviewStop<CR>', { noremap = false, silent = true })
       -- vim.keymap.set('n', '<C-p>', '<Plug>MarkdownPreviewToggle', { noremap = false, silent = true })
     end,
-    ft = { "markdown" },
   },
 
 
