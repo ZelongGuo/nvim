@@ -1,4 +1,6 @@
 setlocal shiftwidth=2 softtabstop=2 expandtab smarttab
+setlocal colorcolumn=
+
 "autocmd Filetype markdown map <leader>w yiWi[<esc>Ea](<esc>pa)
 inoremap <buffer> <c-e> <Esc>/<++><CR>:nohlsearch<CR>"_c4l
 inoremap <buffer> ,w <Esc>/ <++><CR>:nohlsearch<CR>"_c5l<CR>
@@ -16,6 +18,7 @@ inoremap <buffer> ,2 ##<Space><Enter><++><Esc>kA
 inoremap <buffer> ,3 ###<Space><Enter><++><Esc>kA
 inoremap <buffer> ,4 ####<Space><Enter><++><Esc>kA
 inoremap <buffer> ,l --------<Enter>
+
 
 "" Auto-completion
 "" Auto backspace when typing double parenthesis
