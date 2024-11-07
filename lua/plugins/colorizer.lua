@@ -16,7 +16,7 @@ return
     css = false,      -- Enable all CSS features: rgb_fn, hsl_fn, names, RGB, RRGGBB
     css_fn = false,   -- Enable all CSS *functions*: rgb_fn, hsl_fn
     -- Available modes for `mode`: foreground, background,  virtualtext
-    mode = "background", -- Set the display mode: background, virtualtext.
+    mode = "virtualtext", -- Set the display mode: background, virtualtext.
     -- Available methods are false / true / "normal" / "lsp" / "both"
     -- True is same as normal
     tailwind = true,

@@ -5,11 +5,13 @@ local Doomone = {
     --- Change the lazy, priority as well as the config items to change current theme
     "ZelongGuo/doom-one.nvim",
     branch = "dev",
-    lazy = false,                      -- disable lazy loading
-    priority = 1000,                   -- high priority
+    -- lazy = false,                      -- disable lazy loading
+    -- priority = 1000,                   -- high priority
+    keys = { '<leader>fc', ':Telescope colorscheme<CR>', desc = "for the first time load when open telescope colorscheme" },
     config = function()
-        vim.opt.background = "light",  -- note the background also matters
-        vim.cmd("colorscheme doom-one")
+        -- vim.opt.background = "light",  -- note the background also matters
+        -- vim.cmd("colorscheme doom-one")
+        vim.keymap.set('n', '<leader>fc', ':Telescope colorscheme<CR>', { desc = "open telescope colorscheme for more times" })
     end,
     ----------------------------------------------------------------------------------
 
@@ -51,15 +53,15 @@ local Doomone = {
 ----------------------------------------------------------------------------------------------
 local Bluloco = {
     'uloco/bluloco.nvim',
-    keys = { '<leader>fc', ':Telescope colorscheme<CR>', desc = "for the first time load bluloco when open telescope colorscheme" },
-    -- lazy = false,
-    -- priority = 1000,
+    -- keys = { '<leader>fc', ':Telescope colorscheme<CR>', desc = "for the first time load bluloco when open telescope colorscheme" },
+    lazy = false,
+    priority = 1000,
     dependencies = { 'rktjmp/lush.nvim' },
 
     config = function()
-        -- vim.opt.termguicolors = true
-        -- vim.cmd('colorscheme bluloco')
-        vim.keymap.set('n', '<leader>fc', ':Telescope colorscheme<CR>', { desc = "open telescope colorscheme for more times" })
+         vim.opt.termguicolors = true
+         vim.cmd('colorscheme bluloco')
+        -- vim.keymap.set('n', '<leader>fc', ':Telescope colorscheme<CR>', { desc = "open telescope colorscheme for more times" })
 
     end,
 
@@ -339,7 +341,7 @@ local Material = {
 ----------------------------------------------------------------------------------------------
 return {
     Doomone,
-    -- Material,
+    Material,
     Bluloco,
     Onenord,
     Nightfox,
