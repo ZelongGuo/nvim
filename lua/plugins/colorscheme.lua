@@ -53,7 +53,7 @@ local Doomone = {
 ----------------------------------------------------------------------------------------------
 local Bluloco = {
     'uloco/bluloco.nvim',
-    -- keys = { '<leader>fc', ':Telescope colorscheme<CR>', desc = "for the first time load bluloco when open telescope colorscheme" },
+    keys = { '<leader>fc', ':Telescope colorscheme<CR>', desc = "for the first time load bluloco when open telescope colorscheme" },
     lazy = false,
     priority = 1000,
     dependencies = { 'rktjmp/lush.nvim' },
@@ -61,7 +61,7 @@ local Bluloco = {
     config = function()
          vim.opt.termguicolors = true
          vim.cmd('colorscheme bluloco')
-        -- vim.keymap.set('n', '<leader>fc', ':Telescope colorscheme<CR>', { desc = "open telescope colorscheme for more times" })
+         vim.keymap.set('n', '<leader>fc', ':Telescope colorscheme<CR>', { desc = "open telescope colorscheme for more times" })
 
     end,
 
