@@ -16,7 +16,7 @@ return {
         require("nvim-treesitter.configs").setup({
             auto_install = true,
             sync_install = false,
-            indent = { enable = true, disable = { "python" } },
+            indent = { enable = true, disable = { "python" } }, -- very important to disable Python
             ensure_installed = {
                 "markdown",
                 "html",
