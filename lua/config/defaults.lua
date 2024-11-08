@@ -47,6 +47,7 @@ vim.opt.scrolloff = 4
 vim.opt.viewoptions = 'cursor,folds,slash,unix'
 vim.opt.wrap = true
 vim.opt.textwidth = 100
+vim.opt.colorcolumn = '100'
 
 
 -- Code Folding, better with plugin treesitter
@@ -126,7 +127,6 @@ vim.opt.wildmenu = true
 
 
 -- Others
-vim.opt.colorcolumn = '100'
 vim.opt.visualbell = true
 
 
