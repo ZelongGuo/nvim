@@ -17,4 +17,4 @@ ___  ___      _   _       _           _
 require("config.defaults")
 require("config.keymaps")
 require("config.lazy")
--- require("utils.functions")
+require("utils.functions")
