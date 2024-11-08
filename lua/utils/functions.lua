@@ -44,3 +44,17 @@ vim.api.nvim_create_autocmd("WinLeave", {
     end,
 })
 
+-- ----------------------------------------------------------------------------------------------------
+-- -- Reset LineNr background after ColorScheme, but now have some problems to automatic get the
+-- vim.op.background when change the ColorScheme within telescope ...
+-- vim.api.nvim_create_autocmd("ColorScheme", {
+--     callback = function()
+--         if vim.opt.background == "dark" then
+--             vim.cmd [[ highlight LineNr guibg=#1e1e1e guifg=#ffffff ]]
+--         else
+--             vim.cmd [[ highlight LineNr guibg=#f0f0f0 guifg=gray60 ]]
+--         end
+--     end,
+-- })
+
+
