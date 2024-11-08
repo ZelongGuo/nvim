@@ -97,8 +97,8 @@ vim.opt.matchpairs:append("<:>")      -- add <> also to be matched
 -- vim.opt.matchtime = 5
 
 -- Spell
-vim.opt.spell = true
-vim.opt.spelllang = "en"
+-- vim.opt.spell = true
+-- vim.opt.spelllang = "en"
 -- vim.opt.spellfile = "~/.config/nvim/"  -- set dict file
 -- vim.opt.spellcapcheck =  -- set capital check mode
 

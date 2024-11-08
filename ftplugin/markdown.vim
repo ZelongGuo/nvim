@@ -1,6 +1,12 @@
 setlocal shiftwidth=2 softtabstop=2 expandtab smarttab
 setlocal colorcolumn=
 
+" Spell
+setlocal spell
+setlocal spelllang=en_us
+"setlocal spellfile=~/.vim/spell/en.utf-8.add
+"setlocal spellfile+=~/books/practical_vim/jargon.utf-8.add
+
 "autocmd Filetype markdown map <leader>w yiWi[<esc>Ea](<esc>pa)
 inoremap <buffer> <c-e> <Esc>/<++><CR>:nohlsearch<CR>"_c4l
 inoremap <buffer> ,w <Esc>/ <++><CR>:nohlsearch<CR>"_c5l<CR>
