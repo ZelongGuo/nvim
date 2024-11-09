@@ -19,16 +19,20 @@ return {
             indent = { enable = true, disable = { "python" } }, -- very important to disable Python
             ensure_installed = {
                 "markdown",
+                "toml",
                 "html",
+                "css",
                 "latex",
                 "fortran",
                 "c",
+                "cpp",
                 "bash",
                 "bibtex",
                 "lua",
                 "matlab",
                 "vim",
                 "python",
+                "gitignore",
             },
 
             ignore_install = {},
