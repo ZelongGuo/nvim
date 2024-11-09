@@ -21,7 +21,7 @@ vim.opt.rtp:prepend(lazypath)
 
 ----------------------------------------------------------------------------------------------------
 
-vim.keymap.set("n", "<leader>la", ":Lazy<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>pl", ":Lazy<CR>", { noremap = true })
 
 -- Lazy_cmd for configure lazy.vim, the setting is in "~/.local/share/nvim/lazy/lazy.nvim/lua/view/congfig.lua"
 local lazy_view_config = require("lazy.view.config")
@@ -66,26 +66,16 @@ end
 
 -- Setup lazy.nvim
 require("lazy").setup({
-     -- Color schemes, status line, tab-buffer line
-    require("plugins.colorscheme"),
-    require("plugins.statusline"),
-    require("plugins.tab-bufferline"),
-    -- Indent line and folding
-    require("plugins.indent"),
-    -- require("plugins.fold"),
-    -- Scrollbar
-    -- require("plugins.scrollbar"),
-    -- colorizer
-    require("plugins.colorizer"),
-    -- editor
-    require("plugins.editor"),
- 
-    -- Nvim startup greeting
-    require("plugins.startup"),
 
-    -- File navigation manager
-    -- require("plugins.yazi"), -- also saifulapm/neotree-file-nesting-config
-    require("plugins.nvim-tree"),
+    -- Colorschemes, status line, buffer line and colorizer, startup, nvim-tree
+    { import = "plugins.ui" }, -- require("plugins.ui.colorizer")
+
+    -- Indent line and folding
+    { import = "plugins.editor" },
+    -- require("plugins.fold"),
+ 
+    -- Markdowns, Tex
+    { import = "plugins.lang" },
 
     -- Searching files and text
     require("plugins.telescope"), -- TODO
@@ -101,11 +91,6 @@ require("lazy").setup({
  
     -- Nvim autocompletion
     require("plugins.nvim-cmp"),
-
-    -- Markdown-related 
-    require("plugins.markdown"), -- markdown-table-mode
- 
-    require("plugins.tex"),
  
     -- Snippets
     -- require("plugins.snippets"), -- UltiSnips
