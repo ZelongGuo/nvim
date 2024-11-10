@@ -22,29 +22,6 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 })
 
 ----------------------------------------------------------------------------------------------------
--- When open split a window (enter a new buffer or new window), opening and setting the LineNr
--- column aotumatically (default no opening of the LineNr column)
-vim.api.nvim_create_augroup("RelativeNumberToggle", { clear = true })
-vim.api.nvim_create_autocmd({"BufWinEnter", "WinEnter"}, {
-    group = "RelativeNumberToggle",
-    pattern = "*",
-    callback = function()
-        if vim.fn.win_gettype() ~= "popup" then
-            vim.opt.relativenumber = true
-        end
-    end,
-})
-
--- Close LineNr when leave
-vim.api.nvim_create_autocmd("WinLeave", {
-    group = "RelativeNumberToggle",
-    pattern = "*",
-    callback = function()
-        vim.opt.relativenumber = false
-    end,
-})
-
--- ----------------------------------------------------------------------------------------------------
 -- -- Reset LineNr background after ColorScheme, but now have some problems to automatic get the
 -- vim.op.background when change the ColorScheme within telescope ...
 -- vim.api.nvim_create_autocmd("ColorScheme", {

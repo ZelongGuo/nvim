@@ -4,23 +4,35 @@ Tips:
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 
 TODO:
-- vimtx: learn what are tex live and mactex
+
+- lsp: jump, go to definition etc ..., mason  
+- may need to read and configure nvim-cmp carefully and also other plugins configure files!!!
+
+- Ultisnipist!
 
 - nvim-cmp: [this link](https://www.youtube.com/watch?v=NL8D8EkphUw) and [this link](https://www.bilibili.com/video/BV1qT4y1a7tw/?spm_id_from=333.337.search-card.all.click&vd_source=43006d0ac56cf552e035de156730a015) 
 
-- lsp: jump, go to definition etc ..., mason  
-
 - nvim-cmp: automatic completion  
 
-- Ultisnipist!
+- lazygit to push to github quickly ...
+
+- telescopt add <leader>fc to change colorscheme, and change the cursor mode in dark theme ...  
+I doom-one might not be a good colorscheme becasue it does not support the nvim-cmp and and not as
+good as materail... To find more colorscheme? And if then maybe we can ignore the default
+colorschemes within telescopt.lua
+
+- nvim-dam setting which is used for debugging  ...
+
+***TODO: read the help files of vimtex Line 762!***
+- vimtx: learn what are tex live and mactex  
+  - skim? z? or other app? see the vimtex documents.
+  - how to implement the auto completion of the references?
 
 - complete ftplugin/, add more file types ...
 
 - update the readme file, refer to the nice boy ...
 
-- when using <leader>fh to look for help page, sometimes still come across the opened help page would create a new buffer under the current buffer, rather than overwrite the current buffer...
 
-- read the help page of vim ... Looking through all of them ...
 - More actions about telescope.vim, like LSP to find some specific functions in the file? And also other functionalities please watch the videos on online platforms ...
 
 - telescope cannot find file, e.g, when we are editing the init.lua within neovim, and we cannot find and open the telescope.lua using telescope, there must be something went wrong ..
@@ -37,6 +49,13 @@ TODO:
 
 - tree-sitter: folding (also related with lsp)
 
+- Surfingkeys: you must open developer mode -> then open the extension to edit the file you need!
+- gogole chrome, vimium
+
+- read the help page of vim ... Looking through all of them ...
+
+- How to change the background color of the LineNr column and Normal column? so it could looks better. Update: the problem is how to get the current vim.opt.background when change the colorscheme within telescope ...
+
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Solved partially:  
@@ -45,6 +64,10 @@ Solved partially:
 
 - *nvim-tree key mappings*: partly done
 
+- tiling, aerospace, see Bilibili video  
+Done.
+- vim markdown preview ... https://github.com/iamcco/markdown-preview.nvim
+Done. 
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Pending:  
@@ -55,6 +78,10 @@ Pending:
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Solved:
+
+- cancel the vertical cursor line and wrap when we are writting md and tex ...
+  Update: Done
+
 - buffer and tab, especially how to switch between tabs ...  
   Update: with defaults keymaps and bufferline plugin
 
@@ -87,3 +114,15 @@ What is tree-sitter?
 Tree-Sitter could produce an ***abstract syntax tree (AST)***. Run `:InspectTree` to check what the AST look like. To compare view without highlight, try to open a file with `nvim <filename> --noplugin`  
 **Tree-sitter** itself does not provide **highlight**, it only provide ***parser***; while the genuine highlight providing is ***nvim-treesitter*** which is absolutely based on tree-sitter.
 
+- how to open another file in another buffer using nvim-tree? When I open the main.tex file in 1st buffer to the left, and I open a new buffer and want to check another file like 2_insar.tex to the right, and I want open this file with nvim tree (of cource I can open it with telescope if it is a git repository ...), how to do that?  
+Update: Press `tt` focus to current buffer every time you enter a new buffer and want to open a file in this buffer ...
+
+- And remove the scrollbar?
+Update: done
+
+- change the default colorscheme? Find more colorscheme? How to do with everforest?
+Update: Done
+
+
+- when using <leader>fh to look for help page, sometimes still come across the opened help page would create a new buffer under the current buffer, rather than overwrite the current buffer...
+Update: get used to it
