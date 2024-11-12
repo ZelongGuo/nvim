@@ -10,7 +10,7 @@ return {
     -- priority = 1000,
     event = "UIEnter",
     build = ":TSUpdate",
- 
+
     config = function()
         vim.opt.smartindent = false,
         require("nvim-treesitter.configs").setup({
