@@ -4,13 +4,12 @@ local M = {
     dependencies = {
         { "williamboman/mason.nvim" },
         { "williamboman/mason-lspconfig" },
-        { "j-hui/fidget.nvim", },
+        { "j-hui/fidget.nvim", }, -- when load tex you could see that
         -- { "hrsh7th/cmp-nvim-lsp" },
     },
 }
 
 function M.config()
-
     -------------------------------- NVIM LSPCONFIG ---------------------------------------------
     -- vim.lsp.set_log_level("error")
     -- vim.lsp.set_log_level("off")
@@ -51,8 +50,14 @@ function M.config()
         },
         pyright = {},
         bashls = {},
-        marksman = {},
-        ltex = {},
+        marksman = {
+            filetypes = { 'markdown', 'markdown.mdx' },
+        },
+        ltex = {
+            filetypes = { "bib", "gitcommit", "org", "plaintex",
+                "rst", "rnoweb", "tex", "pandoc", "quarto", "rmd",
+                "context", "html", "xhtml", "mail", "text" }, -- Exclude 'markdown'
+        },
         clangd = {},
     }
 
