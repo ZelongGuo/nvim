@@ -4,7 +4,7 @@ local M = {
     "AckslD/nvim-neoclip.lua",
     -- event = "TextYankPost", -- should be preloaded before telescope
     ft = {"markdown", "tex", "latex"},
-    keys = { "<leader>fy", ":Telescope neoclip<CR>", desc = "open neoclip within telescope" },
+    keys = { "<leader>fy", "<CMD>Telescope neoclip<CR>", desc = "open neoclip within telescope" },
     dependencies = {
         {'kkharji/sqlite.lua', module = 'sqlite'},  -- for persistent history between sessions
         'nvim-telescope/telescope.nvim',
@@ -13,7 +13,7 @@ local M = {
 }
 
 function M.config()
-    vim.keymap.set('n', '<leader>fy', ":Telescope neoclip<CR>", { desc = 'open neoclip plugin for yank and macro' })
+    vim.keymap.set('n', '<leader>fy', "<CMD>Telescope neoclip<CR>", { desc = 'open neoclip plugin for yank and macro' })
 
     local neoclip = require("neoclip")
 

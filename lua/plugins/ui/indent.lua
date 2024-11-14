@@ -29,7 +29,7 @@ return {
                     "notify", "toggleterm", "lazyterm",
                 },
             },
-            scope = { 
+            scope = {
                 enabled = true,
                 char = '┇',
                 show_start = true,

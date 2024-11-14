@@ -1,6 +1,6 @@
 local M = {
     "neovim/nvim-lspconfig",
-    -- event = { "BufReadPre", "BufNewFile" },
+    event = { "BufReadPre", "BufNewFile" },
     dependencies = {
         { "williamboman/mason.nvim" },
         { "williamboman/mason-lspconfig" },
@@ -12,7 +12,7 @@ local M = {
 function M.config()
     -------------------------------- NVIM LSPCONFIG ---------------------------------------------
     -- vim.lsp.set_log_level("error")
-    -- vim.lsp.set_log_level("off")
+    vim.lsp.set_log_level("off") -- won't generate the  lsp.log file /Users/zelong/.local/state/nvim/
 
     ---------------- GLOBAL MAPPINGS ----------------
     -- See `:help vim.diagnostic.*` for documentation on any of the below functions
@@ -23,8 +23,30 @@ function M.config()
     -- vim.keymap.set("n", "<leader>lf", "vim.lsp.buf.formatting")
     -- vim.keymap.set('v', '<leader>lf', "<ESC><cmd>lua vim.lsp.buf.range_formatting()<CR>")
 
-    -- diagnostic
-    vim.diagnostic.config({ virtual_text = true, underline = false })
+
+    -- Highlight entire line for errors
+    -- Highlight the line number for warnings
+    vim.diagnostic.config({
+        virtual_text = true,
+        underline = false,
+        severity_sort = true,
+        float = { border = "rounded", source = "always", },
+        signs = {
+            text = {
+                [vim.diagnostic.severity.ERROR] = '✘', -- ""
+                [vim.diagnostic.severity.WARN] = '▲', -- ""
+                [vim.diagnostic.severity.HINT] = '⚑', -- ""
+                [vim.diagnostic.severity.INFO] = '»', -- "  " 󰍦  
+            },
+            -- linehl = {
+            --     [vim.diagnostic.severity.ERROR] = 'ErrorMsg',
+            -- },
+            -- numhl = {
+            --     [vim.diagnostic.severity.WARN] = 'WarningMsg',
+            --     [vim.diagnostic.severity.ERROR] = 'ErrorMsg',
+            -- },
+        },
+    })
 
     --------------------------------------------------------------------------------
     ---
@@ -79,20 +101,21 @@ function M.config()
         -- nmap('gi', vim.lsp.buf.implementation, '[G]oto [I]mplementation')
         nmap('gi', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
         nmap('gh', vim.lsp.buf.signature_help, 'Signature Documentation')
+        nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
+        -- nmap('gr', vim.lsp.buf.references, '[G]oto [R]eferences')
+        nmap('<leader>D', vim.lsp.buf.type_definition, 'Type [D]efinition')
+        nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
+        nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
+        nmap('<leader>da', require "telescope.builtin".diagnostics, '[D]i[A]gnostics')
+        nmap("<space>cf", function()
+            vim.lsp.buf.format { async = true } -- asynchronous format
+        end, "[F]ormat code")
+        -- Workspace
         nmap('<leader>wa', vim.lsp.buf.add_workspace_folder, '[W]orkspace [A]dd Folder')
         nmap('<leader>wr', vim.lsp.buf.remove_workspace_folder, '[W]orkspace [R]emove Folder')
         nmap('<leader>wl', function()
             print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
         end, '[W]orkspace [L]ist Folders')
-        nmap('<leader>D', vim.lsp.buf.type_definition, 'Type [D]efinition')
-        nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
-        nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
-        nmap('<leader>da', require "telescope.builtin".diagnostics, '[D]i[A]gnostics')
-        nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
-        -- nmap('gr', vim.lsp.buf.references, '[G]oto [R]eferences')
-        nmap("<space>cf", function()
-            vim.lsp.buf.format { async = true }
-        end, "[F]ormat code")
     end
 
     --1 ---------------- BUFFER MAPPINGS ----------------

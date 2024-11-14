@@ -7,7 +7,7 @@ local Doomone = {
     branch = "dev",
     -- lazy = false,                      -- disable lazy loading
     -- priority = 1000,                   -- high priority
-    keys = { '<leader>fc', ':Telescope colorscheme<CR>', desc = "for the first time load when open telescope colorscheme" },
+    keys = { '<leader>fc', '<CMD>Telescope colorscheme<CR>', desc = "for the first time load when open telescope colorscheme" },
     config = function()
         -- vim.opt.background = "light",  -- note the background also matters
         -- vim.cmd("colorscheme doom-one")
@@ -34,7 +34,7 @@ local Doomone = {
         -- Pumblend transparency
         vim.g.doom_one_pumblend_enable = false
         vim.g.doom_one_pumblend_transparency = 20
- 
+
         -- Plugins integration
         vim.g.doom_one_plugin_neorg = false
         vim.g.doom_one_plugin_barbar = false
@@ -53,7 +53,7 @@ local Doomone = {
 ----------------------------------------------------------------------------------------------
 local Bluloco = {
     'uloco/bluloco.nvim',
-    keys = { '<leader>fc', ':Telescope colorscheme<CR>', desc = "for the first time load bluloco when open telescope colorscheme" },
+    keys = { '<leader>fc', '<CMD>Telescope colorscheme<CR>', desc = "for the first time load bluloco when open telescope colorscheme" },
     lazy = false,
     priority = 1000,
     dependencies = { 'rktjmp/lush.nvim' },
@@ -77,7 +77,7 @@ local Bluloco = {
 ----------------------------------------------------------------------------------------------
 local Onenord = {
     'rmehri01/onenord.nvim',
-    keys = { '<leader>fc', ':Telescope colorscheme<CR>', desc = "for the first time load onenord when open telescope colorscheme" },
+    keys = { '<leader>fc', '<CMD>Telescope colorscheme<CR>', desc = "for the first time load onenord when open telescope colorscheme" },
     -- lazy = false,
     -- priority = 1000,
     config = function()
@@ -115,9 +115,9 @@ local Onenord = {
 }
 
 ----------------------------------------------------------------------------------------------
-local Nightfox = { 
+local Nightfox = {
     "EdenEast/nightfox.nvim",
-    keys = { '<leader>fc', ':Telescope colorscheme<CR>', desc = "for the first time load when open telescope colorscheme" },
+    keys = { '<leader>fc', '<CMD>Telescope colorscheme<CR>', desc = "for the first time load when open telescope colorscheme" },
     -- lazy = false,
     -- priority = 1000,
     config = function()
@@ -175,7 +175,7 @@ local Nightfox = {
 
 local Everforest = {
     "neanias/everforest-nvim",
-    keys = { '<leader>fc', ':Telescope colorscheme<CR>', desc = "for the first time load Materail when open telescope colorscheme" },
+    keys = { '<leader>fc', '<CMD>Telescope colorscheme<CR>', desc = "for the first time load Materail when open telescope colorscheme" },
     version = false,
     -- lazy = false,
     -- priority = 1000,
@@ -251,7 +251,7 @@ local Everforest = {
 ----------------------------------------------------------------------------------------------
 local Material = {
     "marko-cerovac/material.nvim",
-    keys = { '<leader>fc', ':Telescope colorscheme<CR>', desc = "for the first time load Materail when open telescope colorscheme" },
+    keys = { '<leader>fc', '<CMD>Telescope colorscheme<CR>', desc = "for the first time load Materail when open telescope colorscheme" },
     -- lazy = false,
     -- priority = 1000,
     config = function()

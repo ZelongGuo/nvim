@@ -33,7 +33,7 @@ return {
       vim.g.mkdp_filetypes = { "markdown" }
       vim.g.mkdp_theme = { "light" }
 
-      vim.keymap.set('n', '<leader>r', ':MarkdownPreview<CR>', { noremap = false, silent = true })
+      vim.keymap.set('n', '<leader>R', ':MarkdownPreview<CR>', { noremap = false, silent = true })
       -- vim.keymap.set('n', 'E', ':MarkdownPreviewStop<CR>', { noremap = false, silent = true })
       -- vim.keymap.set('n', '<C-p>', '<Plug>MarkdownPreviewToggle', { noremap = false, silent = true })
     end,

@@ -29,7 +29,7 @@ return {
                 'branch',
                 {
                     'diff',
-                    symbols = { added = ' ', modified = '󰝤 ', removed = ' ' },
+                    symbols = { added = ' ', modified = '󰝤 ', removed = ' ' }, --    
                 },
                 'diagnostics',
             },
@@ -49,15 +49,15 @@ return {
                 {
                     'filename',
                     symbols = {
-                        modified = '✎', '[Modified]', -- '[+]' ▣ ◈ ✎, -- Text to show when the file is modified.
-                        readonly = '[ReadOnly]', --'[-]', -- Text to show when the file is non-modifiable or readonly.
-                        unnamed = '[No Name]', -- Text to show for unnamed buffers.
-                        newfile = '[New]',     -- Text to show for newly created file before first write
+                        modified = '✎', --'[Modified]', '[+]' ▣ ◈ ✎, -- Text to show when the file is modified.
+                        readonly = '[ReadOnly]', --'[-]',   -- Text to show when the file is non-modifiable or readonly.
+                        unnamed = '[No Name]',  -- Text to show for unnamed buffers.
+                        newfile = '[New]', --     󰎔 -- Text to show for newly created file before first write
                     }
                 },
             },
             lualine_x = {
-                'encoding', 
+                'encoding',
                 -- {
                 --     'fileformat',
                 --     symbols = {
