@@ -1,7 +1,6 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-
 -- Latex
 vim.g.tex_flavor = "latex"
 
@@ -83,8 +82,10 @@ vim.opt.viminfo = "'100,\"0"   -- do not saving marks
 
 
 -- Highlight and Search
-vim.cmd("syntax enable")
-vim.cmd("syntax on")
+----------------------------------------------------------------------------------
+-- Comment this otherwise the utils functions lua cannot work
+-- vim.cmd("syntax enable")
+----------------------------------------------------------------------------------
 vim.opt.cursorline = true
 vim.opt.cursorcolumn = true
 vim.opt.hlsearch = true

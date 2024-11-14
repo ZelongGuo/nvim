@@ -16,8 +16,8 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 -- Make sure to setup `mapleader` and `maplocalleader` before loading lazy.nvim so that mappings are correct.
--- vim.g.mapleader = " "
--- vim.g.maplocalleader = " "
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 ----------------------------------------------------------------------------------------------------
 
@@ -73,25 +73,17 @@ require("lazy").setup({
     -- Indent line and folding
     { import = "plugins.editor" },
     -- require("plugins.fold"),
- 
+
     -- Markdowns, Tex
     { import = "plugins.lang" },
+    { import = "plugins.lsp" },
 
     -- Searching files and text
     require("plugins.telescope"), -- TODO
-    -- treesister
-
-    -- Git
     require("plugins.git"),
-
-    -- Tree-Sitter
     require("plugins.tree-sitter"),
-
-    -- nvim-treesitter for folding
- 
-    -- Nvim autocompletion
     require("plugins.nvim-cmp"),
- 
+
     -- Snippets
     -- require("plugins.snippets"), -- UltiSnips
     --
