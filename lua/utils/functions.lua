@@ -22,7 +22,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 })
 
 ----------------------------------------------------------------------------------------------------
--- -- Reset LineNr background after ColorScheme, but now have some problems to automatic get the
+-- Reset LineNr background after ColorScheme, but now have some problems to automatic get the
 -- vim.op.background when change the ColorScheme within telescope ...
 -- vim.api.nvim_create_autocmd("ColorScheme", {
 --     callback = function()
@@ -33,5 +33,5 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 --         end
 --     end,
 -- })
-
+-- 
 
