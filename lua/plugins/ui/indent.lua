@@ -1,5 +1,6 @@
 return {
     'lukas-reineke/indent-blankline.nvim', -- it could be integrated by many colorscheme
+    event = "VeryLazy",
     main = 'ibl',
 
     config = function()

@@ -8,7 +8,8 @@ return {
 
     -- lazy = false,
     -- priority = 1000,
-    event = "UIEnter",
+    -- event = "UIEnter",
+    event = "VeryLazy",
     build = ":TSUpdate",
 
     config = function()

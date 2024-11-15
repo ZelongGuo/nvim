@@ -2,23 +2,21 @@
 
 return {
     "nvim-lualine/lualine.nvim",
-    -- to make sure all required plugins and colorschemes are loaded before setup
     -- event = "UiEnter",
-    lazy = false,
-    priority = 1100,  -- load before colorschemes
+    event = "VeryLazy",
     dependencies = { 'nvim-tree/nvim-web-devicons' },
 
     opts = {
         options = {
             icons_enabled = true,
             theme = 'auto',
-            component_separators = { left = '', right = ''},
-            section_separators = { left = '', right = ''},
+            component_separators = { left = '', right = '' },
+            section_separators = { left = '', right = '' },
             -- section_separators = { left = '', right = '' },
             -- component_separators = { left = '', right = '' },
-            globalstatus = true,  -- only a single status line for current tab
+            globalstatus = true,            -- only a single status line for current tab
             disabled_filetypes = { statusline = {}, winbar = {}, },
-            ignore_focus = { "NvimTree", },  -- Do not show lualine when open filetype NvimTree
+            ignore_focus = { "NvimTree", }, -- Do not show lualine when open filetype NvimTree
             always_divide_middle = true,
             always_show_tabline = true,
             refresh = { statusline = 100, tabline = 100, winbar = 100, }
@@ -26,7 +24,7 @@ return {
         sections = {
             lualine_a = { 'mode' },
             lualine_b = {
-                'branch',
+                { 'branch',  icon = '󰊢'}, --  󰊢             
                 {
                     'diff',
                     symbols = { added = ' ', modified = '󰝤 ', removed = ' ' }, --    
@@ -34,7 +32,7 @@ return {
                 'diagnostics',
             },
             -- lualine_b = {'branch', 'diff',
-            --     { 'diagnostics', 
+            --     { 'diagnostics',
             --         sources = { 'nvim_lsp', 'nvim_diagnostic', 'nvim_workspace_diagnostic',  },
             --         symbols = { error = ' ', warn = ' ', info = ' ' },
             --         diagnostics_color = {
@@ -50,9 +48,9 @@ return {
                     'filename',
                     symbols = {
                         modified = '✎', --'[Modified]', '[+]' ▣ ◈ ✎, -- Text to show when the file is modified.
-                        readonly = '[ReadOnly]', --'[-]',   -- Text to show when the file is non-modifiable or readonly.
-                        unnamed = '[No Name]',  -- Text to show for unnamed buffers.
-                        newfile = '[New]', --     󰎔 -- Text to show for newly created file before first write
+                        readonly = '', --  '[ReadOnly]', '[-]',   -- Text to show when the file is non-modifiable or readonly.
+                        unnamed = '󰡯', -- '[No Name]',  Text to show for unnamed buffers.
+                        newfile = '', -- [New]     󰎔 -- Text to show for newly created file before first write
                     }
                 },
             },
@@ -69,14 +67,14 @@ return {
                 'filesize',
                 'filetype',
             },
-            lualine_y = {'progress'},
-            lualine_z = {'location'}
+            lualine_y = { 'progress' },
+            lualine_z = { 'location' }
         },
         inactive_sections = {
             lualine_a = {},
             lualine_b = {},
-            lualine_c = {'filename'},
-            lualine_x = {'location'},
+            lualine_c = { 'filename' },
+            lualine_x = { 'location' },
             lualine_y = {},
             lualine_z = {}
         },
@@ -87,4 +85,3 @@ return {
 
     }
 }
-

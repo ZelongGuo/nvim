@@ -16,8 +16,8 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 -- Make sure to setup `mapleader` and `maplocalleader` before loading lazy.nvim so that mappings are correct.
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+-- vim.g.mapleader = " "
+-- vim.g.maplocalleader = " "
 
 ----------------------------------------------------------------------------------------------------
 
@@ -79,6 +79,7 @@ require("lazy").setup({
     { import = "plugins.lsp" },
 
     -- Searching files and text
+    require("plugins.nvim-tree"), -- TODO
     require("plugins.telescope"), -- TODO
     require("plugins.git"),
     require("plugins.tree-sitter"),

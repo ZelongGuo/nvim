@@ -5,7 +5,20 @@ Tips:
 
 TODO:
 
+- the VeryLazy setting for nvim-tree invalid ... it always is loaded depending on nvim-lspconfig
+
+- luasnip [this link](https://www.bilibili.com/video/BV15k4y1H7yd/?spm_id_from=333.337.search-card.all.click&vd_source=43006d0ac56cf552e035de156730a015) 
+
+for lsp and nvim, try this one: https://www.bilibili.com/video/BV17L411z7Eg/?spm_id_from=333.337.search-card.all.click&vd_source=43006d0ac56cf552e035de156730a015
+
+and also: https://www.bilibili.com/video/BV1Tm4y1W7BQ?spm_id_from=333.788.player.switch&vd_source=43006d0ac56cf552e035de156730a015
+ 
+
+- lazygit to push to github quickly ...
+- lazygit to push to github quickly ...
+
 - lsp: jump, go to definition etc ..., mason  
+
 - may need to read and configure nvim-cmp carefully and also other plugins configure files!!!
 
 - Ultisnipist!
@@ -14,7 +27,6 @@ TODO:
 
 - nvim-cmp: automatic completion  
 
-- lazygit to push to github quickly ...
 
 - telescopt add <leader>fc to change colorscheme, and change the cursor mode in dark theme ...  
 I doom-one might not be a good colorscheme becasue it does not support the nvim-cmp and and not as
