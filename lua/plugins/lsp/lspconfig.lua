@@ -57,10 +57,12 @@ function M.config()
     -- SERVERS settings
     -- For available parameters see vim_lsp_start()
     local servers = {
+        -- /Users/zelong/.local/share/nvim/lazy/nvim-lspconfig/lua/lspconfig/configs/
         lua_ls = {
             -- cmd = {},
             -- name = {},
             -- capabilities = {},
+            -- filetypes = {},
             -- on_attach = on_attach,
             settings = { -- How to configure it should see language server official doduments (e.g., lua_ls)
                 Lua = {
@@ -70,17 +72,17 @@ function M.config()
                 },
             },
         },
-        pyright = {},
-        bashls = {},
-        marksman = {
-            filetypes = { 'markdown', 'markdown.mdx' },
-        },
+        pyright = { filetypes = { 'python' }, },
+        bashls = { filetypes = { 'sh' }, },
+        marksman = { filetypes = { 'markdown', 'markdown.mdx' }, },
         ltex = {
             filetypes = { "bib", "gitcommit", "org", "plaintex",
                 "rst", "rnoweb", "tex", "pandoc", "quarto", "rmd",
-                "context", "html", "xhtml", "mail", "text" }, -- Exclude 'markdown'
+                "context", "xhtml", "mail", "text" }, -- Exclude 'markdown and html'
         },
-        clangd = {},
+        clangd = { filetypes = { 'c', 'cpp', 'objc', 'objcpp', 'cuda', 'proto' }, },
+        html = { filetypes = { 'html', 'templ' }, },
+        cssls = { filetypes = { 'css', 'scss', 'less' }, },
     }
 
     local on_attach = function(_, bufnr)
