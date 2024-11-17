@@ -67,16 +67,27 @@ end
 -- Setup lazy.nvim
 require("lazy").setup({
 
-    -- Colorschemes, status line, buffer line and colorizer, startup, nvim-tree
-    { import = "plugins.ui" }, -- require("plugins.ui.colorizer")
+    -- UI
+    -- { import = "plugins.ui" }, -- lazy.vim would load the pkg, and using require is easier debuging ...
+    require("plugins.ui.bufferline"),
+    require("plugins.ui.colorizer"),
+    require("plugins.ui.colorscheme"),
+    require("plugins.ui.indent"),
+    require("plugins.ui.lualine"),
+    require("plugins.ui.startup"),
 
-    -- Indent line and folding
-    { import = "plugins.editor" },
-    -- require("plugins.fold"),
+    -- EDITOR
+    -- { import = "plugins.editor" },
+    require("plugins.editor.neoclip"),
 
-    -- Markdowns, Tex
-    { import = "plugins.lang" },
-    { import = "plugins.lsp" },
+    -- LANG
+    -- { import = "plugins.lang" },
+    require("plugins.lang.markdown"),
+    require("plugins.lang.tex"),
+
+    -- LSP
+    -- { import = "plugins.lsp" },
+    require("plugins.lsp.lspconfig"),
 
     -- Searching files and text
     require("plugins.nvim-tree"), -- TODO
