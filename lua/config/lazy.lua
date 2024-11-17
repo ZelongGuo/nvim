@@ -6,7 +6,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
     if vim.v.shell_error ~= 0 then
         vim.api.nvim_echo({
             { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
-            { out, "WarningMsg" },
+            { out,                            "WarningMsg" },
             { "\nPress any key to exit..." },
         }, true, {})
         vim.fn.getchar()
@@ -69,6 +69,7 @@ require("lazy").setup({
 
     -- UI
     -- { import = "plugins.ui" }, -- lazy.vim would load the pkg, and using require is easier debuging ...
+    -- also avoid pop window when modified lua congfig file ...
     require("plugins.ui.bufferline"),
     require("plugins.ui.colorizer"),
     require("plugins.ui.colorscheme"),
@@ -89,13 +90,16 @@ require("lazy").setup({
     -- { import = "plugins.lsp" },
     require("plugins.lsp.lspconfig"),
 
+    -- GIT
+    require("plugins.git.gitsigns"),
+    require("plugins.git.lazygit"),
+
     -- Searching files and text
     require("plugins.nvim-tree"), -- TODO
     require("plugins.telescope"), -- TODO
-    require("plugins.git"),
     require("plugins.tree-sitter"),
     require("plugins.nvim-cmp"),
-    require("plugins.lazygit"),
+    require("plugins.luasnip"),
 
     -- Snippets
     -- require("plugins.snippets"), -- UltiSnips
