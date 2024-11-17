@@ -49,12 +49,6 @@ function M.config()
         },
     })
 
-    --------------------------------------------------------------------------------
-    ---
-    -- TODO: Learn more about vim.diagnostic.config and change the signs ...
-    ---
-    --------------------------------------------------------------------------------
-
     -- SERVERS settings
     -- For available parameters see vim_lsp_start()
     local servers = {
@@ -67,7 +61,7 @@ function M.config()
             -- on_attach = on_attach,
             settings = { -- How to configure it should see language server official doduments (e.g., lua_ls)
                 Lua = {
-                    -- diagnostics = { globals = { 'vim' }, }, -- global virable of vim for lua to prevent warnings
+                    diagnostics = { globals = { 'vim' }, }, -- global virable of vim for lua to prevent warnings
                     workspace = { checkThirdParty = false },
                     telemetry = { enable = false },
                 },
