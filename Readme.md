@@ -5,49 +5,29 @@
 ## tree TODO .....
 ```bash
 ~/.config/nvim/
-├── debug.lua
-├── init.lua            neovim config entrance
-├── lazy-lock.json        plugin version info
-├── lua
-│   ├── autoload/        self-made autoload script (plugin)自己写的自动加载的脚本（插件）
-│   ├── helper/            一些工具函数
-│   └── plugins            插件目录
-│       ├── dap/        调试
-│       ├── edit/        编辑类
-│       ├── lang/        特定语言类，例如tex, c/cpp, python这样分类
-│       ├── lsp/        lsp相关
-│       ├── tools/        工具类插件
-│       ├── ui/            ui美化类插件
-│       └── unused/        暂时不用的插件，不加载
-├── my-snippets/        我的代码片段
-├── README.md
-├── stylua.toml            lua格式化
-├── tasks.ini            代码运行全局配置
-├── test/                各种乱七八糟的文件，测试效果用的
-└── vimrc                基础配置
-
-~/.config/nvim/ 
 ├── Readme.md
-└── ftplugin/                  # the filetype info which would be load based on file type
-├── init.lua                   # vim confnguration entrance
-├── lazy-lock.json             # plugins version info
-└── lua/
-    ├── config                 # vim config details
-    │   ├── defaults.lua       # default set-ups
-    │   ├── keymaps.lua        # kwy mappings
-    │   └── lazy.lua           # lazy.vim entrance
-    ├── plugins                # plugins of lazy.vim
-    │   ├── bufferline.lua
-    │   ├── colorscheme.lua
-    │   ├── statusline.lua
-    │   ├── telescope.lua
-    │   └── yazi.lua
-    └── utils/                  # utilities
-        └── functions.lua
-
+├── TODO.md
+├── ftplugin   # the filetype info which would be load based on file type
+├── init.lua  # nvim confnguration entrance
+├── lazy-lock.json # plugins version info
+├── lua
+│   ├── config
+│   │   ├── defaults.lua
+│   │   ├── keymaps.lua
+│   │   └── lazy.lua
+│   ├── plugins  # plugins of lazy.vim
+│   │   ├── deprecated
+│   │   ├── editor
+│   │   ├── lang
+│   │   ├── lsp
+│   │   └── ui
+│   └── utils
+├── requirements.txt
+├── spell
+└── ultisnips
 ```
 
-## Requirmants
+## Requirements
 - NeoVIM v0.10+, for more please refer to requirements.txt
 
 ## Key Binding and Plugins
