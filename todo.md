@@ -5,6 +5,8 @@ Tips:
 
 TODO:
 
+- keys conflict between <tab> in luasnip and nvim-cmp, making notes of resolving this issue.
+
 - the VeryLazy setting for nvim-tree invalid ... it always is loaded depending on nvim-lspconfig
 
 - luasnip [this link](https://www.bilibili.com/video/BV15k4y1H7yd/?spm_id_from=333.337.search-card.all.click&vd_source=43006d0ac56cf552e035de156730a015) 
@@ -12,10 +14,6 @@ TODO:
 for lsp and nvim, try this one: https://www.bilibili.com/video/BV17L411z7Eg/?spm_id_from=333.337.search-card.all.click&vd_source=43006d0ac56cf552e035de156730a015
 
 and also: https://www.bilibili.com/video/BV1Tm4y1W7BQ?spm_id_from=333.788.player.switch&vd_source=43006d0ac56cf552e035de156730a015
- 
-
-- lazygit to push to github quickly ...
-- lazygit to push to github quickly ...
 
 - lsp: jump, go to definition etc ..., mason  
 
