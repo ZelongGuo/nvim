@@ -80,6 +80,7 @@ require("lazy").setup({
     -- EDITOR
     -- { import = "plugins.editor" },
     require("plugins.editor.neoclip"),
+    require("plugins.editor.comment"),
 
     -- LANG
     -- { import = "plugins.lang" },
