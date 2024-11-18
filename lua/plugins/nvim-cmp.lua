@@ -68,140 +68,61 @@ function M.config()
             end,
         },
 
-        -- mapping = cmp.mapping.preset.insert({
-        --     ["<Tab>"] = cmp.mapping(function(fallback)
-        --         if cmp.visible() then
-        --             cmp.select_next_item()
-        --         elseif luasnip.locally_jumpable(1) then
-        --             luasnip.jump(1)
-        --         else
-        --             fallback()
-        --         end
-        --     end, { "i", "s" }),
-
-        --     ["<S-Tab>"] = cmp.mapping(function(fallback)
-        --         if cmp.visible() then
-        --             cmp.select_prev_item()
-        --         elseif luasnip.locally_jumpable(-1) then
-        --             luasnip.jump(-1)
-        --         else
-        --             fallback()
-        --         end
-        --     end, { "i", "s" }),
-
-        --     ['<CR>'] = cmp.mapping(function(fallback)
-        --         if cmp.visible() then
-        --             if luasnip.expandable() then
-        --                 luasnip.expand()
-        --             else
-        --                 cmp.confirm({ select = true })
-        --             end
-        --         else
-        --             fallback()
-        --         end
-        --     end),
-
-        --     ['<C-I>'] = cmp.mapping(function(fallback)
-        --         if cmp.visible() then
-        --             return cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select, count = 4 })
-        --         end
-        --         fallback()
-        --     end, { 'i' }),
-
-        --     ['<C-K>'] = cmp.mapping(function(fallback)
-        --         if cmp.visible() then
-        --             return cmp.select_next_item({ behavior = cmp.SelectBehavior.Select, count = 4 })
-        --         end
-        --         fallback()
-        --     end, { 'i' }),
-
-        --     ["<C-i>"] = cmp.mapping.select_prev_item(),
-        --     ["<C-k>"] = cmp.mapping.select_next_item(),
-        --     ["<C-j>"] = cmp.mapping.scroll_docs(-4),
-        --     ["<C-l>"] = cmp.mapping.scroll_docs(4),
-        --     ["<C-s>"] = cmp.mapping.complete(),
-        --     ["<C-c>"] = cmp.mapping.abort(),
-        -- }),
-        -- --------------------------------------------------------------------------------------------------
-
-        --2 mapping = {
-        --2     ["<Tab>"]   = cmp.mapping(function(fallback)
-        --2         if cmp.visible() then
-        --2             cmp.select_next_item()
-        --2         elseif luasnip.locally_jumpable(1) then
-        --2             luasnip.jump(1)
-        --2         else
-        --2             fallback()
-        --2         end
-        --2     end, { "i", "s" }),
-
-        --2     ["<S-Tab>"] = cmp.mapping(function(fallback)
-        --2         if cmp.visible() then
-        --2             cmp.select_prev_item()
-        --2         elseif luasnip.locally_jumpable(-1) then
-        --2             luasnip.jump(-1)
-        --2         else
-        --2             fallback()
-        --2         end
-        --2     end, { "i", "s" }),
-
-        --2     ['<CR>']    = cmp.mapping(function(fallback)
-        --2         if cmp.visible() then
-        --2             if luasnip.expandable() then
-        --2                 luasnip.expand()
-        --2             else
-        --2                 cmp.confirm({
-        --2                     select = true,
-        --2                 })
-        --2             end
-        --2         else
-        --2             fallback()
-        --2         end
-        --2     end),
-
-        --2     ['<C-I>']       = cmp.mapping(function(fallback)
-        --2         if cmp.visible() then
-        --2             return cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select, count = 4 })
-        --2         end
-        --2         fallback()
-        --2     end, { 'i', }),
-
-        --2     ['<C-K>']       = cmp.mapping(function(fallback)
-        --2         if cmp.visible() then
-        --2             return cmp.select_next_item({ behavior = cmp.SelectBehavior.Select, count = 4 })
-        --2         end
-        --2         fallback()
-        --2     end, { 'i', }),
-        --2     ["<C-i>"] = cmp.mapping.select_prev_item(), -- previous suggestion
-        --2     ["<C-k>"] = cmp.mapping.select_next_item(), -- next suggestion
-        --2     ["<C-j>"] = cmp.mapping.scroll_docs(-4),
-        --2     ["<C-l>"] = cmp.mapping.scroll_docs(4),
-        --2     ["<C-s>"] = cmp.mapping.complete(), -- show completion suggestions
-        --2     ["<C-c>"] = cmp.mapping.abort(),    -- close completion window
-        --2 },
-
         mapping = cmp.mapping.preset.insert({
-            --['<S-Tab>'] = function(fallback)
-            --    if cmp.visible() then
-            --        cmp.mapping.select_prev_item()
-            --    else
-            --        fallback()
-            --    end
-            --end,
-            --['<Tab>']   = function(fallback)
-            --    if cmp.visible() then
-            --        cmp.mapping.select_next_item()
-            --    else
-            --        fallback()
-            --    end
-            --end,
-            ["<C-i>"] = cmp.mapping.select_prev_item(),   -- previous suggestion
-            ["<C-k>"] = cmp.mapping.select_next_item(), -- next suggestion
-            ["<C-j>"] = cmp.mapping.scroll_docs(-4),
-            ["<C-l>"] = cmp.mapping.scroll_docs(4),
-            ["<C-s>"] = cmp.mapping.complete(), -- show completion suggestions
-            ["<C-c>"] = cmp.mapping.abort(),    -- close completion window
-            ["<CR>"]  = cmp.mapping.confirm({ select = true }),
+            ["<Tab>"]   = cmp.mapping(function(fallback)
+                if cmp.visible() then
+                    -- cmp.select_next_item()
+                    cmp.select_prev_item() -- <tab> is intrinsicly same to <C-i>!
+                elseif luasnip.locally_jumpable(1) then
+                    luasnip.jump(1)
+                else
+                    fallback()
+                end
+            end, { "i", "s" }),
+
+            ["<S-Tab>"] = cmp.mapping(function(fallback)
+                if cmp.visible() then
+                    -- cmp.select_prev_item()
+                    cmp.select_next_item()
+                elseif luasnip.locally_jumpable(-1) then
+                    luasnip.jump(-1)
+                else
+                    fallback()
+                end
+            end, { "i", "s" }),
+
+            ["<CR>"]    = cmp.mapping(function(fallback)
+                if cmp.visible() then
+                    if luasnip.expandable() then
+                        luasnip.expand()
+                    else
+                        cmp.confirm({ select = true })
+                    end
+                else
+                    fallback()
+                end
+            end),
+
+            -- ['I']   = cmp.mapping(function(fallback)
+            --     if cmp.visible() then
+            --         return cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select, count = 4 })
+            --     end
+            --     fallback()
+            -- end, { 'i', }),
+
+            -- ['K']   = cmp.mapping(function(fallback)
+            --     if cmp.visible() then
+            --         return cmp.select_next_item({ behavior = cmp.SelectBehavior.Select, count = 4 })
+            --     end
+            --     fallback()
+            -- end, { 'i', }),
+
+            ["<C-i>"]   = cmp.mapping.select_prev_item(), -- previous suggestion
+            ["<C-k>"]   = cmp.mapping.select_next_item(), -- next suggestion
+            ["<C-j>"]   = cmp.mapping.scroll_docs(-4),
+            ["<C-l>"]   = cmp.mapping.scroll_docs(4),
+            ["<C-s>"]   = cmp.mapping.complete(), -- show completion suggestions
+            ["<C-c>"]   = cmp.mapping.abort(),    -- close completion window
         }),
 
         sources = cmp.config.sources({ -- sources for autocompletion
