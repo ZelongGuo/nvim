@@ -76,6 +76,7 @@ require("lazy").setup({
     require("plugins.ui.indent"),
     require("plugins.ui.lualine"),
     require("plugins.ui.startup"),
+    require("plugins.ui.dropbar"),
 
     -- EDITOR
     -- { import = "plugins.editor" },
