@@ -6,7 +6,7 @@ local M = {
         { "hrsh7th/cmp-nvim-lsp" },         -- source for LSP
         { "hrsh7th/cmp-buffer" },           -- source for text in buffer
         { "hrsh7th/cmp-path" },             -- source for file system paths
-        { "hrsh7th/cmp-cmdline" },          -- source for path
+        -- { "hrsh7th/cmp-cmdline" },          -- source for path
         { 'L3MON4D3/LuaSnip' },
         { "rafamadriz/friendly-snippets" }, -- useful snippets
         { "saadparwaiz1/cmp_luasnip" },     -- for luasnip autocompletion
@@ -80,6 +80,17 @@ function M.config()
                 end
             end, { "i", "s" }),
 
+            ["<C-i>"]   = cmp.mapping(function(fallback)
+                if cmp.visible() then
+                    -- cmp.select_next_item()
+                    cmp.select_prev_item() -- <tab> is intrinsicly same to <c-i>!
+                elseif luasnip.locally_jumpable(1) then
+                    luasnip.jump(1)
+                else
+                    fallback()
+                end
+            end, { "i", "s" }),
+
             ["<S-Tab>"] = cmp.mapping(function(fallback)
                 if cmp.visible() then
                     -- cmp.select_prev_item()
@@ -117,7 +128,6 @@ function M.config()
             --     fallback()
             -- end, { 'i', }),
 
-            ["<C-i>"]   = cmp.mapping.select_prev_item(), -- previous suggestion
             ["<C-k>"]   = cmp.mapping.select_next_item(), -- next suggestion
             ["<C-j>"]   = cmp.mapping.scroll_docs(-4),
             ["<C-l>"]   = cmp.mapping.scroll_docs(4),
