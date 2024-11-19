@@ -104,7 +104,9 @@ vim.opt.matchpairs:append("<:>")      -- add <> also to be matched
 -- vim.opt.spellcapcheck =  -- set capital check mode
 
 -- Disable Mouse
-vim.opt.mouse = ""
+-- vim.opt.mouse = ""
+-- a for all modes, n for normal, v visual, i insert, c comand line
+vim.opt.mouse = "nv"
 
 -- Line nr
 vim.opt.number = true

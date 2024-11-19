@@ -56,6 +56,39 @@ M.config = function()
                         menu:click_on(component, nil, 1, 'l')
                     end
                 end,
+
+                -- Mouse support
+                ['<MouseMove>'] = function()
+                    local menu = utils.menu.get_current()
+                    if not menu then
+                        return
+                    end
+                    local mouse = vim.fn.getmousepos()
+                    utils.menu.update_hover_hl(mouse)
+                    if M.opts.menu.preview then
+                        utils.menu.update_preview(mouse)
+                    end
+                end,
+
+                ['<LeftMouse>'] = function()
+                    local menu = utils.menu.get_current()
+                    if not menu then
+                        return
+                    end
+                    local mouse = vim.fn.getmousepos()
+                    local clicked_menu = utils.menu.get({ win = mouse.winid })
+                    -- If clicked on a menu, invoke the corresponding click action,
+                    -- else close all menus and set the cursor to the clicked window
+                    if clicked_menu then
+                        clicked_menu:click_at({ mouse.line, mouse.column - 1 }, nil, 1, 'l')
+                        return
+                    end
+                    utils.menu.exec('close')
+                    utils.bar.exec('update_current_context_hl')
+                    if vim.api.nvim_win_is_valid(mouse.winid) then
+                        vim.api.nvim_set_current_win(mouse.winid)
+                    end
+                end,
             },
         },
         win_configs = {
@@ -157,4 +190,3 @@ end
 -- }
 
 return M
-
