@@ -1,8 +1,6 @@
 -- Variables Settings
 local mode_nvo = { "n", "v", "o" }
 local mode_nv = { "n", "v" }
-local mode_vi = { "v", "i" }
--- local mode_v = { "v" }
 local mode_i = { "i" }
 local mode_n = { "n" }
 
@@ -27,7 +25,7 @@ local nmappings = {
     { mode = mode_nv,  from = "<c-m>",            to = "M" }, -- go to the middle of the screen
 
     -- Back to Normal
-    { mode = mode_vi,  from = "jk",               to = "<Esc>" },
+    { mode = mode_i,   from = "jk",               to = "<Esc>" },
 
     -- Highlight
     { mode = mode_n,   from = "<leader><CR>",     to = ":nohlsearch<CR>",                                     opts = { silent = true } },
@@ -84,7 +82,7 @@ local nmappings = {
     { mode = mode_i,   from = "<C-l>",            to = "<Del>" }, -- Same to 'backspace'
 
     -- Source My VIMRC
-    { mode = mode_n, from = "<leader>rr", to = "<CMD>source $MYVIMRC<CR>" },
+    { mode = mode_n,   from = "<leader>rr",       to = "<CMD>source $MYVIMRC<CR>" },
 
     -- Source the current file
     -- source %
@@ -94,6 +92,29 @@ local nmappings = {
 for _, mapping in ipairs(nmappings) do
     vim.keymap.set(mapping.mode, mapping.from, mapping.to, { noremap = true })
 end
+
+
+-- Define a state machine to avoid time lag when left-right selection under visual mode because of
+-- the <jk> combination key
+local visual_state = nil
+
+vim.keymap.set('v', 'j', function()
+    visual_state = 'j'
+    vim.defer_fn(function()
+        visual_state = nil
+    end, 250)  -- k shold be pressed within 250 ms after j to eascape
+    return 'h' -- Mapping j to h
+end, { expr = true, noremap = true, silent = true })
+
+vim.keymap.set('v', 'k', function()
+    if visual_state == 'j' then
+        visual_state = nil
+        return '<Esc>'
+    end
+    return 'j' -- Mapping k to j
+end, { expr = true, noremap = true, silent = true })
+
+
 
 --[[
 
