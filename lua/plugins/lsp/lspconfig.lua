@@ -1,11 +1,28 @@
 local M = {
     "neovim/nvim-lspconfig",
     event = { "BufReadPost", "BufNewFile" },
-    cmd = { "Mason", "LspInfo", }, -- "LspInstall", "LspUninstall" 
+    cmd = { "Mason", "LspInfo", }, -- "LspInstall", "LspUninstall"
     dependencies = {
         { "williamboman/mason.nvim" },
         { "williamboman/mason-lspconfig" },
-        { "j-hui/fidget.nvim", }, -- when load tex you could see that
+        { "j-hui/fidget.nvim", },
+        {
+            "folke/trouble.nvim",
+            opts = {
+                keys = {
+                    q = "close",
+                    ["<cr>"] = "jump",
+                    i = "prev",
+                    k = "next",
+                    gb = {
+                        action = function(view)
+                            view:filter({ buf = 0 }, { toggle = true })
+                        end,
+                        desc = "Toggle Current Buffer Filter",
+                    },
+                },
+            },
+        },
         -- { "hrsh7th/cmp-nvim-lsp" },
     },
 }
@@ -15,18 +32,7 @@ function M.config()
     -- vim.lsp.set_log_level("error")
     vim.lsp.set_log_level("off") -- won't generate the  lsp.log file /Users/zelong/.local/state/nvim/
 
-    ---------------- GLOBAL MAPPINGS ----------------
-    -- See `:help vim.diagnostic.*` for documentation on any of the below functions
-    vim.keymap.set("n", "gl", vim.diagnostic.open_float)
-    vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
-    vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
-    -- vim.keymap.set('n', '<c-q>', vim.diagnostic.setloclist)
-    -- vim.keymap.set("n", "<leader>lf", "vim.lsp.buf.formatting")
-    -- vim.keymap.set('v', '<leader>lf', "<ESC><cmd>lua vim.lsp.buf.range_formatting()<CR>")
-
-
-    -- Highlight entire line for errors
-    -- Highlight the line number for warnings
+    -- Highlight entire line for errors. Highlight the line number for warnings
     vim.diagnostic.config({
         virtual_text = true,
         underline = false,
@@ -34,9 +40,9 @@ function M.config()
         float = { border = "rounded", source = "always", },
         signs = {
             text = {
-                [vim.diagnostic.severity.ERROR] = '', -- ""     ✘
-                [vim.diagnostic.severity.WARN] = '', -- "" ▲ 󰲉
-                [vim.diagnostic.severity.HINT] = '', -- ""  ⚑
+                [vim.diagnostic.severity.ERROR] = '✘', -- ""     ✘
+                [vim.diagnostic.severity.WARN] = '󰲉', -- "" ▲ 󰲉
+                [vim.diagnostic.severity.HINT] = '⚑', -- ""  ⚑
                 [vim.diagnostic.severity.INFO] = '»', -- "  " 󰍦     󰌵 󰛩 󰍨
             },
             -- linehl = {
@@ -59,7 +65,7 @@ function M.config()
             -- capabilities = {},
             -- filetypes = {},
             -- on_attach = on_attach,
-            settings = { -- How to configure it should see language server official doduments (e.g., lua_ls)
+            settings = {                                    -- How to configure it should see language server official doduments (e.g., lua_ls)
                 Lua = {
                     diagnostics = { globals = { 'vim' }, }, -- global virable of vim for lua to prevent warnings
                     workspace = { checkThirdParty = false },
@@ -87,7 +93,7 @@ function M.config()
                 desc = 'LSP: ' .. desc
             end
 
-            vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
+            vim.keymap.set('n', keys, func, { buffer = bufnr, noremap = true, desc = desc })
         end
 
         -- Check out telescope LSP picker
@@ -103,7 +109,6 @@ function M.config()
         nmap('<leader>D', vim.lsp.buf.type_definition, 'Type [D]efinition')
         nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
         nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
-        nmap('<leader>da', require "telescope.builtin".diagnostics, '[D]i[A]gnostics')
         nmap("<space>cf", function()
             vim.lsp.buf.format { async = true } -- asynchronous format
         end, "[F]ormat code")
@@ -113,6 +118,17 @@ function M.config()
         nmap('<leader>wl', function()
             print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
         end, '[W]orkspace [L]ist Folders')
+
+        -- See `:help vim.diagnostic.*` for documentation on any of the below functions
+        nmap('<leader>da', require "telescope.builtin".diagnostics, '[D]i[A]gnostics')
+        -- Trouble diagnostics toggle filter.buf=0 (for current buffer only)
+        nmap('<leader>t', "<CMD>:Trouble diagnostics focus=true<CR>", 'Open Trouble diagnostics')
+        -- nmap('gl', vim.diagnostic.open_float)
+        nmap('[d', vim.diagnostic.goto_prev, 'Previous Diagnostic')
+        nmap(']d', vim.diagnostic.goto_next, 'Next Diagnostic')
+        -- nmap('n', '<c-q>', vim.diagnostic.setloclist)
+        -- nmap("n", "<leader>lf", "vim.lsp.buf.formatting")
+        -- nmap('v', '<leader>lf', "<ESC><cmd>lua vim.lsp.buf.range_formatting()<CR>")
     end
 
     --1 ---------------- BUFFER MAPPINGS ----------------
