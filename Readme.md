@@ -2,7 +2,7 @@
 
 > Now I have moved to lua script, if you are using vim or just want using vim script, please see another branch. The configuration of vim script may be quite different between lua script.
 
-## tree TODO .....
+## All In One
 ```bash
 ~/.config/nvim/
 ├── Readme.md
