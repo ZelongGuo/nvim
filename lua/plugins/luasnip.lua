@@ -16,7 +16,6 @@
 
 return {
     "L3MON4D3/LuaSnip",
-    -- install jsregexp (optional!).
     build = "make install_jsregexp",
     lazy = true,
     dependencies = {
@@ -25,11 +24,37 @@ return {
 
     config = function()
         local luasnip = require("luasnip")
+        -- Use <Tab> (or some other key if you prefer) to trigger visual selection
+        luasnip.config.set_config({ store_selection_keys = "<Tab>", })
 
+        -- require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/luasnips/" })
+        require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/snips/" })
+
+        -------------------------------- key mapping ----------------------------------------------
         vim.keymap.set({ "i" }, "<C-q>", function() luasnip.expand() end, { noremap = true, silent = true })
-        -- Setting jumping in nvim-cmp.lua to avoid key conflicts, or add a if condition below
-        -- vim.keymap.set({ "i", "s" }, "<Tab>", function() luasnip.jump(1) end, { noremap = true, silent = true })
-        -- vim.keymap.set({ "i", "s" }, "<S-Tab>", function() luasnip.jump(-1) end, { noremap = true, silent = true })
+
+        -- vim.keymap.set({ "i", "s" }, "<C-l>", function() luasnip.jump(1) end, { noremap = true, silent = true })
+        -- vim.keymap.set({ "i", "s" }, "<C-j>", function() luasnip.jump(-1) end, { noremap = true, silent = true })
+
+        -- vim.keymap.set({ "i" }, "<C-l>", function() luasnip.jump(1) end, { noremap = true, silent = true })
+
+        -- vim.keymap.set({ "i" }, "<C-j>", function() luasnip.jump(-1) end, { noremap = true, silent = true })
+
+        vim.keymap.set("i", "<C-l>", "<Del>", { noremap = true, silent = true })
+        vim.keymap.set("i", "<C-j>", "<C-h>", { noremap = true, silent = true })
+
+        vim.keymap.set({ "i", "s" }, "<C-l>", function()
+            if luasnip.locally_jumpable(1) then
+                luasnip.jump(1)
+            end
+        end, { noremap = true, silent = true })
+
+        vim.keymap.set({ "i", "s" }, "<C-j>", function()
+            if luasnip.locally_jumpable(1) then
+                luasnip.jump(-1)
+            end
+        end, { noremap = true, silent = true })
+
 
         vim.keymap.set({ "i", "s" }, "<C-e>", function()
             if luasnip.choice_active() then

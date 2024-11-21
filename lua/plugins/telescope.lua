@@ -41,11 +41,11 @@ function M.config()
             -- Windows Settings
             layout_config = {
                 horizontal = {
-                    preview_width = 0.5, -- define preview window half of the total window size
+                    preview_width = 0.5,  -- define preview window half of the total window size
                     -- result_width = 0.5, -- define preview window half of the total window size
-                    preview_cutoff = 30, -- show 30 characters in the preview window
+                    preview_cutoff = 30,  -- show 30 characters in the preview window
                 },
-                width = { padding = 8 }, -- setting the telescope window width
+                width = { padding = 8 },  -- setting the telescope window width
                 height = { padding = 3 }, -- setting the telescope window hight
             },
 
@@ -57,8 +57,11 @@ function M.config()
                     ["<DOWN>"] = actions.cycle_history_next,
                     ["<C-i>"]  = actions.move_selection_previous,
                     ["<C-k>"]  = actions.move_selection_next,
-                    ["<C-j>"]  = actions.preview_scrolling_up,
-                    ["<C-l>"]  = actions.preview_scrolling_down,
+                    -- -- Force-disable <C-j> and <C-l> for using <C-u> and <C-d>
+                    -- ["<C-j>"]  = false,
+                    -- ["<C-l>"]  = false,
+                    ["<C-u>"]  = actions.preview_scrolling_up,
+                    ["<C-d>"]  = actions.preview_scrolling_down,
                     ["C-c"]    = actions.close,
                     ["C-t"]    = actions.select_tab,
                     ["<CR>"]   = actions.select_default, -- default will overwrite current only tab
@@ -69,8 +72,10 @@ function M.config()
                 n = {
                     ["i"]     = actions.move_selection_previous,
                     ["k"]     = actions.move_selection_next,
-                    ["j"]     = actions.preview_scrolling_up,
-                    ["l"]     = actions.preview_scrolling_down,
+                    -- ["j"]     = false,
+                    -- ["l"]     = false,
+                    ["u"]     = actions.preview_scrolling_up,
+                    ["d"]     = actions.preview_scrolling_down,
                     ["gg"]    = actions.move_to_top,
                     ["G"]     = actions.move_to_bottom,
                     -- ["<PageUp>"]   = actions.results_scrolling_up,
@@ -104,7 +109,7 @@ function M.config()
         -- local git_root = string.gsub(vim.fn.systemlist("git rev-parse --show-toplevel")[1] or "", "\n", "")
 
         if git_root and git_root ~= "" then
-            opts.cwd = git_root    -- Set the work directory to Git root directory
+            opts.cwd = git_root        -- Set the work directory to Git root directory
         else
             opts.cwd = vim.fn.getcwd() -- If it's not Git repository, then use current work directory cwd
         end
@@ -118,7 +123,7 @@ function M.config()
         local git_root = vim.fn.systemlist("git rev-parse --show-toplevel")[1]
 
         if git_root and git_root ~= "" then
-            opts.cwd = git_root -- Set the working directory to Git root
+            opts.cwd = git_root        -- Set the working directory to Git root
         else
             opts.cwd = vim.fn.getcwd() -- If it's not a Git repository, use the current working directory
         end

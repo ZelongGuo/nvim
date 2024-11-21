@@ -3,12 +3,11 @@ local M = {
     event = { "InsertEnter" },
     -- TODO: looking fomr more completion dependencies ...
     dependencies = {
-        { "hrsh7th/cmp-nvim-lsp" },         -- source for LSP
-        { "hrsh7th/cmp-buffer" },           -- source for text in buffer
-        { "hrsh7th/cmp-path" },             -- source for file system paths
+        { "hrsh7th/cmp-nvim-lsp" }, -- source for LSP
+        { "hrsh7th/cmp-buffer" },   -- source for text in buffer
+        { "hrsh7th/cmp-path" },     -- source for file system paths
         -- { "hrsh7th/cmp-cmdline" },          -- source for path
-        { 'L3MON4D3/LuaSnip' },
-        { "rafamadriz/friendly-snippets" }, -- useful snippets
+        { 'L3MON4D3/LuaSnip', dependencies = { "rafamadriz/friendly-snippets" } },
         { "saadparwaiz1/cmp_luasnip" },     -- for luasnip autocompletion
         { "onsails/lspkind.nvim", },        -- vs-code like pictograms/icons
         { "f3fora/cmp-spell", },            -- English spell
@@ -129,12 +128,13 @@ function M.config()
             -- end, { 'i', }),
 
             ["<C-k>"]   = cmp.mapping.select_next_item(), -- next suggestion
-            ["<C-j>"]   = cmp.mapping.scroll_docs(-4),
-            ["<C-l>"]   = cmp.mapping.scroll_docs(4),
+            -- ["<C-j>"]   = function() end, -- Force disbale
+            -- ["<C-l>"]   = function() end,
+            ["<C-u>"]   = cmp.mapping.scroll_docs(-4),
+            ["<C-d>"]   = cmp.mapping.scroll_docs(4),
             ["<C-s>"]   = cmp.mapping.complete(), -- show completion suggestions
             ["<C-c>"]   = cmp.mapping.abort(),    -- close completion window
         }),
-
         sources = cmp.config.sources({ -- sources for autocompletion
             -- TODO: Disable / Enable cmp sources only on certain buffers, and for certain filetypes
             { name = "nvim_lsp",      priority = 1000 },
@@ -152,6 +152,10 @@ function M.config()
                 },
             },
         }),
+
+        experimental = {
+            ghost_text = false -- this feature conflict with copilot.vim's preview.
+        },
 
         window = { -- window box better for light scheme
             -- completion = cmp.config.window.bordered(),
