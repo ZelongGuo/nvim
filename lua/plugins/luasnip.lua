@@ -33,28 +33,37 @@ return {
         -------------------------------- key mapping ----------------------------------------------
         vim.keymap.set({ "i" }, "<C-q>", function() luasnip.expand() end, { noremap = true, silent = true })
 
-        -- vim.keymap.set({ "i", "s" }, "<C-l>", function() luasnip.jump(1) end, { noremap = true, silent = true })
-        -- vim.keymap.set({ "i", "s" }, "<C-j>", function() luasnip.jump(-1) end, { noremap = true, silent = true })
+        vim.keymap.set({ "i", "s" }, "<C-l>", function() luasnip.jump(1) end, { noremap = true, silent = true })
+        vim.keymap.set({ "i", "s" }, "<C-j>", function() luasnip.jump(-1) end, { noremap = true, silent = true })
 
-        -- vim.keymap.set({ "i" }, "<C-l>", function() luasnip.jump(1) end, { noremap = true, silent = true })
+        -- vim.keymap.set({ "i", "s" }, "<C-l>", function()
+        --     if luasnip.locally_jumpable(1) then
+        --         luasnip.jump(1)
+        --     end
+        -- end, { noremap = true, silent = true })
 
-        -- vim.keymap.set({ "i" }, "<C-j>", function() luasnip.jump(-1) end, { noremap = true, silent = true })
+        -- vim.keymap.set({ "i", "s" }, "<C-j>", function()
+        --     if luasnip.locally_jumpable(-1) then
+        --         luasnip.jump(-1)
+        --     end
+        -- end, { noremap = true, silent = true })
 
-        vim.keymap.set("i", "<C-l>", "<Del>", { noremap = true, silent = true })
-        vim.keymap.set("i", "<C-j>", "<C-h>", { noremap = true, silent = true })
+        -- IF YOU WANT TO KEEP THE DEFAULT OPERATION FOR <C-L> <C-J>
+        -- vim.keymap.set({ "i", "s" }, "<C-l>", function()
+        --     if luasnip.locally_jumpable(1) then
+        --         luasnip.jump(1)
+        --     else
+        --         vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Del>", true, false, true), "n", true)
+        --     end
+        -- end, { noremap = true, silent = true })
 
-        vim.keymap.set({ "i", "s" }, "<C-l>", function()
-            if luasnip.locally_jumpable(1) then
-                luasnip.jump(1)
-            end
-        end, { noremap = true, silent = true })
-
-        vim.keymap.set({ "i", "s" }, "<C-j>", function()
-            if luasnip.locally_jumpable(1) then
-                luasnip.jump(-1)
-            end
-        end, { noremap = true, silent = true })
-
+        -- vim.keymap.set({ "i", "s" }, "<C-j>", function()
+        --     if luasnip.locally_jumpable(-1) then
+        --         luasnip.jump(-1)
+        --     else
+        --         vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-h>", true, false, true), "n", true)
+        --     end
+        -- end, { noremap = true, silent = true })
 
         vim.keymap.set({ "i", "s" }, "<C-e>", function()
             if luasnip.choice_active() then

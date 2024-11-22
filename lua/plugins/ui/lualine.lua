@@ -1,7 +1,7 @@
 -- Function to get luasnip status
 local luasnip_status = function()
-    local luasnip = require("luasnip")
-    if luasnip.in_snippet() and luasnip.jumpable(1) then
+    local ls = require("luasnip")
+    if ls.in_snippet() and ls.jumpable(1) then
         return " luasnip" -- (jumpable)
         -- elseif luasnip.in_snippet() then
         --     return " LuaSnip"
