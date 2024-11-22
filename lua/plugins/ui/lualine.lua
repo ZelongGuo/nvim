@@ -1,4 +1,16 @@
--- Vim status lines
+-- Function to get luasnip status
+local luasnip_status = function()
+    local luasnip = require("luasnip")
+    if luasnip.in_snippet() and luasnip.jumpable(1) then
+        return " luasnip" -- (jumpable)
+        -- elseif luasnip.in_snippet() then
+        --     return " LuaSnip"
+    else
+        return ""
+    end
+end
+
+-- 󱇵   󰤲  󰨰       󱥪  󰧅  󱥫  󰧆  󱅥  󰧛
 
 return {
     "nvim-lualine/lualine.nvim",
@@ -24,7 +36,7 @@ return {
         sections = {
             lualine_a = { 'mode' },
             lualine_b = {
-                { 'branch',  icon = '󰊢'}, --  󰊢             
+                { 'branch', icon = '󰊢' }, --  󰊢            
                 {
                     'diff',
                     symbols = { added = ' ', modified = '󰝤 ', removed = ' ' }, --    
@@ -43,17 +55,36 @@ return {
             --         },
             --     },
             -- },
+            --1 lualine_c = {
+            --1     {
+            --1         'filename' .. luasnip_status,
+            --1         -- symbols = {
+            --1         --     modified = '[✎]', --'[Modified]', '[+]' ▣ ◈ ✎, -- Text to show when the file is modified.
+            --1         --     readonly = '[]', --  '[ReadOnly]', '[-]',   -- Text to show when the file is non-modifiable or readonly.
+            --1         --     unnamed = '[󰡯]', -- '[No Name]',  Text to show for unnamed buffers.
+            --1         --     newfile = '[]', -- [New]     󰎔 -- Text to show for newly created file before first write
+            --1         -- },
+            --1     },
+            --1 },
+
             lualine_c = {
                 {
-                    'filename',
-                    symbols = {
-                        modified = '[✎]', --'[Modified]', '[+]' ▣ ◈ ✎, -- Text to show when the file is modified.
-                        readonly = '[]', --  '[ReadOnly]', '[-]',   -- Text to show when the file is non-modifiable or readonly.
-                        unnamed = '[󰡯]', -- '[No Name]',  Text to show for unnamed buffers.
-                        newfile = '[]', -- [New]     󰎔 -- Text to show for newly created file before first write
-                    }
+                    function()
+                        local filename = vim.fn.expand('%:t')
+                        if filename == "" then
+                            filename = "[No Name]"
+                        end
+
+                        local luasnip_state = luasnip_status()
+                        if luasnip_state ~= "" then
+                            return filename .. " | " .. luasnip_state
+                        else
+                            return filename
+                        end
+                    end,
                 },
             },
+
             lualine_x = {
                 'encoding',
                 -- {
