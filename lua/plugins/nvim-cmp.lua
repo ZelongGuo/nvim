@@ -50,7 +50,7 @@ function M.config()
     -- other symbols that might be useful for something: -- ⊕ † ፨ ᯾ ⁂ ∎ ∹ ☖ ⚐ ⬠  ⬡   ⟡ ✐  ✎ ꒾꙳ ꥟ ⤙ ⤚ ⤛ ⤜
 
     local cmp = require("cmp")
-    local luasnip = require("luasnip")
+    local ls = require("luasnip")
 
     -- loads vscode style snippets from installed plugins (e.g. friendly-snippets)
     require("luasnip.loaders.from_vscode").lazy_load()
@@ -63,7 +63,7 @@ function M.config()
 
         snippet = { -- configure how nvim-cmp interacts with snippet engine (luasnip here)
             expand = function(args)
-                luasnip.lsp_expand(args.body)
+                ls.lsp_expand(args.body)
             end,
         },
 
@@ -72,8 +72,8 @@ function M.config()
                 if cmp.visible() then
                     -- cmp.select_next_item()
                     cmp.select_prev_item() -- <tab> is intrinsicly same to <C-i>!
-                elseif luasnip.locally_jumpable(1) then
-                    luasnip.jump(1)
+                elseif ls.locally_jumpable(1) then
+                    ls.jump(1)
                 else
                     fallback()
                 end
@@ -83,8 +83,8 @@ function M.config()
                 if cmp.visible() then
                     -- cmp.select_next_item()
                     cmp.select_prev_item() -- <tab> is intrinsicly same to <c-i>!
-                elseif luasnip.locally_jumpable(1) then
-                    luasnip.jump(1)
+                elseif ls.locally_jumpable(1) then
+                    ls.jump(1)
                 else
                     fallback()
                 end
@@ -94,8 +94,8 @@ function M.config()
                 if cmp.visible() then
                     -- cmp.select_prev_item()
                     cmp.select_next_item()
-                elseif luasnip.locally_jumpable(-1) then
-                    luasnip.jump(-1)
+                elseif ls.locally_jumpable(-1) then
+                    ls.jump(-1)
                 else
                     fallback()
                 end
@@ -103,8 +103,8 @@ function M.config()
 
             ["<CR>"]    = cmp.mapping(function(fallback)
                 if cmp.visible() then
-                    if luasnip.expandable() then
-                        luasnip.expand()
+                    if ls.expandable() then
+                        ls.expand()
                     else
                         cmp.confirm({ select = true })
                     end
