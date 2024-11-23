@@ -37,6 +37,8 @@ return {
         --     auto_expand(...)
         -- end
 
+        require("luasnip.loaders.from_lua").load({paths = "~/.config/nvim/luasnips/"})
+
         -------------------------------- key mapping ----------------------------------------------
         vim.keymap.set({ "i" }, "<C-q>", function() ls.expand() end, { noremap = true, silent = true })
 
