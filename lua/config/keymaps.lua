@@ -2,6 +2,7 @@
 local mode_nvo = { "n", "v", "o" }
 local mode_nv = { "n", "v" }
 local mode_i = { "i" }
+local mode_is = { "i", "s" }
 local mode_n = { "n" }
 
 
@@ -25,7 +26,7 @@ local nmappings = {
     { mode = mode_nv,  from = "<c-m>",            to = "M" }, -- go to the middle of the screen
 
     -- Back to Normal
-    { mode = mode_i,   from = "jk",               to = "<Esc>" },
+    { mode = mode_is,   from = "jk",               to = "<Esc>" },
 
     -- Highlight
     { mode = mode_n,   from = "<leader><CR>",     to = ":nohlsearch<CR>",                                     opts = { silent = true } },
@@ -98,7 +99,7 @@ end
 -- the <jk> combination key
 local visual_state = nil
 
-vim.keymap.set('v', 'j', function()
+vim.keymap.set({ 'v' }, 'j', function()
     visual_state = 'j'
     vim.defer_fn(function()
         visual_state = nil
@@ -106,7 +107,7 @@ vim.keymap.set('v', 'j', function()
     return 'h' -- Mapping j to h
 end, { expr = true, noremap = true, silent = true })
 
-vim.keymap.set('v', 'k', function()
+vim.keymap.set({ 'v' }, 'k', function()
     if visual_state == 'j' then
         visual_state = nil
         return '<Esc>'
