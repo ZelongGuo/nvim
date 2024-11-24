@@ -95,6 +95,32 @@ M.config = function()
             border = 'rounded',
             style = 'minimal',
         },
+
+        sources = {
+            path = {
+                -- relative_to = function(_, win)
+                --     if not win then
+                --         return vim.fn.expand("%:p:h")
+                --     end
+                --     local file_path = vim.fn.expand("%:p:h")
+                --     return file_path
+                -- end
+                -- relative_to = function(_, win)  -- default setting
+                --     -- Workaround for Vim:E5002: Cannot find window number
+                --     local ok, cwd = pcall(vim.fn.getcwd, win)
+                --     return ok and cwd or vim.fn.getcwd()
+                -- end
+                relative_to = function(_, win)
+                    local function get_parent_dir(path)
+                        return vim.fn.fnamemodify(path, ":h")
+                    end
+                    local ok, cwd = pcall(vim.fn.getcwd, win)
+                    local parent_dir = get_parent_dir(cwd)
+
+                    return ok and parent_dir or get_parent_dir(vim.fn.getcwd())
+                end
+            },
+        }
     })
 end
 
