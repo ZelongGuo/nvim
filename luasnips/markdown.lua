@@ -5,7 +5,7 @@ local s = ls.snippet
 local t = ls.text_node
 local i = ls.insert_node
 -- local f = ls.function_node
--- local c = ls.choice_node
+local c = ls.choice_node
 local d = ls.dynamic_node
 -- local r = ls.restore_node
 -- local events = require("luasnip.util.events")
@@ -29,106 +29,120 @@ local fmta = require("luasnip.extras.fmt").fmta
 local helper = require("utils.luasnip-helper-funcs")
 local get_visual = helper.get_visual
 
--- local ls = require("luasnip")
--- local s = ls.snippet
--- local i = ls.insert_node
--- local t = ls.text_node
-
-
 
 local function create_snippets_for_markdown()
     local snippets = {}
+
+    -- Helper function to define a snippet
+    local function define_snippet(trig, dscr, nodes, opts)
+        opts = opts or {}
+        opts.trig = trig
+        opts.dscr = dscr
+        opts.regTrig = opts.regTrig or false
+        opts.wordTrig = opts.wordTrig or false
+        opts.priority = opts.priority or 1000
+        opts.snippetType = opts.snippetType or "autosnippet" -- snippet or autosnippet
+        table.insert(snippets, s(opts, nodes))
+    end
+
     --------------------------------------- Pairs -------------------------------------------------
     local pairs = {
-        { trig = ",i", open = "*",  close = "*" },
-        { trig = ",b", open = "**", close = "**" },
-        { trig = ",d", open = "~~", close = "~~" },
-        { trig = ",q", open = "`",  close = "`" },
+        {
+            trig = ",i",
+            dscr = "Italic",
+            nodes = fmta([[*<>*]], { d(1, get_visual) }),
+            opts = { wordTrig = false, priority = 1000 }
+        },
+        {
+            trig = ",b",
+            dscr = "Bold",
+            nodes = fmta([[**<>**]], { d(1, get_visual) })
+        },
+        {
+            trig = ",d",
+            dscr = "Delete Line",
+            nodes = fmta([[~~<>~~]], { d(1, get_visual) })
+        },
+        {
+            trig = ",q",
+            dscr = "Quotation",
+            nodes = fmta([[`<>`]], { d(1, get_visual) })
+        }
     }
 
     for _, pair in ipairs(pairs) do
-        table.insert(snippets,
-            s(
-                {
-                    trig = pair.trig,
-                    dscr = "Autopair for " .. pair.open .. pair.close,
-                    regTrig = false,
-                    wordTrig = false,
-                    priority = 1000,
-                    snippetType = "autosnippet",
-                },
-                fmt(
-                    [[{open}{node}{close}]],
-                    {
-                        open = t(pair.open),
-                        node = d(1, get_visual),
-                        close = t(pair.close),
-                    },
-                    { delimiters = "{}" }
-                )
-            )
-        )
+        define_snippet(pair.trig, pair.dscr, pair.nodes, pair.opts)
     end
 
     --------------------------------------- Others -------------------------------------------------
-    -- local others = {
-    --     { trig = ',c', open = '```',                  close = '```' },
-    --     { trig = ",m", open = "- [ ]" },
-    --     { trig = ",p", open = "![display name](link)" }, -- TODO: add choice_node
-    --     { trig = ",a", open = "[display name](link)" },
-
-    -- }
-    table.insert(snippets,
-        s(
-            {
-                trig = ",c",
-                dscr = "Code Block",
-                regTrig = false,
-                wordTrig = false,
-                priority = 1000,
-                snippetType =
-                "autosnippet",
-            },
-            fmta(
-                [[
-                ```<>
-                <>
-                ```
-               ]],
-                { i(1), i(2) }
-            )
-        )
-    )
-    table.insert(snippets,
-        s(
-            {
-                trig = ",m",
-                dscr = "Mark",
-                regTrig = false,
-                wordTrig = false,
-                priority = 1000,
-                snippetType = "autosnippet",
-            },
-            { t("- [ ] "), }
-        )
-    )
-
-    table.insert(snippets,
-        s(
-            {
-                trig = ",p",
-                dscr = "Picture",
-                regTrig = false,
-                wordTrig = false,
-                priority = 1000,
-                snippetType = "autosnippet",
-            },
-            fmta(
-                [[![<>](<>)]],
+    local other_snippets = {
+        {
+            trig = ",c",
+            dscr = "Code Block or Color Text, choice nodes",
+            nodes = c(1, {
+                fmt(
+                    [[
+                    ```<>
+                    <>
+                    ```
+                    ]],
+                    { i(1), i(2) },
+                    { delimiters = "<>" }
+                ),
+                fmta(
+                    [[<font size="{}"  color="{}">{}</font>]],
+                    { i(1, "3"), i(2, "red"), i(3) },
+                    { delimiters = "{}" }
+                )
+            })
+        },
+        {
+            trig = ",m",
+            dscr = "Mark",
+            nodes = { t("- [ ] ") },
+        },
+        {
+            trig = ",p",
+            dscr = "Insert Picture, choice nodes",
+            nodes = c(1, {
+                fmt(
+                    [[![<>](<>)]],
+                    { i(1, "display name"), i(2, "link") },
+                    { delimiters = "<>" }
+                ),
+                fmt(
+                    [[
+                    <center>
+                    <img style="border-radius: 0.2125em;" src="../img/{}" width="{}%" height="auto">
+                    <div style="
+                    display: outline;
+                    font-style: italic;
+                    color: #666;
+                    padding: 2px;">Figure {} </div>
+                    </center>
+                    ]],
+                    {
+                        i(1, "image-name"),
+                        i(2, "width"),
+                        i(3, "caption"),
+                    },
+                    { delimiters = "{}" }
+                )
+            })
+        },
+        {
+            trig = ",a",
+            dscr = "Link",
+            nodes = fmta(
+                [[[<>](<>)]],
                 { i(1, "display name"), i(2, "link") }
-            )
-        )
-    )
+            ),
+        },
+    }
+
+    for _, snippet in ipairs(other_snippets) do
+        define_snippet(snippet.trig, snippet.dscr, snippet.nodes, snippet.opts)
+    end
 
     return snippets
 end
