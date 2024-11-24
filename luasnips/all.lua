@@ -124,11 +124,11 @@
 
 local ls = require("luasnip")
 local s = ls.snippet
-local i = ls.insert_node
+-- local i = ls.insert_node
 local t = ls.text_node
 local d = ls.dynamic_node
 local fmt = require("luasnip.extras.fmt").fmt
-local fmta = require("luasnip.extras.fmt").fmta
+-- local fmta = require("luasnip.extras.fmt").fmta
 
 local helper = require("utils.luasnip-helper-funcs")
 local get_visual = helper.get_visual
