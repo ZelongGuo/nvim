@@ -31,11 +31,11 @@ return {
         })
 
         -- if you want to undo the autoexpand, uncomment below
-        -- local auto_expand = require("luasnip").expand_auto
-        -- require("luasnip").expand_auto = function(...)
-        --     vim.o.undolevels = vim.o.undolevels
-        --     auto_expand(...)
-        -- end
+        local auto_expand = require("luasnip").expand_auto
+        require("luasnip").expand_auto = function(...)
+            vim.o.undolevels = vim.o.undolevels
+            auto_expand(...)
+        end
 
         require("luasnip.loaders.from_lua").load({paths = "~/.config/nvim/luasnips/"})
 
