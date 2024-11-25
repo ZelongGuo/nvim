@@ -83,6 +83,7 @@ require("lazy").setup({
     require("plugins.editor.neoclip"),
     require("plugins.editor.comment"),
     require("plugins.editor.neoscroll"),
+    require("plugins.editor.rainbow-delimiter"),
 
     -- LANG
     -- { import = "plugins.lang" },
