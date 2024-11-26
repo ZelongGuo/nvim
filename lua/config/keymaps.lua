@@ -25,6 +25,9 @@ local nmappings = {
     { mode = mode_nv,  from = "<c-k>",            to = "L" }, -- go to the bottom of the screen
     { mode = mode_nv,  from = "<c-m>",            to = "M" }, -- go to the middle of the screen
 
+    -- Mapping <C-i> to <C-h> for jumping
+    { mode = mode_nv,  from = "<c-h>",            to = "<c-i>" },
+
     -- Back to Normal
     { mode = mode_is,   from = "jk",               to = "<Esc>" },
 
