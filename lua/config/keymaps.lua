@@ -83,7 +83,7 @@ local nmappings = {
     -- { mode = mode_i,   from = "<C-l>",            to = "<Del>" },
 
     -- Source My VIMRC
-    { mode = mode_n,   from = "<leader>rr",       to = "<CMD>source $MYVIMRC<CR>" },
+    -- { mode = mode_n,   from = "<leader>rr",       to = "<CMD>source $MYVIMRC<CR>" },
 
     -- Source the current file
     -- source %
