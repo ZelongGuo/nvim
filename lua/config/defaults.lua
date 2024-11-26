@@ -16,19 +16,28 @@ if vim.fn.has("termguicolors") == 1 then
     vim.cmd('let &t_8f = "\\<Esc>[38;2;%lu;%lu;%lum"')
     vim.cmd('let &t_8b = "\\<Esc>[48;2;%lu;%lu;%lum"')
 end
-]]--
+]] --
 
 -- Disable Compatibility of Old Vim Versions
 vim.opt.compatible = false
 
 
--- Tab Settings
-vim.opt.expandtab = true  -- if expand tab with blank spaces
-vim.opt.tabstop = 4
+-- -- Tab Settings, default for global, see ftplugin for flexible control
+vim.opt.autoindent = true
 vim.opt.smarttab = true
+vim.opt.expandtab = true  -- if expand tab with blank spaces
 vim.opt.shiftwidth = 4
 vim.opt.softtabstop = 4
-vim.opt.autoindent = true
+vim.opt.tabstop = 4
+
+-- Code Folding, default for global, better with plugin treesitter
+vim.opt.foldenable = true
+-- vim.opt.foldmethod = "marker"
+-- vim.opt.foldmarker = {"<center>", "</center>"}  -- for HTML images
+vim.opt.foldmethod = 'indent'
+vim.opt.foldlevel = 99
+vim.opt.foldlevelstart = 99
+vim.opt.indentexpr = ''
 
 
 -- Show Invisible Characters, e.g., tab and space key
@@ -49,20 +58,10 @@ vim.opt.textwidth = 100
 vim.opt.colorcolumn = '100'
 
 
--- Code Folding, better with plugin treesitter
-vim.opt.foldenable = true
--- vim.opt.foldmethod = "marker"
--- vim.opt.foldmarker = {"<center>", "</center>"}  -- for HTML images
-vim.opt.foldmethod = 'indent'
-vim.opt.foldlevel = 99
-vim.opt.foldlevelstart = 99
-vim.opt.indentexpr = ''
-
-
 -- Vim Windows
 vim.opt.splitright = true
 vim.opt.splitbelow = true
-vim.opt.showmode = false   -- disable showing modes
+vim.opt.showmode = false -- disable showing modes
 
 
 -- Upper and Lower Case and Searching
@@ -77,7 +76,7 @@ vim.opt.ttyfast = true
 -- Buffer and Folder Changes Without Saving
 vim.opt.hidden = true
 vim.opt.autochdir = true
-vim.opt.viminfo = "'100,\"0"   -- do not saving marks
+vim.opt.viminfo = "'100,\"0" -- do not saving marks
 -- vim.opt.confirm = true 	       -- ask before exiting modified buffer
 
 
@@ -93,7 +92,7 @@ vim.cmd("nohlsearch")
 vim.opt.incsearch = true
 
 -- Parentheses Highlight Which Has Been Overwritten By doom-one
-vim.opt.matchpairs:append("<:>")      -- add <> also to be matched
+vim.opt.matchpairs:append("<:>") -- add <> also to be matched
 -- vim.opt.showmatch = true
 -- vim.opt.matchtime = 5
 
@@ -131,5 +130,3 @@ vim.opt.wildmenu = true
 
 -- Others
 vim.opt.visualbell = true
-
-
