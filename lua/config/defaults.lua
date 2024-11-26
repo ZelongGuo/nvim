@@ -1,10 +1,6 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = ","
 
--- Latex
-vim.g.tex_flavor = "latex"
-
-
 -- True Color
 vim.opt.termguicolors = true
 -- vim.env to set the system environment variable (external shell is not needed)
