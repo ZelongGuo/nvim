@@ -81,9 +81,9 @@ local nmappings = {
     { mode = mode_n,   from = "S",                to = ":w<CR>" },
     { mode = mode_n,   from = "Q",                to = ":q<CR>" },
 
-    -- -- Delete a Character in Insert mode --> Disabled
-    -- { mode = mode_i,   from = "<C-j>",            to = "<C-h>" }, -- Same to 'backspace'
-    -- { mode = mode_i,   from = "<C-l>",            to = "<Del>" },
+    -- Delete a Character in Insert mode --> Disabled
+    { mode = mode_i,   from = "<C-h>",            to = "<C-h>" }, -- Same to 'backspace'
+    { mode = mode_i,   from = "<C-b>",            to = "<Del>" },
 
     -- Source My VIMRC
     -- { mode = mode_n,   from = "<leader>rr",       to = "<CMD>source $MYVIMRC<CR>" },
