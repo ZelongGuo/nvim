@@ -24,18 +24,6 @@ return {
         -- Custom on_attach function to set mappings specific to nvim-tree buffer,
         -- otherwise there will be key conflict such as "l" and "j" in nvim-buffer and file buffer
 
-        -- Define functions of jump up and down 5 nodes
-        local function jump_up_5_nodes()
-            for _ = 1, 5 do
-                api.node.navigate.sibling.prev() -- jump up 5 nodes
-            end
-        end
-        local function jump_down_5_nodes()
-            for _ = 1, 5 do
-                api.node.navigate.sibling.next() -- jump up 5 nodes
-            end
-        end
-
         local function my_on_attach(bufnr)
             local function opts(desc)
                 return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
@@ -49,8 +37,8 @@ return {
             vim.keymap.set('n', '<BS>', api.tree.change_root_to_parent, opts('Up'))
             vim.keymap.set('n', 'j', api.node.navigate.parent_close, opts('Up'))
             vim.keymap.set('n', 'l', api.node.open.edit, opts('Open'))
-            vim.keymap.set('n', 'I', jump_up_5_nodes, opts('Jump up 5 nodes'))
-            vim.keymap.set('n', 'K', jump_down_5_nodes, opts('Jump up 5 nodes'))
+            vim.keymap.set('n', 'I', '5k', opts('Jump up 5 nodes'))
+            vim.keymap.set('n', 'K', '5j', opts('Jump up 5 nodes'))
             -- create file and folder
             vim.keymap.set('n', 'T', api.fs.create, opts('Touch: Create a file or folder'))
             vim.keymap.set('n', 'M', api.fs.create, opts('mkdir: Create a file or folder'))
