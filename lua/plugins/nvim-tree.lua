@@ -24,6 +24,7 @@ return {
         -- Custom on_attach function to set mappings specific to nvim-tree buffer,
         -- otherwise there will be key conflict such as "l" and "j" in nvim-buffer and file buffer
 
+
         local function my_on_attach(bufnr)
             local function opts(desc)
                 return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
@@ -51,6 +52,18 @@ return {
             vim.keymap.set('n', 'dd', api.fs.cut, opts('Cut a file or folder'))
             vim.keymap.set('n', 'dD', api.fs.remove, opts('Delete a file or folder'))
             -- other mapping like creating files etc please see the help page ...
+
+            -- Some customized ranger-like jumping operations
+            local home = "~"
+            local works = "~/works/"
+            local config = "~/.config/"
+            local codes = "~/codes/"
+            local docu = "~/Documents/"
+            vim.keymap.set("n", "gh", function () api.tree.change_root(home) end , opts("Go to Home Folder"))
+            vim.keymap.set("n", "gw", function () api.tree.change_root(works) end , opts("Go to Works Folder"))
+            vim.keymap.set("n", "gc", function () api.tree.change_root(config) end , opts("Go to .config Folder"))
+            vim.keymap.set("n", "gC", function () api.tree.change_root(codes) end , opts("Go to codes Folder"))
+            vim.keymap.set("n", "gd", function () api.tree.change_root(docu) end , opts("Go to Documents Folder"))
         end
 
         -------------------------- Nvim-Tree Setup Start From Here ---------------------------------
