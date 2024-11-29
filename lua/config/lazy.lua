@@ -104,6 +104,7 @@ require("lazy").setup({
     require("plugins.tree-sitter"),
     require("plugins.nvim-cmp"),
     require("plugins.luasnip"),
+    require("plugins.dap"),
 
     -- Snippets
     -- require("plugins.snippets"), -- UltiSnips
