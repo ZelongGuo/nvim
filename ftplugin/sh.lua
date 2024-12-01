@@ -1,9 +1,11 @@
 -- indentation settings for local buffer
-vim.bo.expandtab   = true
 vim.bo.autoindent  = true
-vim.bo.tabstop     = 2
-vim.bo.softtabstop = 2
-vim.bo.shiftwidth  = 2
+vim.bo.expandtab   = true
+vim.bo.tabstop     = 4
+vim.bo.softtabstop = 4
+vim.bo.shiftwidth  = 4
+
+-- TODO: Setting Fold, how to set fold for gmtset?
 
 -- vim.keymap.set( { "n", "v" }, '<Leader>rr', '<Cmd>update<CR><Cmd>TermExec cmd="sh %"<CR>', {buffer = true})
 
@@ -32,4 +34,3 @@ vim.keymap.set('', '<Leader>rr', function()
     local cmd = "sh " .. vim.fn.expand('%')
     vim.cmd('split | terminal ' .. cmd)
 end, { buffer = true })
-
