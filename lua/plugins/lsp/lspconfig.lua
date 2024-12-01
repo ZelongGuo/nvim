@@ -79,7 +79,7 @@ function M.config()
         ltex = {
             filetypes = { "bib", "gitcommit", "org", "plaintex",
                 "rst", "rnoweb", "tex", "pandoc", "quarto", "rmd",
-                "context", "xhtml", "mail", "text" }, -- Exclude 'markdown and html'
+                "context", "xhtml", "mail" }, -- Exclude 'markdown, html and text'
         },
         clangd = { filetypes = { 'c', 'cpp', 'objc', 'objcpp', 'cuda', 'proto' }, },
         html = { filetypes = { 'html', 'templ' }, },
