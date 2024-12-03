@@ -143,32 +143,31 @@ local pairs = {
     { trig = "''",   open = "'", close = "'" },
 }
 
-local function create_snippets_from_pairs()
-    for _, pair in ipairs(pairs) do
-        table.insert(snippets,
-            s(
+-- local function create_snippets_from_pairs()
+for _, pair in ipairs(pairs) do
+    table.insert(snippets,
+        s(
+            {
+                trig = pair.trig,
+                dscr = "Autopair for " .. pair.open .. pair.close,
+                regTrig = false,
+                wordTrig = false,
+                priority = 1000,
+                snippetType = "autosnippet",
+            },
+            fmt(
+                [[{open}{node}{close}]],
                 {
-                    trig = pair.trig,
-                    dscr = "Autopair for " .. pair.open .. pair.close,
-                    regTrig = false,
-                    wordTrig = false,
-                    priority = 1000,
-                    snippetType = "autosnippet",
+                    open = t(pair.open),
+                    node = d(1, get_visual),
+                    close = t(pair.close),
                 },
-                fmt(
-                    [[{open}{node}{close}]],
-                    {
-                        open = t(pair.open),
-                        node = d(1, get_visual),
-                        close = t(pair.close),
-                    },
-                    { delimiters = "{}" }
-                )
+                { delimiters = "{}" }
             )
         )
-    end
-
-    return snippets
+    )
 end
 
-ls.add_snippets("all", create_snippets_from_pairs())
+return snippets
+
+-- ls.add_snippets("all", create_snippets_from_pairs())
