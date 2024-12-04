@@ -34,7 +34,7 @@ function M.config()
 
     -- Highlight entire line for errors. Highlight the line number for warnings
     vim.diagnostic.config({
-        virtual_text = true,
+        virtual_text = false,
         underline = false,
         severity_sort = true,
         float = { border = "rounded", source = "always", },
