@@ -11,15 +11,13 @@ local snippets = {
             # Minimum Cmake Version Required:
             cmake_minimum_required(VERSION 3.14)
 
-            # PROJECT Name:
-            project(<>)
+            # PROJECT Name and VERSION NO.:
+            project(<> <>)
 
-            # Compiling Opt:
-            add_compile_options(-g -Wunused)
+            # Complier Options, if you want debugging:
+            add_compile_options(-g -O2 -Wunused)
 
-            set(CMAKE_C_STANDARD 99)
-            set(CMAKE_C_FLAGS_DEBUG "-g")
-            set(CMAKE_C_FLAGS_RELEASE "-O2")
+            message(STATUS "CMAKE_SOURCE_DIR: ${CMAKE_SOURCE_DIR}")
 
             # Header files:
             include_directories(${CMAKE_SOURCE_DIR}/include)
@@ -28,49 +26,25 @@ local snippets = {
             file(GLOB SOURCES ${CMAKE_SOURCE_DIR}/src/*.c)
 
             # Executable files:
-            add_executable(MyExecutable main.c ${SOURCES})
+            add_executable(<> ${SOURCES})
             ]],
-            { i(1, "ProjectName"), }
+            { i(1, "ProjectName"), i(2, "VERSION 0.0.1"), i(3, "ExecutableName")}
 
         ),
         { condition = line_begin }
     ),
 
-    -- for CMakeLists.txt, more info
+    -- for .clangd file to add the header files, otherwise the lsp throws "header files not found"
     s(
-        { trig = "cmake_more" },
+        { trig = "clangd" },
         fmta(
             [[
-            # This is for CMakeLists.txt
-
-            # Minimum Cmake Version Required:
-            cmake_minimum_required(VERSION 3.1...3.21)
-
-            # Project Name:
-            project(<>)
-
-            # Compiling Opt:
-            set(CMAKE_C_STANDARD 99)
-            set(CMAKE_C_FLAGS_DEBUG "-g")
-            set(CMAKE_C_FLAGS_RELEASE "-O2")
-
-            # Header files:
-            include_directories(${CMAKE_SOURCE_DIR}/include)
-
-            # Source files:
-            file(GLOB SOURCES ${CMAKE_SOURCE_DIR}/src/*.c)
-
-            # Executable files:
-            add_executable(MyExecutable main.c ${SOURCES})
-
-            ### Require out-of-source builds
-            file(TO_CMAKE_PATH "${PROJECT_BINARY_DIR}/CMakeLists.txt" LOC_PATH)
-            if(EXISTS "${LOC_PATH}")
-                message(FATAL_ERROR "You cannot build in a source directory (or any directory with a CMakeLists.txt file). Please make a build subdirectory. Feel free to remove CMakeCache.txt and CMakeFiles.")
-            endif()
-            ]],
-            { i(1, "main"), }
-
+            # This is for the .clangd file which is for LSP disgnostics
+            CompileFlags:
+                Add:
+                    # Add include directory to search path, relative path is supported
+                    [-I/path/to/headers, -Ianother/include/path]
+            ]]
         ),
         { condition = line_begin }
     ),
