@@ -109,13 +109,14 @@ M.config = function()
     --     compile()
     --     dap.continue()
     -- end, m)
-    vim.keymap.set("n", "<leader>dr", function()
-        local filetype = vim.bo.filetype
-        if filetype == "c" or filetype == "cpp" then
-            compile()
-        end
-        dap.continue()
-    end, m)
+    -- vim.keymap.set("n", "<leader>dr", function()
+    --     local filetype = vim.bo.filetype
+    --     if filetype == "c" or filetype == "cpp" then
+    --         compile()
+    --     end
+    --     dap.continue()
+    -- end, m)
+    vim.keymap.set("n", "<leader>dr", dap.continue, m)
     vim.keymap.set("n", "<leader>db", dap.toggle_breakpoint, m)
     vim.keymap.set("n", "<leader>ds", dap.step_over, m)
     vim.keymap.set("n", "<leader>dq", dap.terminate, m)
@@ -141,13 +142,13 @@ M.config = function()
             name = "Launch DAP Dafault File",
             type = "codelldb",
             request = "launch",
-            program = function()
-                local exe = vim.g.c_debug_program or vim.fn.expand("%:r")
-                return vim.fn.getcwd() .. '/' .. exe
-            end,
             -- program = function()
-            --     return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+            --     local exe = vim.g.c_debug_program or vim.fn.expand("%:r")
+            --     return vim.fn.getcwd() .. '/' .. exe
             -- end,
+            program = function()
+                return vim.fn.input('Your executable file: ', vim.fn.getcwd() .. '/', 'file')
+            end,
             cwd = '${workspaceFolder}',
             stopOnEntry = false,
         },
