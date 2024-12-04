@@ -74,7 +74,7 @@ return {
         --     end
         -- end, { noremap = true, silent = true })
 
-        vim.keymap.set({ "i", "s" }, "<C-e>", function()
+        vim.keymap.set({ "i", "s", "v" }, "<C-e>", function()
             if ls.choice_active() then
                 ls.change_choice(1)
             end
