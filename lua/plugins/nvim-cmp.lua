@@ -3,14 +3,14 @@ local M = {
     event = { "InsertEnter" },
     -- TODO: looking fomr more completion dependencies ...
     dependencies = {
-        { "hrsh7th/cmp-nvim-lsp" }, -- source for LSP
-        { "hrsh7th/cmp-buffer" },   -- source for text in buffer
-        { "hrsh7th/cmp-path" },     -- source for file system paths
-        -- { "hrsh7th/cmp-cmdline" },          -- source for path
-        { 'L3MON4D3/LuaSnip', dependencies = { "rafamadriz/friendly-snippets" } },
-        { "saadparwaiz1/cmp_luasnip" },     -- for luasnip autocompletion
-        { "onsails/lspkind.nvim", },        -- vs-code like pictograms/icons
-        { "f3fora/cmp-spell", },            -- English spell
+        { "hrsh7th/cmp-nvim-lsp" },     -- source for LSP
+        { "hrsh7th/cmp-buffer" },       -- source for text in buffer
+        { "hrsh7th/cmp-path" },         -- source for file system paths
+        -- { "hrsh7th/cmp-cmdline" },      -- source for path
+        { 'L3MON4D3/LuaSnip',           dependencies = { "rafamadriz/friendly-snippets" } },
+        { "saadparwaiz1/cmp_luasnip" }, -- for luasnip autocompletion
+        { "onsails/lspkind.nvim", },    -- vs-code like pictograms/icons
+        { "f3fora/cmp-spell", },        -- English spell
         { "kdheepak/cmp-latex-symbols", },
         -- "zbirenbaum/copilot-cmp",         -- "zbirenbaum/copilot.lua" is needed firstly
         -- "micangl/cmp-vimtex"
@@ -135,13 +135,13 @@ function M.config()
             ["<C-s>"]   = cmp.mapping.complete(), -- show completion suggestions
             ["<C-c>"]   = cmp.mapping.abort(),    -- close completion window
         }),
-        sources = cmp.config.sources({ -- sources for autocompletion
+        sources = cmp.config.sources({            -- sources for autocompletion
             -- TODO: Disable / Enable cmp sources only on certain buffers, and for certain filetypes
             { name = "nvim_lsp",      priority = 1000 },
-            { name = "buffer",        priority = 900 }, -- text within current buffer
-            { name = "path",          priority = 800 }, -- file system paths
-            { name = "luasnip",       priority = 700 }, -- snippets
-            { name = "latex_symbols", priority = 500 }, -- latex_symbols
+            { name = "buffer",        priority = 900 },    -- text within current buffer
+            { name = "path",          priority = 800 },    -- file system paths
+            { name = "luasnip",       priority = 700 },    -- snippets
+            { name = "latex_symbols", priority = 500 },    -- latex_symbols
             {
                 name = 'spell',
                 priority = 500,
