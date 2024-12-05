@@ -1,9 +1,13 @@
 local line_begin = require("luasnip.extras.expand_conditions").line_begin
 
+local ls = require("luasnip")
+-- Extend 'yaml' filetype snippets to 'text'
+ls.filetype_extend("text", { "yaml" })
+
 local snippets = {
     -- for CMakeLists.txt
     s(
-        { trig = "cmake" },
+        { trig = "cmake", dscr = "Snippets for CMakeLists.txt", wordTrig = true, },
         fmta(
             [[
             # This is for CMakeLists.txt
@@ -28,26 +32,14 @@ local snippets = {
             # Executable files:
             add_executable(<> ${SOURCES})
             ]],
-            { i(1, "ProjectName"), i(2, "VERSION 0.0.1"), i(3, "ExecutableName")}
-
-        ),
-        { condition = line_begin }
-    ),
-
-    -- for .clangd file to add the header files, otherwise the lsp throws "header files not found"
-    s(
-        { trig = "clangd" },
-        fmta(
-            [[
-            # This is for the .clangd file which is for LSP disgnostics
-            CompileFlags:
-                Add:
-                    # Add include directory to search path, relative path is supported
-                    [-I/path/to/headers, -Ianother/include/path]
-            ]]
+            { i(1, "ProjectName"), i(2, "VERSION 0.0.1"), i(3, "ExecutableName") }
         ),
         { condition = line_begin }
     ),
 }
 
-return snippets
+-- return snippets, DO NOT use return
+-- Here we need explicitly specify the snippets are TEXT snippets rather than TXT snippets. TXT is
+-- the folder name which is used for avoiding name conflics with TEX
+require("luasnip").add_snippets("text", snippets)
+
