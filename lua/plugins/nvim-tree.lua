@@ -59,16 +59,20 @@ return {
             local config = "~/.config/"
             local codes = "~/codes/"
             local docu = "~/Documents/"
-            vim.keymap.set("n", "gh", function () api.tree.change_root(home) end , opts("Go to Home Folder"))
-            vim.keymap.set("n", "gw", function () api.tree.change_root(works) end , opts("Go to Works Folder"))
-            vim.keymap.set("n", "gc", function () api.tree.change_root(config) end , opts("Go to .config Folder"))
-            vim.keymap.set("n", "gC", function () api.tree.change_root(codes) end , opts("Go to codes Folder"))
-            vim.keymap.set("n", "gd", function () api.tree.change_root(docu) end , opts("Go to Documents Folder"))
+            local notes = "~/notes/"
+            vim.keymap.set("n", "gh", function() api.tree.change_root(home) end, opts("Go to Home Folder"))
+            vim.keymap.set("n", "gw", function() api.tree.change_root(works) end, opts("Go to Works Folder"))
+            vim.keymap.set("n", "gc", function() api.tree.change_root(config) end, opts("Go to .config Folder"))
+            vim.keymap.set("n", "gC", function() api.tree.change_root(codes) end, opts("Go to codes Folder"))
+            vim.keymap.set("n", "gd", function() api.tree.change_root(docu) end, opts("Go to Documents Folder"))
+            vim.keymap.set("n", "gn", function() api.tree.change_root(notes) end, opts("Go to notes Folder"))
         end
 
         -------------------------- Nvim-Tree Setup Start From Here ---------------------------------
         -- Setup nvim-tree with custom on_attach
         nvimtree.setup({
+            sync_root_with_cwd = false, -- default is false
+
             view = {
                 width = 36,
                 relativenumber = true,
