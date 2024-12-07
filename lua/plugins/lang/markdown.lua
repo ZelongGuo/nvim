@@ -40,21 +40,30 @@ return {
     },
 
 
+    -- -- Markdown TOC, deprecated
+    -- {
+    --     'richardbizik/nvim-toc',
+    --     ft = { "markdown" },
+    --     config = function()
+    --         require("nvim-toc").setup({
+    --             toc_header = "Table of Contents"
+    --         })
+
+    --         -- Customized commad mappings
+    --         vim.api.nvim_create_user_command("GenerateTOC", "TOC", {})
+    --         vim.api.nvim_create_user_command("GenerateTOCList", "TOCList", {})
+    --     end
+    -- },
+
     -- Markdown TOC
     {
-        'richardbizik/nvim-toc',
+        "mzlogin/vim-markdown-toc",
         ft = { "markdown" },
         config = function()
-            require("nvim-toc").setup({
-                toc_header = "Table of Contents"
-            })
-
-            -- Customized commad mappings
-            vim.api.nvim_create_user_command("GenerateTOC", "TOC", {})
-            vim.api.nvim_create_user_command("GenerateTOCList", "TOCList", {})
+            vim.g.vmt_fence_text              = 'TOC'
+            vim.g.vmt_fence_closing_text      = 'TOC'
+            vim.g.vmt_cycle_list_item_markers = 1
         end
     },
-
-
 
 }
