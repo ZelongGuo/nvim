@@ -24,6 +24,7 @@ local snippets = {
     ),
 
     --------------------------------------- Others -------------------------------------------------
+    -- Colot text
     s(
         {
             trig = ",c",
@@ -50,11 +51,13 @@ local snippets = {
         })
     ),
 
+    -- Mark
     s(
         { trig = ",m", dscr = "mark", wordtrig = false, priority = 1000, snippetType = "autosnippet" },
         t("- [ ] ")
     ),
 
+    -- Insert a picture, choice nodes
     s(
         {
 
@@ -91,6 +94,7 @@ local snippets = {
         })
     ),
 
+    -- Insert a link
     s(
         { trig = ",a", dscr = "Link", wordtrig = false, priority = 1000, snippetType = "autosnippet" },
             fmta(
