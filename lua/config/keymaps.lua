@@ -72,9 +72,9 @@ local nmappings = {
     { mode = mode_n,   from = "tml",              to = ":+tabmove<CR>", },  -- move the tab page to the right
     { mode = mode_n,   from = "tmj",              to = ":-tabmove<CR>", },  -- move the tab page to the left
 
-    -- Placeholder <++>
-    { mode = mode_n,   from = "<leader><leader>", to = "<Esc>/<++><CR>:nohlsearch<CR>c4l" },
-    { mode = mode_i,   from = ",f",               to = "<Esc>/<++><CR>:nohlsearch<CR>c4l" },
+    -- -- Placeholder <++>
+    -- { mode = mode_n,   from = "<leader><leader>", to = "<Esc>/<++><CR>:nohlsearch<CR>c4l" },
+    -- { mode = mode_i,   from = ",f",               to = "<Esc>/<++><CR>:nohlsearch<CR>c4l" },
 
     -- Saving and Quit
     { mode = mode_n,   from = "s",                to = "<nop>" },
