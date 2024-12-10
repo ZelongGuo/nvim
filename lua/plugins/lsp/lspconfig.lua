@@ -76,11 +76,12 @@ function M.config()
         pyright = { filetypes = { 'python' }, },
         bashls = { filetypes = { 'sh' }, },
         marksman = { filetypes = { 'markdown', 'markdown.mdx' }, },
-        ltex = {
-            filetypes = { "bib", "gitcommit", "org", "plaintex",
-                "rst", "rnoweb", "tex", "pandoc", "quarto", "rmd",
-                "context", "xhtml", "mail" }, -- Exclude 'markdown, html and text'
-        },
+        -- ltex = {
+        --     filetypes = { "bib", "gitcommit", "org", "plaintex",
+        --         "rst", "rnoweb", "tex", "pandoc", "quarto", "rmd",
+        --         "context", "xhtml", "mail" }, -- Exclude 'markdown, html and text'
+        -- },
+        texlab = {},
         clangd = { filetypes = { 'c', 'cpp', 'objc', 'objcpp', 'cuda', 'proto' }, },
         html = { filetypes = { 'html', 'templ' }, },
         cssls = { filetypes = { 'css', 'scss', 'less' }, },
