@@ -24,16 +24,45 @@ local snippets = {
     ),
 
     --------------------------------------- Others -------------------------------------------------
+    -- Colot text, using choice nodes, now deprecated
+    -- s(
+    --     {
+    --         trig = ",c",
+    --         dscr = "Code Block or Color Text, choice nodes",
+    --         wordTrig = false,
+    --         priority = 1000,
+    --         snippetType = "autosnippet"
+    --     },
+    --     c(1, {
+    --         fmt(
+    --             [[
+    --                 ```<>
+    --                 <>
+    --                 ```
+    --                 ]],
+    --             { i(1), i(2) },
+    --             { delimiters = "<>" }
+    --         ),
+    --         fmta(
+    --             [[<font size="{}"  color="{}">{}</font>]],
+    --             { i(1, "3"), i(2, "red"), i(3) },
+    --             { delimiters = "{}" }
+    --         )
+    --     })
+    -- ),
+
     -- Colot text
     s(
-        {
-            trig = ",c",
-            dscr = "Code Block or Color Text, choice nodes",
-            wordTrig = false,
-            priority = 1000,
-            snippetType = "autosnippet"
-        },
-        c(1, {
+        { trig = ",c", dscr = "Color Text", snippetType = "autosnippet" },
+            fmta(
+                [[<font size="{}"  color="{}">{}</font>]],
+                { i(1, "3"), i(2, "red"), i(3) },
+                { delimiters = "{}" }
+            )
+    ),
+    -- Codes
+    s(
+        { trig = ",C", dscr = "Codes block", snippetType = "autosnippet" },
             fmt(
                 [[
                     ```<>
@@ -42,13 +71,7 @@ local snippets = {
                     ]],
                 { i(1), i(2) },
                 { delimiters = "<>" }
-            ),
-            fmta(
-                [[<font size="{}"  color="{}">{}</font>]],
-                { i(1, "3"), i(2, "red"), i(3) },
-                { delimiters = "{}" }
             )
-        })
     ),
 
     -- Mark
