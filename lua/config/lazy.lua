@@ -84,6 +84,7 @@ require("lazy").setup({
     require("plugins.editor.comment"),
     require("plugins.editor.neoscroll"),
     require("plugins.editor.rainbow-delimiter"),
+    require("plugins.editor.flash"),
 
     -- LANG
     -- { import = "plugins.lang" },
