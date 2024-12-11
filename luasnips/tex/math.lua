@@ -66,18 +66,51 @@ return {
     -- Equation
     s({ trig = "al", wordTrig = true, snippetType = "autosnippet" },
         fmta([[
-             \begin{equation}
-                \begin{aligned}
-                    <> \\
-                    <>
-                \end{aligned}
-             \end{equation}
-             ]], { i(1), i(2) }),{ condition = line_begin }
+             \begin{aligned}
+                 <>
+             \end{aligned}
+             ]], { d(1, get_visual) }),{ condition = line_begin }
     ),
 
     ----------------------------------------------------
-    --- TODO: Matrix
+    --- Matrix
     ----------------------------------------------------
+    s({ trig = "m(", wordTrig = true, snippetType = "autosnippet" },  -- require <amsmath>
+        fmta([[
+             \begin{pmatrix}
+                <> & <> \\
+                <>
+             \end{pmatrix}
+             ]], { i(1), i(2), i(3) }
+        )
+    ),
+    s({ trig = "m[", wordTrig = true, snippetType = "autosnippet" },  -- require <amsmath>
+        fmta([[
+             \begin{bmatrix}
+                <> & <> \\
+                <>
+             \end{bmatrix}
+             ]], { i(1), i(2), i(3) }
+        )
+    ),
+    s({ trig = "m{", wordTrig = true, snippetType = "autosnippet" },  -- require <amsmath>
+        fmta([[
+             \begin{Bmatrix}
+                <> & <> \\
+                <>
+             \end{Bmatrix}
+             ]], { i(1), i(2), i(3) }
+        )
+    ),
+    s({ trig = "m|", wordTrig = true, snippetType = "autosnippet" },  -- require <amsmath>
+        fmta([[
+             \begin{vmatrix}
+                <> & <> \\
+                <>
+             \end{vmatrix}
+             ]], { i(1), i(2), i(3) }
+        )
+    ),
 
     ----------------------------------------------------
     --- Operations
@@ -356,21 +389,21 @@ return {
     --     ),
     --     { condition = tex.in_mathzone }
     -- ),
-    s({ trig = "ex", wordTrig = true, snippetType = "autosnippet" },
+    s({ trig = "exp", wordTrig = true, snippetType = "autosnippet" },
         { t("e^{"), d(1, get_visual), t("}") }, { condition = tex.in_mathzone }),
     s({ trig = "ln", wordTrig = true, snippetType = "autosnippet" },
         { t("\\ln{"), d(1, get_visual), t("}") }, { condition = tex.in_mathzone }),
-    s({ trig = "ss", wordTrig = true, snippetType = "autosnippet" },
+    s({ trig = "sin", wordTrig = true, snippetType = "autosnippet" },
         { t("\\sin{"), d(1, get_visual), t("}") }, { condition = tex.in_mathzone }),
-    s({ trig = "cs", wordTrig = true, snippetType = "autosnippet" },
+    s({ trig = "cos", wordTrig = true, snippetType = "autosnippet" },
         { t("\\cos{"), d(1, get_visual), t("}") }, { condition = tex.in_mathzone }),
-    s({ trig = "tt", wordTrig = true, snippetType = "autosnippet" },
+    s({ trig = "tan", wordTrig = true, snippetType = "autosnippet" },
         { t("\\tan{"), d(1, get_visual), t("}") }, { condition = tex.in_mathzone }),
-    s({ trig = "TT", wordTrig = true, snippetType = "autosnippet" },
+    s({ trig = "cot", wordTrig = true, snippetType = "autosnippet" },
         { t("\\cot{"), d(1, get_visual), t("}") }, { condition = tex.in_mathzone }),
-    s({ trig = "SS", wordTrig = true, snippetType = "autosnippet" },
+    s({ trig = "sec", wordTrig = true, snippetType = "autosnippet" },
         { t("\\sec{"), d(1, get_visual), t("}") }, { condition = tex.in_mathzone }),
-    s({ trig = "CS", wordTrig = true, snippetType = "autosnippet" },
+    s({ trig = "csc", wordTrig = true, snippetType = "autosnippet" },
         { t("\\csc{"), d(1, get_visual), t("}") }, { condition = tex.in_mathzone }),
 
     ----------------------------------------------------
