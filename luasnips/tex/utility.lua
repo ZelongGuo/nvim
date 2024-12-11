@@ -30,7 +30,7 @@ return {
     ---------------------------------------------------------
     --- Headings, Sections
     s({ trig = "h0", wordTrig = true, snippetType = "autosnippet"}, -- Chapter, report and book only
-        fmta([[\section{<>}]], { d(1, get_visual) })),
+        fmta([[\chapter{<>}]], { d(1, get_visual) })),
     s({ trig = "h1", wordTrig = true, snippetType = "autosnippet"}, -- Section
         fmta([[\section{<>}]], { d(1, get_visual) })),
     s({ trig = "h2", wordTrig = true, snippetType = "autosnippet"}, -- SubSection
@@ -53,12 +53,14 @@ return {
         fmta("\\huge{<>}",  { d(1, get_visual) })),
     s({trig = ",t", dscr = "Typewriter text", snippetType = "autosnippet"}, -- Typewriter
         fmta("\\texttt{<>}",  { d(1, get_visual) })),
+    s({trig = ",T", dscr = "Typewriter text", snippetType = "autosnippet"}, -- Normal text in equation
+        fmta("\\textrm{<>}",  { d(1, get_visual) }), { condition = tex.in_mathzone} ),
     s({trig = ",i", dscr = "Italic text",     snippetType = "autosnippet"}, -- Italic
         fmta("\\textit{<>}",  { d(1, get_visual) })),
     s({ trig = ",b", dscr = "Bold text",      snippetType = "autosnippet"}, -- Bold
         fmta("\\textbf{<>}", { d(1, get_visual) })),
     s({ trig = ",c", dscr = "Color text",     snippetType = "autosnippet"}, -- Color text
-        fmta("\\textcolor{red!100}{<>}", { d(1, get_visual) })),
+        fmta("\\textcolor{<>!100}{<>}", { i(1, "red"), d(2, get_visual) })),
     s({ trig = ",d", dscr = "delete line", snippetType = "autosnippet"}, -- Delete, require <ulem>
         fmta("\\sout{<>}", { d(1, get_visual) })),
     s({ trig = ",u", dscr = "Under line", snippetType = "autosnippet"},  -- Underscore, require <ulem>
@@ -67,7 +69,7 @@ return {
         fmta("\\uwave{<>}", { d(1, get_visual) })),
     s({ trig = ",f", dscr = "Facecolor text", priority = 2000, snippetType = "autosnippet"}, -- Background text
         fmta("\\colorbox{green!30}{<>}", { d(1, get_visual) })),
-    s({ trig = ",B", dscr = "Box with color", priority = 2000, snippetType = "autosnippet"}, -- Color box 
+    s({ trig = ",B", dscr = "Box with color", priority = 2000, snippetType = "autosnippet"}, -- Color box, require <tcolorbox>
         fmta([[
              \begin{tcolorbox}[colback=red!5, colframe=red!70!black, title=<>]
                 <>
@@ -80,7 +82,7 @@ return {
     s({ trig = ",C", snippetType = "autosnippet" },     -- Code block, require <listings>
         fmta([[
              \begin{lstlisting}[language=<>]
-             <>
+                <>
              \end{lstlisting}
              ]], { i(1, "python"), i(2) })
     ),
@@ -104,11 +106,9 @@ return {
              \href{<>}{<>}
         ]], { i(1, "link"), i(2, "display name") })
     ),
-    ----------------------------------------------------
-    --- box text
 
     ---------------------------------------------------------
-    --- Refereces
+    --- Refereces, Item
     ---------------------------------------------------------
     s({ trig = ",r", snippetType = "autosnippet" },     -- Link, require <hyperref>
         fmta([[
@@ -116,6 +116,13 @@ return {
         ]], { i(1, "fig"), i(2, "label") })
     ),
 
+    s({ trig = ",I", snippetType = "autosnippet" },     -- Items, require <enumitem>
+        fmta([[
+             \begin{itemize}
+                 \item <>
+             \end{itemize}
+        ]], { d(1, get_visual)}), { condition = line_begin }
+    ),
 
     s({ trig = "tab" },     -- Table
         fmta([[
