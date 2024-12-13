@@ -89,7 +89,7 @@ require("lazy").setup({
     -- LANG
     -- { import = "plugins.lang" },
     require("plugins.lang.markdown"),
-    require("plugins.lang.tex"),
+    require("plugins.lang.vimtex"),
 
     -- LSP
     -- { import = "plugins.lsp" },

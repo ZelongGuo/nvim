@@ -10,7 +10,11 @@ return {
         vim.g.vimtex_quickfix_ignore_filters = {
             'Font shape',
             "badness 10000",
+            -- Chinese Fonts Support Warning, check font book for fonts available on you Mac
+            'Package fontspec Warning',
             -- 	"Package hyperref Warning",
+            -- 	Package xeCJK Warning: Redefining CJKfamily `\CJKrmdefault'
+            "Package xeCJK Warning",
         }
         -- vim.g.maplocalleader = ',' -- cannot declare here because the maplocalleader should be
         -- specified before lazy.nvim
