@@ -60,7 +60,7 @@ return {
     s({ trig = ",b", dscr = "Bold text",      snippetType = "autosnippet"}, -- Bold
         fmta("\\textbf{<>}", { d(1, get_visual) })),
     s({ trig = ",c", dscr = "Color text",     snippetType = "autosnippet"}, -- Color text
-        fmta("\\textcolor{<>!100}{<>}", { i(1, "red"), d(2, get_visual) })),
+        fmta("\\textcolor{<>!100}{<>}", { i(2, "red"), d(1, get_visual) })),
     s({ trig = ",d", dscr = "delete line", snippetType = "autosnippet"}, -- Delete, require <ulem>
         fmta("\\sout{<>}", { d(1, get_visual) })),
     s({ trig = ",u", dscr = "Under line", snippetType = "autosnippet"},  -- Underscore, require <ulem>
