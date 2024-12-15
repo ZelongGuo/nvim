@@ -202,7 +202,7 @@ return {
     s({ trig = "oi2", dscr = "∯", snippetType = "autosnippet" }, { t("\\oiint") },
       { condition = tex.in_mathzone }),
 
-    -- Basic Operations
+    -- Basic Operations and sysmbols
     s({ trig = "cd", dscr = "⋅", snippetType = "autosnippet" }, { t("\\cdot ") },
       { condition = tex.in_mathzone }),
     s({ trig = "xx", dscr = "×", snippetType = "autosnippet" }, { t("\\times ") },
@@ -214,6 +214,8 @@ return {
     s({ trig = "pt", dscr = "∝", snippetType = "autosnippet" }, { t("\\propto ") },
       { condition = tex.in_mathzone }),
     s({ trig = "la", dscr = "⟹", snippetType = "autosnippet" }, { t("\\implies ") },
+      { condition = tex.in_mathzone }),
+    s({ trig = "ci", dscr = "∘", snippetType = "autosnippet" }, { t("\\circ") },
       { condition = tex.in_mathzone }),
 
     -- Derivatives
