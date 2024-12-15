@@ -19,5 +19,9 @@ setlocal spelllang=en_us
 "setlocal spellfile+=~/books/practical_vim/jargon.utf-8.add
 
 " TODO: setting different folding strategy
-"
+" zM, zR, za, zm, zr
+setlocal foldenable
+setlocal foldmethod=marker
+setlocal foldmarker=\\begin{,\\end{
+
 
