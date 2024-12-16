@@ -7,7 +7,8 @@ local M = {
         { "hrsh7th/cmp-buffer" },       -- source for text in buffer
         { "hrsh7th/cmp-path" },         -- source for file system paths
         -- { "hrsh7th/cmp-cmdline" },      -- source for path
-        { 'L3MON4D3/LuaSnip',           dependencies = { "rafamadriz/friendly-snippets" } },
+        { 'L3MON4D3/LuaSnip', },
+        -- { 'L3MON4D3/LuaSnip',           dependencies = { "rafamadriz/friendly-snippets" } },
         { "saadparwaiz1/cmp_luasnip" }, -- for luasnip autocompletion
         { "onsails/lspkind.nvim", },    -- vs-code like pictograms/icons
         { "f3fora/cmp-spell", },        -- English spell
@@ -52,8 +53,8 @@ function M.config()
     local cmp = require("cmp")
     local ls = require("luasnip")
 
-    -- loads vscode style snippets from installed plugins (e.g. friendly-snippets)
-    require("luasnip.loaders.from_vscode").lazy_load()
+    -- -- loads vscode style snippets from installed plugins (e.g. friendly-snippets)
+    -- require("luasnip.loaders.from_vscode").lazy_load()
 
     cmp.setup({
 
