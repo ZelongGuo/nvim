@@ -7,6 +7,7 @@ return {
     init = function()
         vim.g.vimtex_view_method = "skim"
         -- vim.g.vimtex_mappings_enabled = 0
+        -- vim.g.vimtex_quickfix_open_on_warning = 0  -- 0 for not opening quickfix for warnings
         vim.g.vimtex_quickfix_ignore_filters = {
             'Font shape',
             "badness 10000",
@@ -18,5 +19,8 @@ return {
         }
         -- vim.g.maplocalleader = ',' -- cannot declare here because the maplocalleader should be
         -- specified before lazy.nvim
+        vim.g.vimtex_matchparen_enabled = 0 -- disable this option to speed vim up
+        vim.g.vimtex_syntax_enabled = 0
+        vim.g.vimtex_syntax_conceal_disable = 1
     end
 }
