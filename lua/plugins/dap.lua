@@ -11,6 +11,7 @@ end
 
 local M = {
     "mfussenegger/nvim-dap",
+    ft = {"c", "cpp", "python", "sh"},
     dependencies = {
         --     {
         --         "ravenxrz/DAPInstall.nvim",  -- TODO: this plugins may be not needed ... you can
@@ -31,7 +32,6 @@ local M = {
         },
         "nvim-telescope/telescope-dap.nvim",
     },
-
 }
 
 M.config = function()
