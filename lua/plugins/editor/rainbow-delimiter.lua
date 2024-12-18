@@ -13,8 +13,11 @@ M.init = function()
             vim = rainbow_delimiters.strategy['local'],
             -- Use local for HTML
             html = rainbow_delimiters.strategy['local'],
-            -- Pick the strategy for LaTeX dynamically based on the buffer size
             latex = function(bufnr)
+                return nil
+            end,
+            -- Pick the strategy for markdown dynamically based on the buffer size
+            markdown = function(bufnr)
                 -- Disabled for very large files, global strategy for large files,
                 -- local strategy otherwise
                 local line_count = vim.api.nvim_buf_line_count(bufnr)
