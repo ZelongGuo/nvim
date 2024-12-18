@@ -1,8 +1,7 @@
 return
 {
     "NvChad/nvim-colorizer.lua",
-    -- event = "VeryLazy",
-    event = "BufReadPost",
+    event = "VeryLazy",
 
     opts = {
         filetypes = { "*" },
