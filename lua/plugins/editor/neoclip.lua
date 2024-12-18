@@ -3,7 +3,8 @@
 local M = {
     "AckslD/nvim-neoclip.lua",
     -- event = "TextYankPost", -- should be preloaded before telescope
-    ft = {"markdown", "tex", "latex"},
+    -- ft = {"markdown", "tex", "latex"},  -- disable this otherwise tex filetype would take a lot
+    -- time in lazy profile
     keys = { "<leader>fy", "<CMD>Telescope neoclip<CR>", desc = "open neoclip within telescope" },
     dependencies = {
         {'kkharji/sqlite.lua', module = 'sqlite'},  -- for persistent history between sessions
