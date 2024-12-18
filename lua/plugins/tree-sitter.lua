@@ -10,6 +10,7 @@ return {
     -- priority = 1000,
     -- event = "UIEnter",
     event = "VeryLazy",
+    -- event = "BufReadPost",
     build = ":TSUpdate",
 
     config = function()
@@ -23,7 +24,7 @@ return {
                     "toml",
                     "html",
                     "css",
-                    "latex",
+                    -- "latex",
                     "fortran",
                     "c",
                     "cpp",
@@ -36,7 +37,7 @@ return {
                     "gitignore",
                 },
 
-                ignore_install = {},
+                ignore_install = { "latex" },
                 highlight = {
                     enable = true,
                     -- disable = {}, -- list of language that will be disabled
