@@ -37,10 +37,11 @@ vim.opt_local.shiftwidth = 4
 
 -- Recognize tex files as LaTeX
 vim.g.tex_flavor = "latex"
+-- vim.g.tex_fast=""
 
--- -- Spell check settings, disbale it baceuse the performance
--- vim.opt_local.spell = true
--- vim.opt_local.spelllang = "en_us"
+-- Spell check settings, disbale it baceuse the performance
+vim.opt_local.spell = true
+vim.opt_local.spelllang = "en_us"
 -- -- Uncomment and customize these lines if you have custom spell files
 -- -- vim.opt_local.spellfile = { "~/.vim/spell/en.utf-8.add" }
 -- -- vim.opt_local.spellfile:append("~/books/practical_vim/jargon.utf-8.add")
@@ -49,9 +50,9 @@ vim.g.tex_flavor = "latex"
 -- zM, zR, za, zm, zr
 -- Folding settings
 vim.opt_local.foldenable = true
-vim.opt_local.foldmethod = "manual"
--- vim.opt_local.foldmethod = "marker"
--- vim.opt_local.foldmarker = "\\begin{,\\end{"
+-- vim.opt_local.foldmethod = "manual"
+vim.opt_local.foldmethod = "marker"
+vim.opt_local.foldmarker = "\\begin{,\\end{"
 
 
 -- -- Create automatic cmd
