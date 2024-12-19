@@ -46,11 +46,13 @@ return {
     ----------------------------------------------------
     --- Fonts
     s({trig = ",l", dscr = "large text",      snippetType = "autosnippet"}, -- large
-        fmta("\\large{<>}", { d(1, get_visual) })),
+        fmta("{\\large{<>}}", { d(1, get_visual) })),
     s({trig = ",L", dscr = "Large text",      snippetType = "autosnippet"}, -- Large
-        fmta("\\Large{<>}", { d(1, get_visual) })),
+        fmta("{\\Large{<>}}", { d(1, get_visual) })),
     s({trig = ",h", dscr = "huge text",       snippetType = "autosnippet"}, -- huge
-        fmta("\\huge{<>}",  { d(1, get_visual) })),
+        fmta("{\\huge{<>}}",  { d(1, get_visual) })),
+    s({trig = ",H", dscr = "huge text",       snippetType = "autosnippet"}, -- Huge
+        fmta("{\\Huge{<>}}",  { d(1, get_visual) })),
     s({trig = ",t", dscr = "Typewriter text", snippetType = "autosnippet"}, -- Typewriter
         fmta("\\texttt{<>}",  { d(1, get_visual) })),
     s({trig = ",T", dscr = "Typewriter text", snippetType = "autosnippet"}, -- Normal text in equation
