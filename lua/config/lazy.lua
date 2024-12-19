@@ -106,6 +106,7 @@ require("lazy").setup({
     require("plugins.nvim-cmp"),
     require("plugins.luasnip"),
     require("plugins.dap"),
+    require("plugins.copilot"),
 
     -- Snippets
     -- require("plugins.snippets"), -- UltiSnips
