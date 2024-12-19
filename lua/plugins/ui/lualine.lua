@@ -12,6 +12,8 @@ end
 
 -- 󱇵   󰤲  󰨰       󱥪  󰧅  󱥫  󰧆  󱅥  󰧛
 
+
+-- TODO: Copilot lualine intergration?
 return {
     "nvim-lualine/lualine.nvim",
     -- event = "UiEnter",
