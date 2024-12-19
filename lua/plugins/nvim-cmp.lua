@@ -3,9 +3,9 @@ local M = {
     event = { "InsertEnter" },
     -- TODO: looking fomr more completion dependencies ...
     dependencies = {
-        { "hrsh7th/cmp-nvim-lsp" },     -- source for LSP
-        { "hrsh7th/cmp-buffer" },       -- source for text in buffer
-        { "hrsh7th/cmp-path" },         -- source for file system paths
+        { "hrsh7th/cmp-nvim-lsp" }, -- source for LSP
+        { "hrsh7th/cmp-buffer" },   -- source for text in buffer
+        { "hrsh7th/cmp-path" },     -- source for file system paths
         -- { "hrsh7th/cmp-cmdline" },      -- source for path
         { 'L3MON4D3/LuaSnip', },
         -- { 'L3MON4D3/LuaSnip',           dependencies = { "rafamadriz/friendly-snippets" } },
@@ -13,11 +13,17 @@ local M = {
         { "onsails/lspkind.nvim", },    -- vs-code like pictograms/icons
         { "f3fora/cmp-spell", },        -- English spell
         { "kdheepak/cmp-latex-symbols", },
-        -- "zbirenbaum/copilot-cmp",         -- "zbirenbaum/copilot.lua" is needed firstly
+        {
+            "zbirenbaum/copilot-cmp",   -- "zbirenbaum/copilot.lua" is needed firstly
+            config = function()
+                require("copilot_cmp").setup()
+            end
+        }
         -- "micangl/cmp-vimtex"
     },
 }
 
+-- Referenced luavim completion.lua
 function M.config()
     local kind_icons = {
         Class = "󰯙", -- 🅒  ∴ 󰯙  󱗾  󰊲  󰸴  󰸵  󰸷  󰸶  󰸸  󱪴 󱪵  󰽘    󱥌  󱗼  󱗿 󱗽 
@@ -45,7 +51,7 @@ function M.config()
         Unit = "()", -- 󰕤
         Value = "󰎠", --   󰎠
         Variable = "α", -- 󰀫 𝛼 α 𝓧  χ  𝛸   󰫧  󱄑  󱃻    󱀍  󰑱  󱌲  󱓉  󰒻  󱗖   ≔  󱃮
-        Copilot = "󰚩", --                       󰢚    󰜈  󰚩
+        Copilot = "", --                       󰢚    󰜈  󰚩  
     }
     --   󰥮 󰟍   󱍢     󰆚  󰅠        󱌱 󰹪      󰅩 󰉾 󰨮            󰂦  󰗊  
     -- other symbols that might be useful for something: -- ⊕ † ፨ ᯾ ⁂ ∎ ∹ ☖ ⚐ ⬠  ⬡   ⟡ ✐  ✎ ꒾꙳ ꥟ ⤙ ⤚ ⤛ ⤜
@@ -139,10 +145,11 @@ function M.config()
         sources = cmp.config.sources({            -- sources for autocompletion
             -- TODO: Disable / Enable cmp sources only on certain buffers, and for certain filetypes
             { name = "nvim_lsp",      priority = 1000 },
-            { name = "buffer",        priority = 900 },    -- text within current buffer
-            { name = "path",          priority = 800 },    -- file system paths
-            { name = "luasnip",       priority = 700 },    -- snippets
-            { name = "latex_symbols", priority = 500 },    -- latex_symbols
+            { name = "buffer",        priority = 900 }, -- text within current buffer
+            { name = "copilot",       priority = 850 }, -- Copilot
+            { name = "path",          priority = 800 }, -- file system paths
+            { name = "luasnip",       priority = 700 }, -- snippets
+            { name = "latex_symbols", priority = 500 }, -- latex_symbols
             {
                 name = 'spell',
                 priority = 500,
@@ -207,3 +214,24 @@ function M.config()
 end
 
 return M
+
+-- TODO:
+-- local function get_sources()
+--     local default_sources = {
+--         { name = "nvim_lsp", priority = 1000 },
+--         { name = "buffer", priority = 900 },
+--         { name = "copilot", priority = 850 },
+--         { name = "path", priority = 800 },
+--         { name = "luasnip", priority = 700 },
+--     }
+
+--     if vim.bo.filetype == "tex" then
+--         table.insert(default_sources, { name = "latex_symbols", priority = 500 })
+--     end
+
+--     return default_sources
+-- end
+
+-- cmp.setup({
+--     sources = cmp.config.sources(get_sources())
+-- })
