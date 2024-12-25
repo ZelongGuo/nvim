@@ -23,10 +23,11 @@ return {
     ----------------------------------------------------
     -- Math inline, after non-lower-case
     s({ trig = "([^%l])mm", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
-        fmta("<>$<>$",
+        fmta("<>$<>$<>",
             {
                 f(function(_, snip) return snip.captures[1] end),
                 d(1, get_visual),
+                i(2),
             }
         )
     ),
@@ -63,7 +64,7 @@ return {
             ),
         }), { condition = line_begin }
     ),
-    -- Equation
+    -- Equation aligned
     s({ trig = "al", wordTrig = true, snippetType = "autosnippet" },
         fmta([[
              \begin{aligned}
@@ -71,6 +72,27 @@ return {
              \end{aligned}
              ]], { d(1, get_visual) }),{ condition = line_begin }
     ),
+    -- Equation left {
+    s({ trig = "l{", wordTrig = true, snippetType = "autosnippet" },
+        fmta([[
+             \left\{
+             \begin{aligned}
+                 <>
+             \end{aligned}
+             \right.
+             ]], { d(1, get_visual) }),{ condition = line_begin }
+    ),
+    -- Equation right {
+    s({ trig = "r{", wordTrig = true, snippetType = "autosnippet" },
+        fmta([[
+             \left.
+             \begin{aligned}
+                 <>
+             \end{aligned}
+             \right\}
+             ]], { d(1, get_visual) }),{ condition = line_begin }
+    ),
+
 
     ----------------------------------------------------
     --- Matrix
