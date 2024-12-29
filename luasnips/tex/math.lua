@@ -279,12 +279,35 @@ return {
         ), { condition = tex.in_mathzone }
     ),
 
+    -- Partial Derivatives
     s({ trig = "([^%a])pd", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
         fmta(
             "<>\\frac{\\partial {<>}}{\\partial {<>}}",
             {
                 f(function(_, snip) return snip.captures[1] end),
                 i(1), i(2)
+            }
+        ), { condition = tex.in_mathzone }
+    ),
+
+    -- Partial Derivatives with higher order
+    s({ trig = "([^%a])p2", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
+        fmta(
+            "<>\\frac{\\partial^{2} {<>}}{\\partial {<>}^{2}}",
+            {
+                f(function(_, snip) return snip.captures[1] end),
+                i(1), i(2)
+            }
+        ), { condition = tex.in_mathzone }
+    ),
+
+    -- Partial Derivatives with higher order
+    s({ trig = "([^%a])p3", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
+        fmta(
+            "<>\\frac{\\partial^{2} {<>}}{\\partial {<>} \\partial {<>}}",
+            {
+                f(function(_, snip) return snip.captures[1] end),
+                i(1), i(2), i(3),
             }
         ), { condition = tex.in_mathzone }
     ),
