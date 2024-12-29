@@ -70,7 +70,7 @@ return {
              \begin{aligned}
                  <>
              \end{aligned}
-             ]], { d(1, get_visual) }),{ condition = line_begin }
+             ]], { d(1, get_visual) }), { condition = line_begin }
     ),
     -- Equation left {
     s({ trig = "l{", wordTrig = true, snippetType = "autosnippet" },
@@ -80,7 +80,7 @@ return {
                  <>
              \end{aligned}
              \right.
-             ]], { d(1, get_visual) }),{ condition = line_begin }
+             ]], { d(1, get_visual) }), { condition = line_begin }
     ),
     -- Equation right {
     s({ trig = "r{", wordTrig = true, snippetType = "autosnippet" },
@@ -90,14 +90,14 @@ return {
                  <>
              \end{aligned}
              \right\}
-             ]], { d(1, get_visual) }),{ condition = line_begin }
+             ]], { d(1, get_visual) }), { condition = line_begin }
     ),
 
 
     ----------------------------------------------------
     --- Matrix
     ----------------------------------------------------
-    s({ trig = "m(", wordTrig = true, snippetType = "autosnippet" },  -- require <amsmath>
+    s({ trig = "m(", wordTrig = true, snippetType = "autosnippet" }, -- require <amsmath>
         fmta([[
              \begin{pmatrix}
                 <> & <> \\
@@ -106,7 +106,7 @@ return {
              ]], { i(1), i(2), i(3) }
         )
     ),
-    s({ trig = "m[", wordTrig = true, snippetType = "autosnippet" },  -- require <amsmath>
+    s({ trig = "m[", wordTrig = true, snippetType = "autosnippet" }, -- require <amsmath>
         fmta([[
              \begin{bmatrix}
                 <> & <> \\
@@ -115,7 +115,7 @@ return {
              ]], { i(1), i(2), i(3) }
         )
     ),
-    s({ trig = "m{", wordTrig = true, snippetType = "autosnippet" },  -- require <amsmath>
+    s({ trig = "m{", wordTrig = true, snippetType = "autosnippet" }, -- require <amsmath>
         fmta([[
              \begin{Bmatrix}
                 <> & <> \\
@@ -124,7 +124,7 @@ return {
              ]], { i(1), i(2), i(3) }
         )
     ),
-    s({ trig = "m|", wordTrig = true, snippetType = "autosnippet" },  -- require <amsmath>
+    s({ trig = "m|", wordTrig = true, snippetType = "autosnippet" }, -- require <amsmath>
         fmta([[
              \begin{vmatrix}
                 <> & <> \\
@@ -139,7 +139,7 @@ return {
     ----------------------------------------------------
     -- & =
     s({ trig = "==", dscr = "&=", snippetType = "autosnippet" }, { t("&=") },
-      { condition = tex.in_mathzone }),
+        { condition = tex.in_mathzone }),
     -- Fraction
     s({ trig = "([^%a])fr", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
         fmta("<>\\frac{<>}{<>}",
@@ -214,47 +214,59 @@ return {
 
     -- Integral without limit
     s({ trig = "in1", dscr = "∫", snippetType = "autosnippet" }, { t("\\int") },
-      { condition = tex.in_mathzone }),
+        { condition = tex.in_mathzone }),
     s({ trig = "in2", dscr = "∬", snippetType = "autosnippet" }, { t("\\iint") },
-      { condition = tex.in_mathzone }),
+        { condition = tex.in_mathzone }),
     s({ trig = "in3", dscr = "∭", snippetType = "autosnippet" }, { t("\\iiint") },
-      { condition = tex.in_mathzone }),
+        { condition = tex.in_mathzone }),
     s({ trig = "oi1", dscr = "∮", snippetType = "autosnippet" }, { t("\\oint") },
-      { condition = tex.in_mathzone }),
+        { condition = tex.in_mathzone }),
     s({ trig = "oi2", dscr = "∯", snippetType = "autosnippet" }, { t("\\oiint") },
-      { condition = tex.in_mathzone }),
+        { condition = tex.in_mathzone }),
 
     -- Basic Operations and sysmbols
     s({ trig = "cd", dscr = "⋅", snippetType = "autosnippet" }, { t("\\cdot ") },
-      { condition = tex.in_mathzone }),
+        { condition = tex.in_mathzone }),
     s({ trig = "xx", dscr = "×", snippetType = "autosnippet" }, { t("\\times ") },
-      { condition = tex.in_mathzone }),
+        { condition = tex.in_mathzone }),
     s({ trig = "di", dscr = "÷", snippetType = "autosnippet" }, { t("\\div "), },
-      { condition = tex.in_mathzone }),
+        { condition = tex.in_mathzone }),
     s({ trig = "ap", dscr = "≈", snippetType = "autosnippet" }, { t("\\approx ") },
-      { condition = tex.in_mathzone }),
+        { condition = tex.in_mathzone }),
     s({ trig = "~=", dscr = "≈", snippetType = "autosnippet" }, { t("\\approx ") },
-      { condition = tex.in_mathzone }),
+        { condition = tex.in_mathzone }),
     s({ trig = "!=", dscr = "≠", snippetType = "autosnippet" }, { t("\\neq ") },
-      { condition = tex.in_mathzone }),
+        { condition = tex.in_mathzone }),
     s({ trig = "ne", dscr = "≠", snippetType = "autosnippet" }, { t("\\neq ") },
-      { condition = tex.in_mathzone }),
+        { condition = tex.in_mathzone }),
     s({ trig = "pt", dscr = "∝", snippetType = "autosnippet" }, { t("\\propto ") },
-      { condition = tex.in_mathzone }),
+        { condition = tex.in_mathzone }),
     s({ trig = "la", dscr = "⇐", snippetType = "autosnippet" }, { t("\\Leftarrow ") },
-      { condition = tex.in_mathzone }),
+        { condition = tex.in_mathzone }),
     s({ trig = "ra", dscr = "⇒", snippetType = "autosnippet" }, { t("\\Rightarrow ") },
-      { condition = tex.in_mathzone }),
+        { condition = tex.in_mathzone }),
     s({ trig = "ci", dscr = "∘", snippetType = "autosnippet" }, { t("\\circ") },
-      { condition = tex.in_mathzone }),
+        { condition = tex.in_mathzone }),
     s({ trig = "<=", dscr = "⩽", snippetType = "autosnippet" }, { t("\\leqslant ") },
-      { condition = tex.in_mathzone }),
+        { condition = tex.in_mathzone }),
     s({ trig = ">=", dscr = "⩾", snippetType = "autosnippet" }, { t("\\geqslant ") },
-      { condition = tex.in_mathzone }),
+        { condition = tex.in_mathzone }),
     s({ trig = "be", dscr = "∵", snippetType = "autosnippet" }, { t("\\because ") },
-      { condition = tex.in_mathzone }),
+        { condition = tex.in_mathzone }),
     s({ trig = "so", dscr = "∴", snippetType = "autosnippet" }, { t("\\therefore ") },
-      { condition = tex.in_mathzone }),
+        { condition = tex.in_mathzone }),
+
+    -- Absolute value
+    s({ trig = "([^%a])ab", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
+        fmta(
+            "<>\\abs{<>}",
+            {
+                f(function(_, snip) return snip.captures[1] end),
+                d(1, get_visual),
+            }
+        ),
+        { condition = tex.in_mathzone }
+    ),
 
     -- Derivatives
     s({ trig = "([^%a])dd", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
