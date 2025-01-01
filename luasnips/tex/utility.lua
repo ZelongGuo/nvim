@@ -71,14 +71,29 @@ return {
         fmta("\\uwave{<>}", { d(1, get_visual) })),
     s({ trig = ",f", dscr = "Facecolor text", priority = 2000, snippetType = "autosnippet"}, -- Background text
         fmta("\\colorbox{green!30}{<>}", { d(1, get_visual) })),
-    s({ trig = ",B", dscr = "Box with color", priority = 2000, snippetType = "autosnippet"}, -- Color box, require <tcolorbox>
-        fmta([[
-             \begin{tcolorbox}[colback=red!5, colframe=red!70!black, title=<>]
+    s( { trig = ",B", dscr = "Box with color", priority = 2000, snippetType = "autosnippet"}, -- Color box, require <tcolorbox>
+        fmta(
+            [[
+            \begin{tcolorbox}[colback=<>!5, colframe=<>!70!black, title=<>]
                 <>
-             \end{tcolorbox}
-             ]], { i(1, "Important Note"), d(2, get_visual) }
+            \end{tcolorbox}
+            ]],
+            {
+                i(1, "red"),
+                d(2,
+                    function(args)
+                        return sn(nil, {
+                          -- jump-indices are local to each snippetNode, so restart at 1.
+                          i(1, args[1])})
+                    end,
+                    { 1 }
+                ),
+                i(3, "Important Note"),
+                i(4)
+            }
         )
     ),
+
     ----------------------------------------------------
     --- Codes
     s({ trig = ",C", snippetType = "autosnippet" },     -- Code block, require <listings>
