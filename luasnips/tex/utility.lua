@@ -127,7 +127,7 @@ return {
     ---------------------------------------------------------
     --- Refereces, Item
     ---------------------------------------------------------
-    s({ trig = ",r", snippetType = "autosnippet" },     -- Link, require <hyperref>
+    s({ trig = ",r", snippetType = "autosnippet" },     -- Refereces, require <hyperref>
         fmta([[
              \ref{<>:<>}
         ]], { i(1, "fig"), i(2, "label") })
