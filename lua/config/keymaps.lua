@@ -104,21 +104,21 @@ vim.keymap.set("s", "i", "i", { noremap = true, silent = true })
 vim.keymap.set("s", "k", "k", { noremap = true, silent = true })  --- Still does not work yet ...
 vim.keymap.set("s", "j", "j", { noremap = true, silent = true })
 
--- Define a state machine to avoid time lag when left-right selection under visual mode because of
--- the <jk> combination key
-local visual_state = nil
+-- Define a state machine to avoid time lag when left-right selection under visual and normal modes
+-- because of the <jk> combination key
+local visual_normal_state = nil
 
-vim.keymap.set({ 'v' }, 'j', function()
-    visual_state = 'j'
+vim.keymap.set({ 'v', 'n' }, 'j', function()
+    visual_normal_state = 'j'
     vim.defer_fn(function()
-        visual_state = nil
+        visual_normal_state = nil
     end, 250)  -- k shold be pressed within 250 ms after j to eascape
     return 'h' -- Mapping j to h
 end, { expr = true, noremap = true, silent = true })
 
-vim.keymap.set({ 'v' }, 'k', function()
-    if visual_state == 'j' then
-        visual_state = nil
+vim.keymap.set({ 'v', 'n' }, 'k', function()
+    if visual_normal_state == 'j' then
+        visual_normal_state = nil
         return '<Esc>'
     end
     return 'j' -- Mapping k to j
