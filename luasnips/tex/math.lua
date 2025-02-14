@@ -320,7 +320,7 @@ return {
         fmta([[<>^{<>}]], { f(function(_, snip) return snip.captures[1] end), d(1, get_visual) }),
         { condition = tex.in_mathzone }),
 
-    -- Superscript shortcut, *"*
+    -- Superscript SHORTCUT, *"*
     s({ trig = '([%w%)%]%}])"([%w])', regTrig = true, wordTrig = false, snippetType = "autosnippet" },
         fmta("<>^{<>}",
             {
@@ -335,7 +335,7 @@ return {
         fmta([[<>_{<>}]], { f(function(_, snip) return snip.captures[1] end), d(1, get_visual) }),
         { condition = tex.in_mathzone }),
 
-    -- Subscript shortcut, :
+    -- Subscript SHORTCUT, :
     s({ trig = '([%w%)%]%}]):([%w])', regTrig = true, wordTrig = false, snippetType = "autosnippet" },
         fmta("<>_{<>}",
             {
