@@ -105,17 +105,35 @@ return {
     ),
     ----------------------------------------------------
     --- Pictures
-    s({ trig = ",p", snippetType = "autosnippet" },     -- Pictures, require <graphicx>
+    s({ trig = ",p", snippetType = "autosnippet" }, 
         fmta([[
-             \begin{figure}[htbp]
-                 \centering
-                 \includegraphics[width=<>\linewidth]{<>}
-                 \caption{<>}
-                 \label{fig:<>}
-             \end{figure}
-             ]], { i(1, "0.8"), i(2, "FigPath"), i(3), i(4) }
-        ), { condition = line_begin }
-    ),
+            \begin{figure}[htbp]
+                \centering
+                \includegraphics[width=<>\linewidth]{<>}
+                \caption{<>}
+                \label{fig:<>}
+            \end{figure}
+        ]],
+        {
+            i(1, "0.8"),
+            i(2, "FigPath"),
+            i(3),
+            f(function() return os.date("%Y%m%d_%H%M%S") end, {}) -- Current date and time as label
+        }
+    )),
+
+    -- s({ trig = ",p", snippetType = "autosnippet" },     -- Pictures, require <graphicx>
+    --     fmta([[
+    --          \begin{figure}[htbp]
+    --              \centering
+    --              \includegraphics[width=<>\linewidth]{<>}
+    --              \caption{<>}
+    --              \label{fig:<>}
+    --          \end{figure}
+    --          ]], { i(1, "0.8"), i(2, "FigPath"), i(3), i(4) }
+    --     ), { condition = line_begin }
+    -- ),
+
     ----------------------------------------------------
     --- Links
     s({ trig = ",a", snippetType = "autosnippet" },     -- Link, require <hyperref>

@@ -35,15 +35,18 @@ return {
     -- Math outline
     s({ trig = "MM", snippetType = "autosnippet" },
         c(1, {
-            -- With equation number
+            -- With equation number, the label is current data and time
             fmta(
                 [[
                 \begin{equation}
                     <>
-                    % \label{eq:}
+                    % \label{eq:<>}
                 \end{equation}
                 ]],
-                { i(1) }
+                {
+                    i(1),
+                    f(function() return os.date("%Y%m%d_%H%M%S") end, {})
+                }
             ),
             -- Without equation number
             fmta(
