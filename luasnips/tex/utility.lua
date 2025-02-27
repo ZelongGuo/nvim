@@ -47,8 +47,8 @@ return {
     --- Fonts
     s({trig = ",l", dscr = "large text",      snippetType = "autosnippet"}, -- large
         fmta("{\\large{<>}}", { d(1, get_visual) })),
-    s({trig = ",L", dscr = "Large text",      snippetType = "autosnippet"}, -- Large
-        fmta("{\\Large{<>}}", { d(1, get_visual) })),
+    -- s({trig = ",L", dscr = "Large text",      snippetType = "autosnippet"}, -- Large
+    --     fmta("{\\Large{<>}}", { d(1, get_visual) })),
     s({trig = ",h", dscr = "huge text",       snippetType = "autosnippet"}, -- huge
         fmta("{\\huge{<>}}",  { d(1, get_visual) })),
     s({trig = ",H", dscr = "huge text",       snippetType = "autosnippet"}, -- Huge
@@ -122,18 +122,6 @@ return {
         }
     )),
 
-    -- s({ trig = ",p", snippetType = "autosnippet" },     -- Pictures, require <graphicx>
-    --     fmta([[
-    --          \begin{figure}[htbp]
-    --              \centering
-    --              \includegraphics[width=<>\linewidth]{<>}
-    --              \caption{<>}
-    --              \label{fig:<>}
-    --          \end{figure}
-    --          ]], { i(1, "0.8"), i(2, "FigPath"), i(3), i(4) }
-    --     ), { condition = line_begin }
-    -- ),
-
     ----------------------------------------------------
     --- Links
     s({ trig = ",a", snippetType = "autosnippet" },     -- Link, require <hyperref>
@@ -143,12 +131,46 @@ return {
     ),
 
     ---------------------------------------------------------
-    --- Refereces, Item
+    --- Refereces, Lable, Cite, Item
     ---------------------------------------------------------
     s({ trig = ",r", snippetType = "autosnippet" },     -- Refereces, require <hyperref>
         fmta([[
              \ref{<>:<>}
         ]], { i(1, "fig"), i(2, "label") })
+    ),
+
+    -- Labels
+    s({trig = ",L", snippetType="autosnippet"},
+      fmta(
+        [[
+      \label{<>:<>}
+      ]], { i(1, "ch"), i(2, "label") } )
+    ),
+
+    -- Citations for paper, Cite
+    s({ trig = ",z", snippetType = "autosnippet" },
+        c(1, {
+            -- With equation number, the label is current data and time
+            fmta(
+                [[
+                \cite{<>}
+                ]],
+                { i(1, "paperinfo") }
+            ),
+            -- Without equation number
+            fmta(
+                [[
+                \cite[]{<>}
+                ]],
+                { i(1, "paperinfo") }
+            ),
+            fmta(
+                [[
+                \citep[e.g.,][]{<>}
+                ]],
+                { i(1, "paperlist") }
+            ),
+        })
     ),
 
     s({ trig = ",I", snippetType = "autosnippet" },     -- Items, require <enumitem>
