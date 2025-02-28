@@ -429,6 +429,73 @@ return {
         ), { condition = tex.in_mathzone }
     ),
 
+    ----------------------------------------------------
+    --- Math Fonts
+    ----------------------------------------------------
+    --- Normal text in math mode
+    -- REGULAR TEXT i.e. \text (in math environments)
+    s(
+        { trig = "([^%a])mt", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
+        fmta("<>\\text{<>}",
+            {
+                f(function(_, snip) return snip.captures[1] end),
+                d(1, get_visual),
+            }
+        ), { condition = tex.in_mathzone }
+    ),
+    -- MATH BOLDFACE i.e. \mathbf
+    s(
+        { trig = "([^%a])mb", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
+        fmta("<>\\mathbf{<>}",
+            {
+                f(function(_, snip) return snip.captures[1] end),
+                d(1, get_visual),
+            }
+        ), { condition = tex.in_mathzone }
+    ),
+    -- MATH ITALIC i.e. \mathit
+    s(
+        { trig = "([^%a])mi", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
+        fmta("<>\\mathbf{<>}",
+            {
+                f(function(_, snip) return snip.captures[1] end),
+                d(1, get_visual),
+            }
+        ), { condition = tex.in_mathzone }
+    ),
+    -- MATH SANS SERIF i.e. \mathsf
+    s(
+        { trig = "([^%a])ms", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
+        fmta("<>\\mathsf{<>}",
+            {
+                f(function(_, snip) return snip.captures[1] end),
+                d(1, get_visual),
+            }
+        ), { condition = tex.in_mathzone }
+    ),
+    ----------------------------------------------------
+    --- Only for CAPITAL letters
+    -- MATH BLACKBOARD i.e. \mathbb
+    s(
+        { trig = "([^%a])mB", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
+        fmta("<>\\mathbb{<>}",
+            {
+                f(function(_, snip) return snip.captures[1] end),
+                d(1, get_visual),
+            }
+        ), { condition = tex.in_mathzone }
+    ),
+    -- MATH CALIGRAPHY i.e. \mathcal
+    s(
+        { trig = "([^%a])mC", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
+        fmta("<>\\mathcal{<>}",
+            {
+                f(function(_, snip) return snip.captures[1] end),
+                d(1, get_visual),
+            }
+        ), { condition = tex.in_mathzone }
+    ),
+    ----------------------------------------------------
 
     -- -- J subscript shortcut (since jk triggers snippet jump forward)
     -- s({ trig = '([%a%)%]%}])JJ', wordTrig = false, regTrig = true, snippetType = "autosnippet" },
@@ -456,17 +523,6 @@ return {
     ----------------------------------------------------
     --- Functions used often
     ----------------------------------------------------
-    -- Exponentials subscript shortcut
-    -- s({ trig = '([^%a])ee', regTrig = true, wordTrig = false, snippetType = "autosnippet" },
-    --     fmta(
-    --         "<>e^{<>}",
-    --         {
-    --             f(function(_, snip) return snip.captures[1] end),
-    --             d(1, get_visual)
-    --         }
-    --     ),
-    --     { condition = tex.in_mathzone }
-    -- ),
     s({ trig = "exp", wordTrig = true, snippetType = "autosnippet" },
         { t("e^{"), d(1, get_visual), t("}") }, { condition = tex.in_mathzone }),
     s({ trig = "ln", wordTrig = true, snippetType = "autosnippet" },
