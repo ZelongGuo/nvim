@@ -21,6 +21,7 @@
 \RequirePackage{amssymb}                    % Mathmatical Symbols
 \RequirePackage{hyperref}                   % Hyperlink
 \RequirePackage{fancyhdr}                   % Page Header and Footer
+\RequirePackage{lipsum}                     % Random Text
 
 % -----------------------------------------------------------------------
 % Set fonts for English
