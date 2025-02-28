@@ -34,14 +34,14 @@
     { \setCJKmainfont{SimSun} } % option: SimSun, KaiTi, FangSong, LiSu, YouYuan, STFangsong, STKaiti, STSong, STXihei, STXingkai, STXinwei
 }
 
+% Setting Fonts Size and Line Spacing
+\renewcommand\normalsize{\fontsize{10pt}{15pt}\selectfont} % 11pt body text，16pt Line Spacing
+\setlength{\headheight}{15.0pt}  % Set the Head hight otherwise warnings thrown
+
 % -----------------------------------------------------------------------
 % Setting Page Layout
 \geometry{a4paper, scale=0.8}
 \pagestyle{fancy}
-% Setting Line and Paragraph Spacing
-\linespread{1.1} % 1.1 line Spacing 
-\setlength{\parskip}{1pt}   % Paragraph Spacing
-\setlength{\parindent}{2em} % Paragraph Indentation
 
 % -----------------------------------------------------------------------
 % Define Color
