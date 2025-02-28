@@ -72,9 +72,10 @@ return {
         -- Setup nvim-tree with custom on_attach
         nvimtree.setup({
             sync_root_with_cwd = false, -- default is false
+            respect_buf_cwd = true,     -- update cwd when open nvim in a new buffer, default is false
 
             view = {
-                width = 36,
+                width = 35,
                 relativenumber = true,
                 side = "left",
             },
