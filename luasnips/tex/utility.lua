@@ -107,7 +107,7 @@ return {
     ),
     s(
         { trig = ",f", dscr = "Facecolor text", priority = 2000, snippetType = "autosnippet" }, -- Background text
-        fmta("\\colorbox{green!30}{<>}", { d(1, get_visual) })
+        fmta("\\colorbox{<>!30}{<>}", { i(2, "green"), d(1, get_visual) })
     ),
     s(
         { trig = ",B", dscr = "Box with color", priority = 2000, snippetType = "autosnippet" }, -- Color box, require <tcolorbox>
