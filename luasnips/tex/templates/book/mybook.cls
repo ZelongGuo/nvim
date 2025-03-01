@@ -64,7 +64,8 @@
     keepspaces=true,
     numbers=left,  
     numbersep=5pt,
-    frame=single  
+    frame=single,
+    showstringspaces=false
 }
 \lstset{style=mystyle}
 
