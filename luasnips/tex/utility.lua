@@ -169,7 +169,7 @@ return {
         { trig = ",a", snippetType = "autosnippet" }, -- Link, require <hyperref>
         fmta([[
              \href{<>}{<>}
-        ]], { i(1, "link"), i(2, "display name") })
+        ]], { i(2, "link"), i(1, "display name") })
     ),
 
     ---------------------------------------------------------
