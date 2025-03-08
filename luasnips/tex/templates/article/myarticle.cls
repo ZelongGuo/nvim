@@ -70,6 +70,28 @@
 \lstset{style=mystyle}
 
 % -----------------------------------------------------------------------
+% Define Lua Language for Listings (Matching C/C++ Style)
+\lstdefinelanguage{lua}{
+  morekeywords={and,break,do,else,elseif,end,false,for,function,if,in,
+                local,nil,not,or,repeat,return,then,true,until,while},
+  sensitive=true,
+  morecomment=[l]{--},                  % Single-line comment: --
+  morecomment=[s]{--[[}{]]},            % Multi-line comment: --[[ ... ]]
+  morestring=[b]",                      % String with double quotes
+  morestring=[b]',                      % String with single quotes
+  keywordstyle=\color{blue!70},         % Keywords in blue
+  commentstyle=\color{red!50!green!50!blue!50},  % Comments in mixed red-green-blue
+  stringstyle=\color{codepurple},       % Strings in purple
+  basicstyle=\ttfamily\footnotesize,    % Monospace font for code
+  breaklines=true,                      % Enable line wrapping
+  keepspaces=true,                      % Preserve spaces
+  numbers=left,                         % Show line numbers on the left
+  numbersep=5pt,                        % Line number spacing
+  frame=single,                         % Add a frame around code blocks
+  showstringspaces=false                % Hide spaces in strings
+}
+
+% -----------------------------------------------------------------------
 % Set Itemize and Enumerate Style
 % dynamically adjusting with font size and type
 \setlist[itemize]{itemsep=0.5ex, parsep=0ex, topsep=0.8ex}
