@@ -116,7 +116,9 @@ M.config = function()
     --     end
     --     dap.continue()
     -- end, m)
-    vim.keymap.set("n", "<leader>dr", dap.continue, m)
+
+    -- Should start running with <leader>dr
+    vim.keymap.set("n", "<leader>dr", dap.continue, m)  -- "dr" in which "r" --> Run
     vim.keymap.set("n", "<leader>db", dap.toggle_breakpoint, m)
     vim.keymap.set("n", "<leader>ds", dap.step_over, m)
     vim.keymap.set("n", "<leader>dq", dap.terminate, m)
