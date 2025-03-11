@@ -220,11 +220,34 @@ return {
 
     s(
         { trig = ",I", snippetType = "autosnippet" }, -- Items, require <enumitem>
-        fmta([[
-             \begin{itemize}
-                 \item <>
-             \end{itemize}
-        ]], { d(1, get_visual) }), { condition = line_begin }
+        c(1, {
+            --- This is a choice node 
+            fmta([[
+            \begin{itemize}
+                \item <>
+                \item <>
+                \item <>
+            \end{itemize}
+            ]],
+            {
+                d(1, get_visual),
+                i(2),
+                i(3),
+            }
+            ), 
+            fmta([[
+            \begin{enumerate}
+                \item <>
+                \item <>
+                \item <>
+            \end{enumerate}
+            ]], 
+            {
+                d(1, get_visual),
+                i(2),
+                i(3),
+            }),
+        }),{ condition = line_begin}
     ),
 
     s(
