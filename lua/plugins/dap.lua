@@ -11,7 +11,7 @@ end
 
 local M = {
     "mfussenegger/nvim-dap",
-    ft = {"c", "cpp", "python", "sh"},
+    ft = { "c", "cpp", "python", "sh" },
     dependencies = {
         --     {
         --         "ravenxrz/DAPInstall.nvim",  -- TODO: this plugins may be not needed ... you can
@@ -118,7 +118,7 @@ M.config = function()
     -- end, m)
 
     -- Should start running with <leader>dr
-    vim.keymap.set("n", "<leader>dr", dap.continue, m)  -- "dr" in which "r" --> Run
+    vim.keymap.set("n", "<leader>dr", dap.continue, m) -- "dr" in which "r" --> Run
     vim.keymap.set("n", "<leader>db", dap.toggle_breakpoint, m)
     vim.keymap.set("n", "<leader>ds", dap.step_over, m)
     vim.keymap.set("n", "<leader>dq", dap.terminate, m)
@@ -149,8 +149,15 @@ M.config = function()
             --     return vim.fn.getcwd() .. '/' .. exe
             -- end,
             program = function()
-                return vim.fn.input('Your executable file: ', vim.fn.getcwd() .. '/', 'file')
+                -- Search .git dir as the project dir using finddir()
+                local project_root = vim.fn.finddir('.git/..', '.;')
+                    or vim.loop.cwd() -- or using the current working directory
+                    or vim.fn.getcwd() -- or using the current file's directory
+
+                -- Input example: Your executable file: build/your_executable_file
+                return vim.fn.input('Your executable file: ', project_root .. '/build/', 'file')
             end,
+
             cwd = '${workspaceFolder}',
             stopOnEntry = false,
         },
