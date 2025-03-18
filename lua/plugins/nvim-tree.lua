@@ -52,6 +52,10 @@ return {
             vim.keymap.set('n', 'dd', api.fs.cut, opts('Cut a file or folder'))
             vim.keymap.set('n', 'dD', api.fs.remove, opts('Delete a file or folder'))
             -- other mapping like creating files etc please see the help page ...
+            -- vim.keymap.set("n", "m", api.marks.toggle, opts("Toggle Bookmark, for selecting multi files"))
+            vim.keymap.set("n", "<SPACE><SPACE>", api.marks.toggle, opts("Toggle Bookmark, for selecting multi files"))
+            vim.keymap.set("n", "md", api.marks.bulk.move, opts("Move Bookmarked"))
+            vim.keymap.set("n", "mD", api.marks.bulk.delete, opts("Delete Bookmarked"))
 
             -- Some customized ranger-like jumping operations
             local home = "~"
