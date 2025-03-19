@@ -234,14 +234,14 @@ return {
                 i(2),
                 i(3),
             }
-            ), 
+            ),
             fmta([[
             \begin{enumerate}
                 \item <>
                 \item <>
                 \item <>
             \end{enumerate}
-            ]], 
+            ]],
             {
                 d(1, get_visual),
                 i(2),
@@ -265,7 +265,7 @@ return {
         )
     ),
     ---------------------------------------------------------
-    --- Quote
+    --- Quote, indent
     ---------------------------------------------------------
     s(
         { trig = ",q", snippetType = "autosnippet" },
@@ -276,6 +276,7 @@ return {
             \end{quote}
             ]], { d(1, get_visual) })
     ),
+    s({ trig = ",ni", snippetType = "autosnippet"  },  { t("\\noindent ") }),
 
     ----------------------------------------------------------------------------------------------------
 }
