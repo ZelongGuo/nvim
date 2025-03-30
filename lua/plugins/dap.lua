@@ -35,7 +35,7 @@ local M = {
 }
 
 M.config = function()
-    ----------------------------------------------------------------------------------------------------
+    -----------------------------------------------------------
     --- nvim-dap-virtual-text
     require("nvim-dap-virtual-text").setup {
         enabled = true,
@@ -52,7 +52,7 @@ M.config = function()
         virt_text_pos = 'eol',
     }
 
-    ----------------------------------------------------------------------------------------------------
+    -----------------------------------------------------------
     local dap = require("dap")
     local dapui = require("dapui")
     dapui.setup()
@@ -65,7 +65,7 @@ M.config = function()
     -- dap.listeners.before.event_terminated["dapui_config"] = dapui.close
     -- dap.listeners.before.event_exited["dapui_config"] = dapui.close
 
-    ----------------------------------------------------------------------------------------------------
+    -----------------------------------------------------------
     --- Customized Background Color
     local dap_breakpoint_color = {
         light = {
@@ -101,7 +101,7 @@ M.config = function()
     vim.fn.sign_define('DapStopped',
         { text = '', texthl = 'DapStopped', linehl = 'DapStopped', numhl = 'DapStopped' })
 
-    ----------------------------------------------------------------------------------------------------
+    -----------------------------------------------------------
     local m = { noremap = true }
     vim.keymap.set("n", "<leader>dw", require('dap.ui.widgets').hover, m)
     vim.keymap.set("n", "<leader>du", dapui.toggle, m)
@@ -127,6 +127,7 @@ M.config = function()
     -- vim.keymap.set('n', '<Leader>dR', dap.repl.open, m)
 
     ----------------------------------------------------------------------------------------------------
+    --- C, C++ Debugging
     --- ADAPTERS
     dap.adapters.codelldb = {
         type = 'server',
@@ -151,7 +152,7 @@ M.config = function()
             program = function()
                 -- Search .git dir as the project dir using finddir()
                 local project_root = vim.fn.finddir('.git/..', '.;')
-                    or vim.loop.cwd() -- or using the current working directory
+                    or vim.loop.cwd()  -- or using the current working directory
                     or vim.fn.getcwd() -- or using the current file's directory
 
                 -- Input example: Your executable file: build/your_executable_file
@@ -164,7 +165,93 @@ M.config = function()
     }
     dap.configurations.c = dap.configurations.cpp
 
-    --- TODO: Python Settings
+    -----------------------------------------------------------
+    --- Python
+    --- ADAPTERS, should get debugpy installed in current python environment firstly
+    local dap = require('dap')
+    dap.adapters.python = function(cb, config)
+        -- get_python_path() is a function that returns the path to the python executable you want to use for debugging
+        local function get_python_path()
+            local conda_prefix = os.getenv('CONDA_PREFIX')
+            if conda_prefix then
+                local conda_python = conda_prefix .. '/bin/python'
+                if vim.fn.executable(conda_python) == 1 then
+                    return conda_python
+                end
+            end
+            return '/usr/bin/python'
+        end
+
+        if config.request == 'attach' then
+            ---@diagnostic disable-next-line: undefined-field
+            local port = (config.connect or config).port
+            ---@diagnostic disable-next-line: undefined-field
+            local host = (config.connect or config).host or '127.0.0.1'
+            cb({
+                type = 'server',
+                port = assert(port, '`connect.port` is required for a python `attach` configuration'),
+                host = host,
+                options = {
+                    source_filetype = 'python',
+                },
+            })
+        else -- config.request == 'launch'
+            cb({
+                type = 'executable',
+                command = get_python_path(),
+                args = { '-m', 'debugpy.adapter' },
+                options = {
+                    source_filetype = 'python',
+                },
+            })
+        end
+    end
+
+    --- CONFIGURATIONS
+    local dap = require('dap')
+    dap.configurations.python = {
+        {
+            -- The first three options are required by nvim-dap
+            type = 'python', -- the type here established the link to the adapter definition: `dap.adapters.python`
+            request = 'launch',
+            name = "Launch file",
+
+            -- Options below are for debugpy, see https://github.com/microsoft/debugpy/wiki/Debug-configuration-settings for supported options
+
+            program = "${file}", -- This configuration will launch the current file if used.
+            pythonPath = function()
+                -- debugpy supports launching an application with a different interpreter then the one used to launch debugpy itself.
+                -- The code below looks for a `venv` or `.venv` folder in the current directly and uses the python within.
+                -- You could adapt this - to for example use the `VIRTUAL_ENV` environment variable.
+                local conda_prefix = os.getenv('CONDA_PREFIX')
+                if conda_prefix then
+                    local conda_python = conda_prefix .. '/bin/python'
+                    if vim.fn.executable(conda_python) == 1 then
+                        return conda_python
+                    end
+                else
+                    return '/usr/bin/python'
+                end
+            end,
+        },
+
+        -- if it's a remote file (like a vagrant ssh session)
+        {
+            type = 'python',
+            request = 'attach',
+            name = "Attach remote",
+            connect = {
+                port = 5678,
+                host = '127.0.0.1',
+            },
+            pathMappings = {
+                {
+                    localRoot = "${workspaceFolder}",
+                    remoteRoot = ".",
+                },
+            },
+        },
+    }
 end
 
 return M
