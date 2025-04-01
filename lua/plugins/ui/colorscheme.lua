@@ -156,11 +156,11 @@ local Everforest = {
     "neanias/everforest-nvim",
     keys = { '<leader>fc', '<CMD>Telescope colorscheme<CR>', desc = "for the first time load Materail when open telescope colorscheme" },
     version = false,
-    -- lazy = false,
-    -- priority = 1000,
+    lazy = false,
+    priority = 1000,
     config = function()
-        -- vim.opt.background = "light"  -- NOTE THE BACKGROUND ALSO MATTERS
-        -- vim.cmd("colorscheme everforest")
+        vim.opt.background = "dark"  -- NOTE THE BACKGROUND ALSO MATTERS
+        vim.cmd("colorscheme everforest")
         vim.keymap.set('n', '<leader>fc', ':Telescope colorscheme<CR>', { desc = "open telescope colorscheme for more times" })
     end,
 
@@ -288,10 +288,10 @@ local Github = {
 local Newpaper = {
     "yorik1984/newpaper.nvim",
     keys = { '<leader>fc', '<CMD>Telescope colorscheme<CR>', desc = "for the first time load Materail when open telescope colorscheme" },
-    lazy = false, -- make sure we load this during startup if it is your main colorscheme
-    priority = 1000, -- make sure to load this before all the other start plugins
+    --1 lazy = false, -- make sure we load this during startup if it is your main colorscheme
+    --1 priority = 1000, -- make sure to load this before all the other start plugins
     config = function()
-        vim.cmd(':NewpaperLight')
+        --1 vim.cmd(':NewpaperLight')
         -- vim.cmd(':NewpaperDark')
         vim.keymap.set('n', '<leader>fc', ':Telescope colorscheme<CR>', { desc = "open telescope colorscheme for more times" })
     end,
