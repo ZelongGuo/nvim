@@ -32,5 +32,6 @@ vim.bo.shiftwidth  = 4
 vim.keymap.set('', '<Leader>rr', function()
     vim.cmd('update')
     local cmd = "sh " .. vim.fn.expand('%')
-    vim.cmd('split | terminal ' .. cmd)
+    -- for terminal
+    vim.cmd('split | resize 18 | terminal ' .. cmd)
 end, { buffer = true })
