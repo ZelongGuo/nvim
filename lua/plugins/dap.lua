@@ -53,17 +53,56 @@ M.config = function()
     }
 
     -----------------------------------------------------------
+    --- DAP UI Setup
     local dap = require("dap")
     local dapui = require("dapui")
-    dapui.setup()
+    dapui.setup({
+        layouts = {
+            -- left side
+            {
+                elements = {
+                    { id = "scopes",      size = 0.70 },
+                    { id = "breakpoints", size = 0.10 },
+                    { id = "stacks",      size = 0.10 },
+                    { id = "watches",     size = 0.10 }
+                },
+                position = "left",
+                size = 40
+            },
+
+            -- bottom side
+            {
+                elements = {
+                    { id = "repl",    size = 0.5 },
+                    { id = "console", size = 0.5 }
+                },
+                position = "bottom",
+                size = 10
+            } },
+
+        controls = {
+            element = "repl",
+            enabled = true,
+            icons = {
+                disconnect = "",
+                pause = "",
+                play = "",
+                run_last = "",
+                step_back = "",
+                step_into = "",
+                step_out = "",
+                step_over = "",
+                terminate = ""
+            }
+        },
+
+    })
+
+    -- Open and close the UI automagically
     dap.listeners.before.attach.dapui_config = function() dapui.open() end
     dap.listeners.before.launch.dapui_config = function() dapui.open() end
     dap.listeners.before.event_terminated.dapui_config = function() dapui.close() end
     dap.listeners.before.event_exited.dapui_config = function() dapui.close() end
-
-    -- dap.listeners.after.event_initialized["dapui_config"] = dapui.open
-    -- dap.listeners.before.event_terminated["dapui_config"] = dapui.close
-    -- dap.listeners.before.event_exited["dapui_config"] = dapui.close
 
     -----------------------------------------------------------
     --- Customized Background Color
