@@ -102,11 +102,10 @@
 % Set Hyperlink Style
 \hypersetup{
     colorlinks=true,
-    linkcolor=blue,
+    linkcolor=blue,    % set \ref、\eqref etc
+    citecolor=black,   % set \cite
     filecolor=magenta,
-    urlcolor=cyan,
-    pdftitle={Elasticity Theory},
-    pdfpagemode=FullScreen,
+    urlcolor=cyan
 }
 
 % -----------------------------------------------------------------------
