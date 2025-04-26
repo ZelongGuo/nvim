@@ -95,7 +95,6 @@ M.config = function()
                 terminate = ""
             }
         },
-
     })
 
     -- Open and close the UI automagically
@@ -152,6 +151,31 @@ M.config = function()
     vim.keymap.set("n", "<leader>di", dap.step_into, m)
     vim.keymap.set("n", "<leader>do", dap.step_out, m)
     -- vim.keymap.set('n', '<Leader>dR', dap.repl.open, m)
+
+    -- Floating window for checking the variable
+    local function inspect_variable()
+        local variable_name = vim.fn.input("Variable name: ")
+        if variable_name == "" then return end
+
+        -- Check the debug session
+        if not dap.session() then
+            print("No active debug session")
+            return
+        end
+
+        -- Oupting the variable value by REPL
+        dap.repl.execute("print(format_matrix('" .. variable_name .. "'))")
+
+        -- Opening REPL floating window
+        vim.defer_fn(function()
+            dapui.float_element("repl", {
+                width = 80,
+                height = 20,
+                title = "Variable: " .. variable_name,
+            })
+        end, 100)
+    end
+    vim.keymap.set("n", "<leader>iv", inspect_variable, { noremap = true, silent = true })
 
     ----------------------------------------------------------------------------------------------------
     --- C, C++ Debugging
