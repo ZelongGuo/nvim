@@ -144,18 +144,6 @@ M.config = function()
     local m = { noremap = true }
     vim.keymap.set("n", "<leader>dw", require('dap.ui.widgets').hover, m)
     vim.keymap.set("n", "<leader>du", dapui.toggle, m)
-    -- vim.keymap.set("n", "<leader>dr", function()
-    --     compile()
-    --     dap.continue()
-    -- end, m)
-    -- vim.keymap.set("n", "<leader>dr", function()
-    --     local filetype = vim.bo.filetype
-    --     if filetype == "c" or filetype == "cpp" then
-    --         compile()
-    --     end
-    --     dap.continue()
-    -- end, m)
-
     -- Should start running with <leader>dr
     vim.keymap.set("n", "<leader>dr", dap.continue, m) -- "dr" in which "r" --> Run
     vim.keymap.set("n", "<leader>db", dap.toggle_breakpoint, m)
