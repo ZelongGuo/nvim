@@ -22,7 +22,7 @@
 \RequirePackage{hyperref}                   % Hyperlink
 \RequirePackage{fancyhdr}                   % Page Header and Footer
 \RequirePackage{lipsum}                     % Random Text
-\usepackage{natbib}                         % References
+\RequirePackage{natbib}                         % References
 
 % -----------------------------------------------------------------------
 % Set fonts for English
