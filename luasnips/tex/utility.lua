@@ -269,12 +269,27 @@ return {
     ---------------------------------------------------------
     s(
         { trig = ",q", snippetType = "autosnippet" },
-        fmta(
-            [[
-            \begin{quote}
-            <>
-            \end{quote}
-            ]], { d(1, get_visual) })
+        c(1, {
+            fmta(
+                [[
+                \textcolor{<>!100}{
+                    \rule[-1.5ex]{2pt}{4ex} % raise/offset, weight, height
+                    \hspace{0.5em}
+                    <>
+                }
+                \vspace{1ex}
+                ]],
+                { i(2, "gray"), d(1, get_visual) }
+            ),
+
+            fmta(
+                [[
+                \begin{quote}
+                <>
+                \end{quote}
+                ]], { d(1, get_visual) }
+            )
+        }),{ condition = line_begin}
     ),
     s({ trig = ",ni", snippetType = "autosnippet"  },  { t("\\noindent ") }),
 
