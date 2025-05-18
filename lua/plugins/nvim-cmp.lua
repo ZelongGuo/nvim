@@ -23,7 +23,7 @@ local M = {
     },
 }
 
--- Referenced luavim completion.lua
+-- Referenced luavim completion.lua (nerdfonts)
 function M.config()
     local kind_icons = {
         Class = "󰯙", -- 🅒  ∴ 󰯙  󱗾  󰊲  󰸴  󰸵  󰸷  󰸶  󰸸  󱪴 󱪵  󰽘    󱥌  󱗼  󱗿 󱗽 
