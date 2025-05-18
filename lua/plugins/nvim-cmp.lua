@@ -137,8 +137,10 @@ function M.config()
             ["<C-k>"]   = cmp.mapping.select_next_item(), -- next suggestion
             -- ["<C-j>"]   = function() end, -- Force disbale
             -- ["<C-l>"]   = function() end,
-            ["<C-u>"]   = cmp.mapping.scroll_docs(-4),
-            ["<C-d>"]   = cmp.mapping.scroll_docs(4),
+            ["<C-j>"]   = cmp.mapping.scroll_docs(-4),
+            ["<C-l>"]   = cmp.mapping.scroll_docs(4),
+            -- ["<C-u>"]   = cmp.mapping.scroll_docs(-4),
+            -- ["<C-d>"]   = cmp.mapping.scroll_docs(4),
             ["<C-s>"]   = cmp.mapping.complete(), -- show completion suggestions
             ["<C-c>"]   = cmp.mapping.abort(),    -- close completion window
         }),
