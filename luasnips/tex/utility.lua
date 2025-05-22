@@ -61,6 +61,14 @@ return {
         { trig = ",l", dscr = "large text", snippetType = "autosnippet" }, -- large
         fmta("{\\large{<>}}", { d(1, get_visual) })
     ),
+    s(
+        { trig = ",nt", dscr = "nerd font for symbols", snippetType = "autosnippet" }, -- nerdfont command in .cls
+        fmta("{\\nerdfont{<>}}", { d(1, get_visual) })
+    ),
+    s(
+        { trig = ",et", dscr = "apple emoji", snippetType = "autosnippet" }, -- emoji command in .cls 
+        fmta("{\\emojifont{<>}}", { d(1, get_visual) })
+    ),
     -- s(
     --     { trig = ",L", dscr = "Large text", snippetType = "autosnippet" },    -- Large
     --     fmta("{\\Large{<>}}", { d(1, get_visual) })

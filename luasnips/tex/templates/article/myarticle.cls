@@ -22,7 +22,7 @@
 \RequirePackage{hyperref}                   % Hyperlink
 \RequirePackage{fancyhdr}                   % Page Header and Footer
 \RequirePackage{lipsum}                     % Random Text
-\RequirePackage{natbib}                         % References
+\RequirePackage{natbib}                     % References
 
 % -----------------------------------------------------------------------
 % Set fonts for English
@@ -33,6 +33,14 @@
     \IfFontExistsTF{STKaiti}
     { \setCJKmainfont[BoldFont=STHeiti,ItalicFont=STKaiti]{STKaiti} }
     { \setCJKmainfont{SimSun} } % option: SimSun, KaiTi, FangSong, LiSu, YouYuan, STFangsong, STKaiti, STSong, STXihei, STXingkai, STXinwei
+}
+
+% Define a Nerd Fonts and emoji Command, using for Symbols
+\IfFontExistsTF{Hack Nerd Font}{
+    \newfontfamily\nerdfont{Hack Nerd Font}
+}
+\IfFontExistsTF{Apple Color Emoji}{
+    \newfontfamily\nerdfont{Apple Color Emoji}
 }
 
 % Setting Fonts Size and Line Spacing
