@@ -35,14 +35,10 @@
     { \setCJKmainfont{SimSun} } % option: SimSun, KaiTi, FangSong, LiSu, YouYuan, STFangsong, STKaiti, STSong, STXihei, STXingkai, STXinwei
 }
 
-% Define a Nerd Fonts and emoji Command, using for Symbols
+% Define a Nerd Fonts Command, using for Symbols
 \IfFontExistsTF{Hack Nerd Font}{
     \newfontfamily\nerdfont{Hack Nerd Font}
 }
-\IfFontExistsTF{Apple Color Emoji}{
-    \newfontfamily\nerdfont{Apple Color Emoji}
-}
-
 
 % Setting Fonts Size and Line Spacing
 \renewcommand\normalsize{\fontsize{10pt}{15pt}\selectfont} % 11pt body text，16pt Line Spacing
