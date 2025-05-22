@@ -1,16 +1,35 @@
--- Nvim colorschemes,which is already integrated with telescope
+-- Nvim colorschemes,which is already integrated with telescope, but telescope does not support 
+-- the following make_background_transparent function, that is this function will not work if you
+-- use telescope to swith different colorschemes
+
+local function make_background_transparent()
+    -- CLear all the background colors of the Highlight Group
+    local groups = {
+        "Normal", "NormalNC", "NormalFloat", "FloatBorder", "TelescopeNormal", "EndOfBuffer",
+        "TelescopeBorder", "NvimTreeNormal", "NvimTreePopup", "NvimTreeNormalNC", "VertSplit", 
+        "NvimTreeEndOfBuffer"
+    }
+
+    for _, group in ipairs(groups) do
+        vim.cmd("highlight " .. group .. " guibg=NONE ctermbg=NONE")
+    end
+end
+
+----------------------------------------------------------------------------------------------
+
 
 local Doomone = {
     --- Change the lazy, priority as well as the config items to change current theme
     "ZelongGuo/doom-one.nvim",
     branch = "dev",
     keys = { '<leader>fc', '<CMD>Telescope colorscheme<CR>', desc = "for the first time load when open telescope colorscheme" },
+
     -- lazy = false,                      -- disable lazy loading
     -- priority = 1000,                   -- high priority
 
     config = function()
-        --     vim.opt.background = "light",  -- note the background also matters
-        --     vim.cmd("colorscheme doom-one")
+        -- vim.opt.background = "light",  -- note the background also matters
+        -- vim.cmd("colorscheme doom-one")
         vim.keymap.set('n', '<leader>fc', ':Telescope colorscheme<CR>', { desc = "open telescope colorscheme for more times" })
 
         -- Initialize global variables for Doom-one before loading the plugin
@@ -44,6 +63,7 @@ local Doomone = {
         vim.g.doom_one_plugin_indent_blankline = true
         vim.g.doom_one_plugin_vim_illuminate = true
         vim.g.doom_one_plugin_lspsaga = false
+
     end,
 }
 
@@ -58,7 +78,8 @@ local Bluloco = {
     config = function()
         -- vim.opt.termguicolors = true
         -- vim.cmd('colorscheme bluloco')
-        vim.keymap.set('n', '<leader>fc', ':Telescope colorscheme<CR>', { desc = "open telescope colorscheme for more times" })
+        vim.keymap.set('n', '<leader>fc', ':Telescope colorscheme<CR>',
+            { desc = "open telescope colorscheme for more times" })
     end,
 
     opts = {
@@ -78,7 +99,8 @@ local Onenord = {
     -- priority = 1000,
     config = function()
         -- vim.cmd("colorscheme onenord")
-        vim.keymap.set('n', '<leader>fc', ':Telescope colorscheme<CR>', { desc = "open telescope colorscheme for more times" })
+        vim.keymap.set('n', '<leader>fc', ':Telescope colorscheme<CR>',
+            { desc = "open telescope colorscheme for more times" })
     end,
 
     opts = {             -- Now all are default options
@@ -113,7 +135,8 @@ local Nightfox = {
     config = function()
         -- vim.opt.background = "light"  -- note the background also matters
         -- vim.cmd("colorscheme nightfox") -- options: Nightfox, Dayfox, Dawnfox, Duskfox, Nordfox, Terafox, Carbonfox
-        vim.keymap.set('n', '<leader>fc', ':Telescope colorscheme<CR>', { desc = "open telescope colorscheme for more times" })
+        vim.keymap.set('n', '<leader>fc', ':Telescope colorscheme<CR>',
+            { desc = "open telescope colorscheme for more times" })
     end,
 
     opts = {
@@ -156,12 +179,15 @@ local Everforest = {
     "neanias/everforest-nvim",
     keys = { '<leader>fc', '<CMD>Telescope colorscheme<CR>', desc = "for the first time load Materail when open telescope colorscheme" },
     version = false,
+
     lazy = false,
     priority = 1000,
+
     config = function()
-        vim.opt.background = "dark"  -- NOTE THE BACKGROUND ALSO MATTERS
+        vim.opt.background = "dark" -- NOTE THE BACKGROUND ALSO MATTERS
         vim.cmd("colorscheme everforest")
         vim.keymap.set('n', '<leader>fc', ':Telescope colorscheme<CR>', { desc = "open telescope colorscheme for more times" })
+        make_background_transparent()
     end,
 
     opts = {
@@ -182,8 +208,7 @@ local Everforest = {
         show_eob = true,
         float_style = "bright",
         inlay_hints_background = "none",
-    }
-
+    },
 }
 
 ----------------------------------------------------------------------------------------------
@@ -196,7 +221,8 @@ local Material = {
         -- vim.opt.background = "light"  -- note the background also matters
         -- vim.cmd("colorscheme material")
         -- vim.g.material_style = "deep ocean"
-        vim.keymap.set('n', '<leader>fc', ':Telescope colorscheme<CR>', { desc = "open telescope colorscheme for more times" })
+        vim.keymap.set('n', '<leader>fc', ':Telescope colorscheme<CR>',
+            { desc = "open telescope colorscheme for more times" })
     end,
     dependencies = { "nvim-lualine/lualine.nvim" }, -- lua-line should be preloaded for material
 
@@ -279,7 +305,8 @@ local Github = {
     config = function()
         -- require('github-theme').setup({})
         -- vim.cmd('colorscheme github_dark')
-        vim.keymap.set('n', '<leader>fc', ':Telescope colorscheme<CR>', { desc = "open telescope colorscheme for more times" })
+        vim.keymap.set('n', '<leader>fc', ':Telescope colorscheme<CR>',
+            { desc = "open telescope colorscheme for more times" })
     end,
 }
 
@@ -293,11 +320,12 @@ local Newpaper = {
     config = function()
         --1 vim.cmd(':NewpaperLight')
         -- vim.cmd(':NewpaperDark')
-        vim.keymap.set('n', '<leader>fc', ':Telescope colorscheme<CR>', { desc = "open telescope colorscheme for more times" })
+        vim.keymap.set('n', '<leader>fc', ':Telescope colorscheme<CR>',
+            { desc = "open telescope colorscheme for more times" })
     end,
 
     opts = {
-        style = "light",  -- dark
+        style = "light", -- dark
     }
 }
 
