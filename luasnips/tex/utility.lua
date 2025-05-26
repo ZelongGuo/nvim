@@ -277,7 +277,7 @@ return {
             fmta(
                 [[
                 \textcolor{<>!100}{
-                    \rule[-1.5ex]{2pt}{4ex} % raise/offset, weight, height
+                    \rule[-1.0ex]{2pt}{3ex} % raise/offset, weight, height
                     \hspace{0.5em}
                     <>
                 }
