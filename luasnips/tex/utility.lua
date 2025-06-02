@@ -257,7 +257,8 @@ return {
     s(
         { trig = "tab" }, -- Table
         fmta([[
-             \begin{tabular}{<>}
+             % \begin{tabular}{ccc}
+             \begin{tabular}{p{4cm}p{5cm}p{5cm}}
              \hline
              <> & <> & <> \\
              \hline
@@ -265,7 +266,7 @@ return {
              \hline
              \end{tabular}
              ]],
-            { i(1, "ccc"), i(2, "Head"), i(3, "Head"), i(4, "Head"), i(5, "item"), i(6, "item"), i(7, "item") }
+            { i(1, "Head"), i(2, "Head"), i(3, "Head"), i(4, "item"), i(5, "item"), i(6, "item") }
         )
     ),
     ---------------------------------------------------------
