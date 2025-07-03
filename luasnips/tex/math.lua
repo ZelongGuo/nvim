@@ -18,9 +18,9 @@ tex.in_text = function() return not tex.in_mathzone() end
 -------------------------------------------------------
 
 return {
-    ----------------------------------------------------
+    ------------------------------------------------------------------------------------------------
     --- Math environment
-    ----------------------------------------------------
+    ------------------------------------------------------------------------------------------------
     -- Math inline, after non-lower-case
     s({ trig = "([^%l])mm", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
         fmta("<>$<>$<>",
@@ -97,9 +97,9 @@ return {
     ),
 
 
-    ----------------------------------------------------
+    ------------------------------------------------------------------------------------------------
     --- Matrix
-    ----------------------------------------------------
+    ------------------------------------------------------------------------------------------------
     s({ trig = "m(", wordTrig = true, snippetType = "autosnippet" }, -- require <amsmath>
         fmta([[
              \begin{pmatrix}
@@ -137,9 +137,9 @@ return {
         )
     ),
 
-    ----------------------------------------------------
-    --- Operations
-    ----------------------------------------------------
+    ------------------------------------------------------------------------------------------------
+    --- Operators
+    ------------------------------------------------------------------------------------------------
     -- & =
     s({ trig = "==", dscr = "&=", snippetType = "autosnippet" }, { t("&=") },
         { condition = tex.in_mathzone }),
@@ -175,6 +175,7 @@ return {
         ), { condition = tex.in_mathzone }
     ),
 
+    ---------------------- Sum Operations ----------------------
     -- Sum with lower limit
     s({ trig = "([^%a])Su", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
         fmta("<>\\sum_{<>}",
@@ -184,7 +185,6 @@ return {
             }
         ), { condition = tex.in_mathzone }
     ),
-
     -- Sum with upper and lower limit
     s({ trig = "([^%a])su", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
         fmta("<>\\sum_{<>}^{<>}",
@@ -196,6 +196,7 @@ return {
         ), { condition = tex.in_mathzone }
     ),
 
+    ---------------------- Integral Operations ----------------------
     -- Integral with upper and lower limit
     s({ trig = "([^%a])intt", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
         fmta("<>\\int_{<>}^{<>}",
@@ -227,50 +228,7 @@ return {
     s({ trig = "oi2", dscr = "∯", snippetType = "autosnippet" }, { t("\\oiint") },
         { condition = tex.in_mathzone }),
 
-    -- Basic Operations and sysmbols
-    s({ trig = "cd", dscr = "⋅", snippetType = "autosnippet" }, { t("\\cdot ") },
-        { condition = tex.in_mathzone }),
-    s({ trig = "xx", dscr = "×", snippetType = "autosnippet" }, { t("\\times ") },
-        { condition = tex.in_mathzone }),
-    s({ trig = "di", dscr = "÷", snippetType = "autosnippet" }, { t("\\div "), },
-        { condition = tex.in_mathzone }),
-    s({ trig = "ap", dscr = "≈", snippetType = "autosnippet" }, { t("\\approx ") },
-        { condition = tex.in_mathzone }),
-    s({ trig = "~=", dscr = "≈", snippetType = "autosnippet" }, { t("\\approx ") },
-        { condition = tex.in_mathzone }),
-    s({ trig = "!=", dscr = "≠", snippetType = "autosnippet" }, { t("\\neq ") },
-        { condition = tex.in_mathzone }),
-    s({ trig = "ne", dscr = "≠", snippetType = "autosnippet" }, { t("\\neq ") },
-        { condition = tex.in_mathzone }),
-    s({ trig = "pt", dscr = "∝", snippetType = "autosnippet" }, { t("\\propto ") },
-        { condition = tex.in_mathzone }),
-    s({ trig = "la", dscr = "⇐", snippetType = "autosnippet" }, { t("\\Leftarrow ") },
-        { condition = tex.in_mathzone }),
-    s({ trig = "ra", dscr = "⇒", snippetType = "autosnippet" }, { t("\\Rightarrow ") },
-        { condition = tex.in_mathzone }),
-    s({ trig = "ci", dscr = "∘", snippetType = "autosnippet" }, { t("\\circ") },
-        { condition = tex.in_mathzone }),
-    s({ trig = "<=", dscr = "⩽", snippetType = "autosnippet" }, { t("\\leqslant ") },
-        { condition = tex.in_mathzone }),
-    s({ trig = ">=", dscr = "⩾", snippetType = "autosnippet" }, { t("\\geqslant ") },
-        { condition = tex.in_mathzone }),
-    s({ trig = "be", dscr = "∵", snippetType = "autosnippet" }, { t("\\because ") },
-        { condition = tex.in_mathzone }),
-    s({ trig = "so", dscr = "∴", snippetType = "autosnippet" }, { t("\\therefore ") },
-        { condition = tex.in_mathzone }),
-
-    -- Absolute value
-    s({ trig = "([^%a])ab", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
-        fmta(
-            "<>\\abs{<>}",
-            {
-                f(function(_, snip) return snip.captures[1] end),
-                d(1, get_visual),
-            }
-        ),
-        { condition = tex.in_mathzone }
-    ),
-
+    ---------------------- Derivatives Operations ----------------------
     -- Derivatives
     s({ trig = "([^%a])dd", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
         fmta(
@@ -315,9 +273,71 @@ return {
         ), { condition = tex.in_mathzone }
     ),
 
-    ----------------------------------------------------
+    ---------------------- Limit Operations ----------------------
+    s({ trig = "([^%a])li", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
+        fmta(
+            "<>\\lim_{<> \\to <>}", -- note it looks differently under text and display modes
+            {
+                f(function(_, snip) return snip.captures[1] end),
+                i(1, "x"),
+                i(2, "\\pm \\infty")
+            }
+        ), { condition = tex.in_mathzone }
+    ),
+
+
+    -------------------------------------------------------------------
+
+    -- Basic Operations and sysmbols
+    s({ trig = "cd", dscr = "⋅", snippetType = "autosnippet" }, { t("\\cdot ") },
+        { condition = tex.in_mathzone }),
+    s({ trig = "xx", dscr = "×", snippetType = "autosnippet" }, { t("\\times ") },
+        { condition = tex.in_mathzone }),
+    s({ trig = "di", dscr = "÷", snippetType = "autosnippet" }, { t("\\div "), },
+        { condition = tex.in_mathzone }),
+    s({ trig = "ap", dscr = "≈", snippetType = "autosnippet" }, { t("\\approx ") },
+        { condition = tex.in_mathzone }),
+    s({ trig = "~=", dscr = "≈", snippetType = "autosnippet" }, { t("\\approx ") },
+        { condition = tex.in_mathzone }),
+    s({ trig = "!=", dscr = "≠", snippetType = "autosnippet" }, { t("\\neq ") },
+        { condition = tex.in_mathzone }),
+    s({ trig = "ne", dscr = "≠", snippetType = "autosnippet" }, { t("\\neq ") },
+        { condition = tex.in_mathzone }),
+    s({ trig = "+-", dscr = "±", snippetType = "autosnippet" }, { t("\\pm ") },
+        { condition = tex.in_mathzone }),
+    s({ trig = "pt", dscr = "∝", snippetType = "autosnippet" }, { t("\\propto ") },
+        { condition = tex.in_mathzone }),
+    s({ trig = "la", dscr = "⇐", snippetType = "autosnippet" }, { t("\\Leftarrow ") },
+        { condition = tex.in_mathzone }),
+    s({ trig = "ra", dscr = "⇒", snippetType = "autosnippet" }, { t("\\Rightarrow ") },
+        { condition = tex.in_mathzone }),
+    s({ trig = "ci", dscr = "∘", snippetType = "autosnippet" }, { t("\\circ") },
+        { condition = tex.in_mathzone }),
+    s({ trig = "<=", dscr = "⩽", snippetType = "autosnippet" }, { t("\\leqslant ") },
+        { condition = tex.in_mathzone }),
+    s({ trig = ">=", dscr = "⩾", snippetType = "autosnippet" }, { t("\\geqslant ") },
+        { condition = tex.in_mathzone }),
+    s({ trig = "be", dscr = "∵", snippetType = "autosnippet" }, { t("\\because ") },
+        { condition = tex.in_mathzone }),
+    s({ trig = "so", dscr = "∴", snippetType = "autosnippet" }, { t("\\therefore ") },
+        { condition = tex.in_mathzone }),
+
+    -- Absolute value
+    s({ trig = "([^%a])ab", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
+        fmta(
+            "<>\\abs{<>}",
+            {
+                f(function(_, snip) return snip.captures[1] end),
+                d(1, get_visual),
+            }
+        ),
+        { condition = tex.in_mathzone }
+    ),
+
+
+    ------------------------------------------------------------------------------------------------
     --- Superscript, subscript and related stuff
-    ----------------------------------------------------
+    ------------------------------------------------------------------------------------------------
     -- Superscript, '
     s({ trig = "([%w%)%]%}])'", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
         fmta([[<>^{<>}]], { f(function(_, snip) return snip.captures[1] end), d(1, get_visual) }),
@@ -360,9 +380,9 @@ return {
         { condition = tex.in_mathzone }
     ),
 
-    ----------------------------------------------------
+    ------------------------------------------------------------------------------------------------
     --- Specitial superscript, subscript
-    ----------------------------------------------------
+    ------------------------------------------------------------------------------------------------
     -- Zero subscript shortcut
     s({ trig = '([%a%)%]%}])00', regTrig = true, wordTrig = false, snippetType = "autosnippet" },
         fmta("<>_{<>}",
@@ -429,9 +449,9 @@ return {
         ), { condition = tex.in_mathzone }
     ),
 
-    ----------------------------------------------------
+    ------------------------------------------------------------------------------------------------
     --- Math Fonts
-    ----------------------------------------------------
+    ------------------------------------------------------------------------------------------------
     --- Normal text in math mode
     -- REGULAR TEXT i.e. \text (in math environments)
     s(
@@ -520,9 +540,9 @@ return {
     --     { condition = tex.in_mathzone }
     -- ),
 
-    ----------------------------------------------------
+    ------------------------------------------------------------------------------------------------
     --- Functions used often
-    ----------------------------------------------------
+    ------------------------------------------------------------------------------------------------
     s({ trig = "exp", wordTrig = true, snippetType = "autosnippet" },
         { t("e^{"), d(1, get_visual), t("}") }, { condition = tex.in_mathzone }),
     s({ trig = "ln", wordTrig = true, snippetType = "autosnippet" },
@@ -540,9 +560,9 @@ return {
     s({ trig = "csc", wordTrig = true, snippetType = "autosnippet" },
         { t("\\csc{"), d(1, get_visual), t("}") }, { condition = tex.in_mathzone }),
 
-    ----------------------------------------------------
+    ------------------------------------------------------------------------------------------------
     --- Other stuff
-    ----------------------------------------------------
+    ------------------------------------------------------------------------------------------------
     -- Boxed command
     s({ trig = "([^%a])bo", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
         fmta("<>\\boxed{<>}",
