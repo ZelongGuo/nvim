@@ -85,6 +85,7 @@ function M.config()
         clangd = { filetypes = { 'c', 'cpp', 'objc', 'objcpp', 'cuda', 'proto' }, },
         html = { filetypes = { 'html', 'templ' }, },
         cssls = { filetypes = { 'css', 'scss', 'less' }, },
+        ts_ls = { filetypes = { 'js', 'jsx', 'ts', 'tsx', 'mjs', 'cjs' }, }, -- javascript and typesript
     }
 
     local on_attach = function(_, bufnr)
