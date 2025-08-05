@@ -240,6 +240,16 @@ return {
         ), { condition = tex.in_mathzone }
     ),
 
+    s({ trig = "([^%a])d2", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
+        fmta(
+            "<>\\frac{\\mathrm{d}^{2} {<>}}{\\mathrm{d} {<>^{2}}}",
+            {
+                f(function(_, snip) return snip.captures[1] end),
+                i(1), i(2)
+            }
+        ), { condition = tex.in_mathzone }
+    ),
+
     -- Partial Derivatives
     s({ trig = "([^%a])pd", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
         fmta(
