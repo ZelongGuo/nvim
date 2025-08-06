@@ -507,6 +507,16 @@ return {
             }
         ), { condition = tex.in_mathzone }
     ),
+    -- MATH UPRIGHT i.e. \mathrm, for elements like dx, dy ect. 
+    s(
+        { trig = "([^%a])mr", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
+        fmta("<>\\mathrm{<>}",
+            {
+                f(function(_, snip) return snip.captures[1] end),
+                d(1, get_visual),
+            }
+        ), { condition = tex.in_mathzone }
+    ),
     -- MATH SANS SERIF i.e. \mathsf
     s(
         { trig = "([^%a])ms", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
