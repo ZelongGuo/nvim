@@ -358,6 +358,18 @@ return {
         { condition = tex.in_mathzone }
     ),
 
+    -- Cancle Line for equation derivation, require cancle package
+    s({ trig = "([^%a])ca", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
+        fmta(
+            "<>\\cancel{<>}",
+            {
+                f(function(_, snip) return snip.captures[1] end),
+                d(1, get_visual),
+            }
+        ),
+        { condition = tex.in_mathzone }
+    ),
+
 
     ------------------------------------------------------------------------------------------------
     --- Superscript, subscript and related stuff
