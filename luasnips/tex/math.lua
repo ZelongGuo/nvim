@@ -96,6 +96,15 @@ return {
              ]], { d(1, get_visual) }), { condition = line_begin }
     ),
 
+    -- Boxed environment
+    s({ trig = "([^%a])bo", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
+        fmta("<>\\boxed{<>}",
+            {
+                f(function(_, snip) return snip.captures[1] end),
+                d(1, get_visual)
+            }
+        ), { condition = tex.in_mathzone }
+    ),
 
     ------------------------------------------------------------------------------------------------
     --- Matrix
@@ -225,13 +234,13 @@ return {
     s({ trig = "in1", dscr = "∫", wordTrig = true, snippetType = "autosnippet" },
         fmta([[\int <> \,\mathrm{d}<>]], { i(1), i(2, "x")}), { condition = tex.in_mathzone }),
     s({ trig = "in2", dscr = "∬", wordTrig = true, snippetType = "autosnippet" },
-        fmta([[\iint <> \,\mathrm{d}<>]], { i(1), i(2, "x")}), { condition = tex.in_mathzone }),
+        fmta([[\iint <> \,\mathrm{d}<> \,\mathrm{d}<>]], { i(1), i(2, "x"), i(3, "y")}), { condition = tex.in_mathzone }),
     s({ trig = "in3", dscr = "∭", wordTrig = true, snippetType = "autosnippet" },
-        fmta([[\iiint <> \,\mathrm{d}<>]], { i(1), i(2, "x")}), { condition = tex.in_mathzone }),
+        fmta([[\iiint <> \,\mathrm{d}<> \,\mathrm{d}<> \,\mathrm{d}<>]], { i(1), i(2, "x"), i(3, "y"), i(4, "z")}), { condition = tex.in_mathzone }),
     s({ trig = "in0", dscr = "∮", wordTrig = true, snippetType = "autosnippet" },
         fmta([[\oint <> \,\mathrm{d}<>]], { i(1), i(2, "x")}), { condition = tex.in_mathzone }),
     s({ trig = "in9", dscr = "∯", wordTrig = true, snippetType = "autosnippet" },   -- require esint
-        fmta([[\oiint <> \,\mathrm{d}<>]], { i(1), i(2, "x")}), { condition = tex.in_mathzone }),
+        fmta([[\oiint <> \,\mathrm{d}<> \,\mathrm{d}<>]], { i(1), i(2, "x"), i(3, "y")}), { condition = tex.in_mathzone }),
 
     ---------------------- Derivatives Operations ----------------------
     -- Derivatives
@@ -578,15 +587,6 @@ return {
     ------------------------------------------------------------------------------------------------
     --- Other stuff
     ------------------------------------------------------------------------------------------------
-    -- Boxed command
-    s({ trig = "([^%a])bo", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
-        fmta("<>\\boxed{<>}",
-            {
-                f(function(_, snip) return snip.captures[1] end),
-                d(1, get_visual)
-            }
-        ), { condition = tex.in_mathzone }
-    ),
 
     -- -- Default unit vector with subscript, i.e. \unitvector_{}
     -- s({ trig = "([^%a])ue", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
