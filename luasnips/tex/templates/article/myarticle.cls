@@ -19,6 +19,7 @@
 \RequirePackage{graphicx}                   % Figures
 \RequirePackage{amsmath}                    % Mathmatical Formular
 \RequirePackage{esint}                      % Mathmatical Formular
+\RequirePackage{cancel}                     % Cancle Line for Mathmatical Formular 
 \RequirePackage{amssymb}                    % Mathmatical Symbols
 \RequirePackage{hyperref}                   % Hyperlink
 \RequirePackage{fancyhdr}                   % Page Header and Footer
