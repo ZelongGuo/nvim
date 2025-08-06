@@ -199,34 +199,39 @@ return {
     ---------------------- Integral Operations ----------------------
     -- Integral with upper and lower limit
     s({ trig = "([^%a])intt", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
-        fmta("<>\\int_{<>}^{<>}",
+        fmta("<>\\int_{<>}^{<>} <> \\,\\mathrm{d}<>",
             {
                 f(function(_, snip) return snip.captures[1] end),
                 i(1),
                 i(2),
+                i(3),
+                i(4, "x"),
             }
         ), { condition = tex.in_mathzone }
     ),
     -- Integral from positive to negative infinity
     s({ trig = "([^%a])intf", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
-        fmta("<>\\int_{\\infty}^{\\infty}",
+        fmta("<>\\int_{\\infty}^{\\infty} <> \\,\\mathrm{d}<>",
             {
                 f(function(_, snip) return snip.captures[1] end),
+                i(1),
+                i(2, "x"),
             }
         ), { condition = tex.in_mathzone }
     ),
 
     -- Integral without limit
-    s({ trig = "in1", dscr = "∫", snippetType = "autosnippet" }, { t("\\int") },
-        { condition = tex.in_mathzone }),
-    s({ trig = "in2", dscr = "∬", snippetType = "autosnippet" }, { t("\\iint") },
-        { condition = tex.in_mathzone }),
-    s({ trig = "in3", dscr = "∭", snippetType = "autosnippet" }, { t("\\iiint") },
-        { condition = tex.in_mathzone }),
-    s({ trig = "oi1", dscr = "∮", snippetType = "autosnippet" }, { t("\\oint") },
-        { condition = tex.in_mathzone }),
-    s({ trig = "oi2", dscr = "∯", snippetType = "autosnippet" }, { t("\\oiint") },
-        { condition = tex.in_mathzone }),
+    --
+    s({ trig = "in1", dscr = "∫", wordTrig = true, snippetType = "autosnippet" },
+        fmta([[\int <> \,\mathrm{d}<>]], { i(1), i(2, "x")}), { condition = tex.in_mathzone }),
+    s({ trig = "in2", dscr = "∬", wordTrig = true, snippetType = "autosnippet" },
+        fmta([[\iint <> \,\mathrm{d}<>]], { i(1), i(2, "x")}), { condition = tex.in_mathzone }),
+    s({ trig = "in3", dscr = "∭", wordTrig = true, snippetType = "autosnippet" },
+        fmta([[\iiint <> \,\mathrm{d}<>]], { i(1), i(2, "x")}), { condition = tex.in_mathzone }),
+    s({ trig = "in0", dscr = "∮", wordTrig = true, snippetType = "autosnippet" },
+        fmta([[\oint <> \,\mathrm{d}<>]], { i(1), i(2, "x")}), { condition = tex.in_mathzone }),
+    s({ trig = "in9", dscr = "∯", wordTrig = true, snippetType = "autosnippet" },   -- require esint
+        fmta([[\oiint <> \,\mathrm{d}<>]], { i(1), i(2, "x")}), { condition = tex.in_mathzone }),
 
     ---------------------- Derivatives Operations ----------------------
     -- Derivatives
