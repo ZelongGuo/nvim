@@ -335,7 +335,7 @@ return {
     -- Absolute value
     s({ trig = "([^%a])ab", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
         fmta(
-            "<>\\abs{<>}",
+            "<>|<>|",
             {
                 f(function(_, snip) return snip.captures[1] end),
                 d(1, get_visual),
