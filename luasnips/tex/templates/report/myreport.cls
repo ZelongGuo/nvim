@@ -18,6 +18,7 @@
 \RequirePackage{listings}                   % Code Block
 \RequirePackage{graphicx}                   % Figures
 \RequirePackage{amsmath}                    % Mathmatical Formular
+\RequirePackage{esint}                      % Mathmatical Formular
 \RequirePackage{amssymb}                    % Mathmatical Symbols
 \RequirePackage{hyperref}                   % Hyperlink
 \RequirePackage{fancyhdr}                   % Page Header and Footer
