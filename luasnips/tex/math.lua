@@ -23,7 +23,7 @@ return {
     ------------------------------------------------------------------------------------------------
     -- Math inline, after non-lower-case
     s({ trig = "([^%l])mm", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
-        fmta("<>$<>$<>",
+        fmta("<>$ <> $<>", -- note there are blankspave in $$, so that you can jump out if there are nested snippets like fr ...
             {
                 f(function(_, snip) return snip.captures[1] end),
                 d(1, get_visual),
@@ -31,6 +31,7 @@ return {
             }
         )
     ),
+
 
     -- Math outline
     s({ trig = "MM", snippetType = "autosnippet" },
