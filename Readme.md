@@ -153,4 +153,14 @@ Buffers and Tabs Opening Ways:
 
 *The nvim startup plugin alpha-vim could could lead you a new buffer to open recent files.*  
 
+### Plugins
+
+#### VimTex
+
+| keys              | operations                                   |
+|-------------------|----------------------------------------------|
+| `,ll`             | compile                                      |
+| `,lv`             | Locate the cursor position in the PDF file   |
+| `<cmd> + <shift>` | Locate the cursor position in the latex file |
+| `,lt`             | toggle Table of contents of vimtex           |
 
