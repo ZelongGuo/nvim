@@ -43,9 +43,31 @@ local snippets = {
     --     })
     -- ),
 
+    -- Insert a table, same trig to latex, should be used combined with markdown-table-mode plugin
+    -- Note, problem of jumping between nodes remains ...
+    s({trig = "tab", dscr = "Insert a Table" },
+        fmt(
+            [[
+            | {} | {} | {} |
+            |----|----|----|
+            | {} | {} | {} |
+            ]],
+            {
+                i(1, "Head"),
+                i(2, "Head"),
+                i(3, "Head"),
+                i(4, "item"),
+                i(5, "item"),
+                i(6, "item"),
+            },
+            { delimiters = "{}" }
+        )
+    ),
+
     -- Colot text
     s({trig = ",c", dscr = "Color Text", snippetType = "autosnippet" },
        fmta([[<font size="{}"  color="{}">{}</font>]], { i(1, "3"), i(2, "red"), i(3) }, { delimiters = "{}" })),
+
     -- Codes
     s({trig = ",C", dscr = "Codes block", snippetType = "autosnippet" },
         fmt(
