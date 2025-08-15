@@ -33,8 +33,9 @@ return {
             indent_levels = 1, -- enable indent of section levels
 
             -- layers = { "content", "label", "todo", "include" },
-            layers = { "content", "label", "todo" }, -- include is hidden to avoid "I" keymap conflict
+            layers = { "content", "todo" }, -- include is hidden to avoid "I" keymap conflict; label also is hidden
             split_width = 40,
+            tocdepth = 2, -- default is 3
         }
 
         -- Open TOC and remap the key, I --> move 5 lines up
