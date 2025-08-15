@@ -26,6 +26,11 @@
 \RequirePackage{lipsum}                     % Random Text
 \RequirePackage{natbib}                     % References
 \RequirePackage{tikz}                       % Figure plotting for math equations
+\RequirePackage{todonotes}                  % Todo list
+
+% -----------------------------------------------------------------------
+\usetikzlibrary{calc,arrows.meta}
+\setuptodonotes{fancyline, color=green!90!, inlinewidth=8cm}
 
 % -----------------------------------------------------------------------
 % Set fonts for English
@@ -34,8 +39,14 @@
 % Allow users difine their own fonts, otherwise useing the following default fonts
 \AtBeginDocument{
     \IfFontExistsTF{STKaiti}
-    { \setCJKmainfont[BoldFont=STHeiti,ItalicFont=STKaiti]{STKaiti} }
-    { \setCJKmainfont{SimSun} } % option: SimSun, KaiTi, FangSong, LiSu, YouYuan, STFangsong, STKaiti, STSong, STXihei, STXingkai, STXinwei
+    {   \setCJKmainfont[
+            BoldFont = {STHeiti},
+            ItalicFont = {STKaiti},
+        ]{STKaiti}
+    }
+    {
+        \setCJKmainfont{SimSun} 
+    } % option: SimSun, KaiTi, FangSong, LiSu, YouYuan, STFangsong, STKaiti, STSong, STXihei, STXingkai, STXinwei
 }
 
 % Define a Nerd Fonts Command, using for Symbols
