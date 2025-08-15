@@ -177,7 +177,7 @@ return {
     ),
 
     ---------------------------------------------------------
-    --- Refereces, Lable, Cite, Item
+    --- Refereces, Lable, Cite, Item, TODOs
     ---------------------------------------------------------
     s(
         { trig = ",r", snippetType = "autosnippet" }, -- Refereces, require <hyperref>
@@ -270,7 +270,7 @@ return {
         )
     ),
     ---------------------------------------------------------
-    --- Quote, indent
+    --- Quote, indent, todo lists
     ---------------------------------------------------------
     s(
         { trig = ",q", snippetType = "autosnippet" },
@@ -296,7 +296,26 @@ return {
             )
         }),{ condition = line_begin}
     ),
+
     s({ trig = ",ni", snippetType = "autosnippet"  },  { t("\\noindent ") }),
+
+    s(
+        { trig = ",T", snippetType = "autosnippet" },  -- todonotes package is required
+        c(1, {
+            fmta(
+                [[
+                \todo[inline]{TODO: <>}
+                ]],
+                { d(1, get_visual) }
+            ),
+
+            fmta(
+                [[
+                \todo{TODO: <>}
+                ]], { d(1, get_visual) }
+            )
+        }),{ condition = line_begin}
+    ),
 
     ----------------------------------------------------------------------------------------------------
 }
