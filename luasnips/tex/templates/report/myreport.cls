@@ -25,6 +25,7 @@
 \RequirePackage{fancyhdr}                   % Page Header and Footer
 \RequirePackage{lipsum}                     % Random Text
 \RequirePackage{natbib}                     % References
+\RequirePackage{tikz}                       % Figure plotting for math equations
 
 % -----------------------------------------------------------------------
 % Set fonts for English
