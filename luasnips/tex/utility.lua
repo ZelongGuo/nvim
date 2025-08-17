@@ -270,7 +270,7 @@ return {
         )
     ),
     ---------------------------------------------------------
-    --- Quote, indent, todo lists
+    --- Quote, indent, todo lists, rule
     ---------------------------------------------------------
     s(
         { trig = ",q", snippetType = "autosnippet" },
@@ -314,6 +314,16 @@ return {
                 \todo{TODO: <>}
                 ]], { d(1, get_visual) }
             )
+        }),{ condition = line_begin}
+    ),
+
+    s(
+        { trig = "ru" }, -- rule line 
+            t({
+            "\\par\\vspace{1ex}",
+            "\\noindent",
+            "\\textcolor{gray}{\\rule[0.5ex]{\\linewidth}{0.4pt}}",
+            "\\par\\vspace{1ex}"
         }),{ condition = line_begin}
     ),
 
