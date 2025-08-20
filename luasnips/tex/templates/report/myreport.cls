@@ -112,10 +112,21 @@
 }
 
 % -----------------------------------------------------------------------
-% Set Itemize and Enumerate Style
-% dynamically adjusting with font size and type
+% Set Itemize and Enumerate Style in enumitem Package
+% dynamically adjusting with font size and type 
 \setlist[itemize]{itemsep=0.5ex, parsep=0ex, topsep=0.8ex}
 \setlist[enumerate]{itemsep=0.5ex, parsep=0ex, topsep=0.8ex}
+
+% Options: \bullet, \star, \diamond, \triangleright, \square, \ast
+\setlist[itemize,1]{label=$\bullet$}
+\setlist[itemize,2]{label=$\diamond$}
+\setlist[itemize,3]{label=$\triangleright$}
+\setlist[itemize,4]{label=$\circ$}
+
+% Options: \Alph, \roman, \Roman, \alph
+\setlist[enumerate,1]{label=\arabic*.}
+\setlist[enumerate,2]{label=(\arabic*).}
+\setlist[enumerate,3]{label=\alph*.}
 
 % -----------------------------------------------------------------------
 % Set Hyperlink Style
