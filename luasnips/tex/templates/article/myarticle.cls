@@ -18,6 +18,7 @@
 \RequirePackage{listings}                   % Code Block
 \RequirePackage{graphicx}                   % Figures
 \RequirePackage{amsmath}                    % Mathmatical Formular
+\RequirePackage{amsthm}                     % Mathmatical Theory and Proof Environment
 \RequirePackage{esint}                      % Mathmatical Formular
 \RequirePackage{cancel}                     % Cancle Line for Mathmatical Formular 
 \RequirePackage{amssymb}                    % Mathmatical Symbols
@@ -31,6 +32,10 @@
 % -----------------------------------------------------------------------
 \usetikzlibrary{calc,arrows.meta}
 \setuptodonotes{fancyline, color=green!90!, inlinewidth=8cm}
+
+% Set math theorem and proof Environment
+% \newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{theorem}{Theorem}
 
 % -----------------------------------------------------------------------
 % Set fonts for English
