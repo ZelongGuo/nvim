@@ -108,6 +108,34 @@ return {
     ),
 
     ------------------------------------------------------------------------------------------------
+    --- Other environment
+    ------------------------------------------------------------------------------------------------
+    -- Math proof environment, asmthm package is required
+    s({ trig = "MP", wordTrig = true, snippetType = "autosnippet" },
+        fmta([[
+             \begin{proof}
+                 <>
+             \end{proof}
+             ]], { d(1, get_visual) }), { condition = line_begin }
+    ),
+
+    -- Math theorem environment, asmthm package is required
+    s({ trig = "MT", wordTrig = true, snippetType = "autosnippet" },
+        fmta([[
+             \begin{theorem}[<>]
+                 <>
+                 % \label{theorem:<>}
+             \end{theorem}
+             ]],
+            {
+                i(1, "notes"),
+                i(2),
+                f(function() return os.date("%Y%m%d_%H%M%S") end, {})
+            }
+        ), { condition = line_begin }
+    ),
+
+    ------------------------------------------------------------------------------------------------
     --- Matrix
     ------------------------------------------------------------------------------------------------
     s({ trig = "m(", wordTrig = true, snippetType = "autosnippet" }, -- require <amsmath>
