@@ -136,6 +136,7 @@ local get_visual = helper.get_visual
 local snippets = {}
 local pairs = {
     { trig = "%(%)", open = "(", close = ")" },
+    { trig = "（）", open = "（", close = "）" },  -- Chinese Parenthesis
     { trig = "%[%]", open = "[", close = "]" },
     { trig = "{}",   open = "{", close = "}" },
     { trig = "<>",   open = "<", close = ">" },
