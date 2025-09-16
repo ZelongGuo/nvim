@@ -619,7 +619,9 @@ return {
     --- Functions used often
     ------------------------------------------------------------------------------------------------
     s({ trig = "exp", wordTrig = true, snippetType = "autosnippet" },
-        { t("e^{"), d(1, get_visual), t("}") }, { condition = tex.in_mathzone }),
+        { t("\\mathrm{e}^{"), d(1, get_visual), t("}") }, { condition = tex.in_mathzone }),
+        -- { t("e^{"), d(1, get_visual), t("}") }, { condition = tex.in_mathzone }),
+        -- { t("\\exp{("), d(1, get_visual), t(")}") }, { condition = tex.in_mathzone }),
     s({ trig = "ln", wordTrig = true, snippetType = "autosnippet" },
         { t("\\ln{"), d(1, get_visual), t("}") }, { condition = tex.in_mathzone }),
     s({ trig = "sin", wordTrig = true, snippetType = "autosnippet" },
