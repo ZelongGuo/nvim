@@ -11,6 +11,7 @@ return {
         vim.g.vimtex_quickfix_ignore_filters = {
             'Font shape',
             "badness 10000",
+            "badness 1092",
             -- Chinese Fonts Support Warning, check font book for fonts available on you Mac
             'Package fontspec Warning',
             -- 	"Package hyperref Warning",
