@@ -435,7 +435,7 @@ return {
 
     -- Subscript and superscript, __
     s({ trig = "([%w%)%]%}])__", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
-        fmta([[<>^{<>}_{<>}]], { f(function(_, snip) return snip.captures[1] end), i(1), i(2) }),
+        fmta([[<>_{<>}^{<>}]], { f(function(_, snip) return snip.captures[1] end), i(1), i(2) }),
         { condition = tex.in_mathzone }
     ),
 
