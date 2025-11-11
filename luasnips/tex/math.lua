@@ -399,6 +399,34 @@ return {
         { condition = tex.in_mathzone }
     ),
 
+    -- Big sysmbols for ||, (), [], {}
+    s({ trig = "big", snippetType = "autosnippet" },
+        c(1, {
+            -- Big sysmbols for ||
+            fmta([[ 
+                 \Bigl | <> \Bigr | 
+                 ]],
+                { d(1, get_visual) }),
+            -- Big sysmbols for () 
+            fmta([[
+                 \Bigl ( <> \Bigr )
+                 ]],
+                { d(1, get_visual) }),
+            -- Big sysmbols for [] 
+            fmta([[
+                 \Bigl [ <> \Bigr ]
+                 ]],
+                { d(1, get_visual) }),
+            -- Big sysmbols for {} 
+            fmta([[
+                 \Bigl { <> \Bigr }
+                 ]],
+                { d(1, get_visual) }),
+        }),
+        { condition = tex.in_mathzone }
+    ),
+
+
 
     ------------------------------------------------------------------------------------------------
     --- Superscript, subscript and related stuff
