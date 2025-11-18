@@ -556,15 +556,22 @@ return {
             }
         ), { condition = tex.in_mathzone }
     ),
-    -- MATH BOLDFACE i.e. \mathbf
+
+    -- MATH BOLDFACE i.e. \mathbf, \boldsymbol (boldsymbol requires amsmath)
     s(
-        { trig = "([^%a])mb", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
-        fmta("<>\\mathbf{<>}",
-            {
-                f(function(_, snip) return snip.captures[1] end),
-                d(1, get_visual),
-            }
-        ), { condition = tex.in_mathzone }
+        { trig = "mb", snippetType = "autosnippet" },
+        c(1, {
+            fmta([[
+                \mathbf{<>}
+                ]],
+                { d(1, get_visual) }),
+
+            fmta([[
+                \boldsymbol{<>}
+                ]],
+                { d(1, get_visual) }),
+            }),
+        { condition = tex.in_mathzone }
     ),
     -- MATH ITALIC i.e. \mathit
     s(
