@@ -31,7 +31,7 @@
 
 % -----------------------------------------------------------------------
 \usetikzlibrary{calc,arrows.meta}
-\setuptodonotes{fancyline, color=green!90!, inlinewidth=8cm}
+\setuptodonotes{fancyline, color=green!90!, inlinewidth=\textwidth}
 
 % Set math theorem and proof Environment
 % \newtheorem{theorem}{Theorem}[chapter]
