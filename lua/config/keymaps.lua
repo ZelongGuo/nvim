@@ -124,6 +124,8 @@ vim.keymap.set({ 'v', 'n' }, 'k', function()
     return 'j' -- Mapping k to j
 end, { expr = true, noremap = true, silent = true })
 
+-- map i to move upward immediately under Visual 
+vim.keymap.set('v', 'i', 'k', { noremap = true, silent = true, nowait = true })
 
 
 --[[
