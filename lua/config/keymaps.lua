@@ -126,6 +126,7 @@ end, { expr = true, noremap = true, silent = true })
 
 -- map i to move upward immediately under Visual 
 vim.keymap.set('v', 'i', 'k', { noremap = true, silent = true, nowait = true })
+vim.keymap.set('v', 'I', '5k', { noremap = true, silent = true, nowait = true })
 
 
 --[[
