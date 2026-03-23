@@ -85,17 +85,38 @@ return
         ),
         { condition = line_begin }
     ),
-    -- -- ECHO
-    -- s({ trig = "pp", snippetType = "autosnippet" },
-    --     fmta(
-    --         [[
-    --     echo "<>"
-    --     ]],
-    --         {
-    --             d(1, get_visual),
-    --         }
-    --     )
-    -- ),
+    -- ECHO
+    s({ trig = "gmt_template"},
+        fmta(
+            [[
+            #!/usr/bin/env bash
+
+
+            gmt set MAP_FRAME_PEN 2p
+            gmt set FONT_ANNOT_PRIMARY 8p
+            gmt set FONT_ANNOT_SECONDARY 7p
+            gmt set FONT_LABEL 8p
+            gmt set MAP_TICK_LENGTH 0.1c
+            gmt set MAP_FRAME_TYPE Plain
+            gmt set MAP_ANNOT_OFFSET_PRIMARY 1p
+            gmt set MAP_ANNOT_OFFSET_SECONDARY 1p
+            gmt set MAP_LABEL_OFFSET 1.5p
+            gmt set MAP_ANNOT_OBLIQUE lat_parallel
+            
+            gmt begin <> png
+                gmt basemap -JN15c -Rg -Ba60 -B+t"<>" --FONT_TITLE=9p,black --MAP_TITLE_OFFSET=-6p
+                gmt grdimage @earth_relief_10m -Iearth_relief_10m+d # -Ctopo.cpt
+                gmt coast -Da -W0.3p,blue
+            gmt end show
+            rm gmt*
+
+        ]],
+            {
+                i(1, "test"),
+                i(2, "test"),
+            }
+        )
+    ),
 }
 
 

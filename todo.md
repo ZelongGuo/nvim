@@ -5,7 +5,34 @@ Tips:
 
 TODO:
 
-- keys conflict between <tab> in luasnip and nvim-cmp, making notes of resolving this issue.
+- The order of the plugin being loaded maters! Take a note about open tex file using alpha-vim and
+open it with vim *tex file directly!!!
+
+- Get used to flash to jumping!
+
+- TRAIN YOUR TYPING !!!
+
+- better understand cmake, and update the luasnip for cmakelist?
+
+- test the C example again; better understand the cmake; make a video about debuging C file, from very begining ...  
+- cmake snippets, text.lua and how to better compile the c/cpp files ...
+Watch 如何编译C++程序：轻松搞定cmake:  11:56
+
+- nvim-dap for c and python
+
+- check that guy's guithub to configure your own luasnip and ftplugin
+
+- jumping between files and jumping using bookmarks (using a plugin ...)
+
+- to write the choice node for markdown, and update other snippets ... update file orginazation ...
+update math for **markdown** and **tex** ... 
+
+See [this link](https://github.com/ejmastnak/dotfiles/tree/main/config/nvim/LuaSnip) for more
+reference about writing your own luasnips
+
+- write your own luasnip, check [this link](https://www.bilibili.com/video/BV18g4y1V7qT/?spm_id_from=333.337.search-card.all.click&vd_source=43006d0ac56cf552e035de156730a015)
+
+Continue check luasnip.lua, these two keys don't work
 
 - the VeryLazy setting for nvim-tree invalid ... it always is loaded depending on nvim-lspconfig
 
@@ -15,7 +42,9 @@ for lsp and nvim, try this one: https://www.bilibili.com/video/BV17L411z7Eg/?spm
 
 and also: https://www.bilibili.com/video/BV1Tm4y1W7BQ?spm_id_from=333.788.player.switch&vd_source=43006d0ac56cf552e035de156730a015
 
-- lsp: jump, go to definition etc ..., mason  
+
+- lsp: jump, go to definition etc ..., mason
+upate: other lsp-related plugins ... 
 
 - may need to read and configure nvim-cmp carefully and also other plugins configure files!!!
 
@@ -25,11 +54,9 @@ and also: https://www.bilibili.com/video/BV1Tm4y1W7BQ?spm_id_from=333.788.player
 
 - nvim-cmp: automatic completion  
 
-
-- telescopt add <leader>fc to change colorscheme, and change the cursor mode in dark theme ...  
-I doom-one might not be a good colorscheme becasue it does not support the nvim-cmp and and not as
-good as materail... To find more colorscheme? And if then maybe we can ignore the default
-colorschemes within telescopt.lua
+- google the following: vim lsp conda 虚拟环境
+[this link](https://blog.csdn.net/m0_55576290/article/details/141331373) and also
+[https://neovim.io/doc/user/provider.html#python-virtualenv](https://neovim.io/doc/user/provider.html#python-virtualenv)
 
 - nvim-dam setting which is used for debugging  ...
 
@@ -42,7 +69,6 @@ colorschemes within telescopt.lua
 
 - update the readme file, refer to the nice boy ...
 
-
 - More actions about telescope.vim, like LSP to find some specific functions in the file? And also other functionalities please watch the videos on online platforms ...
 
 - telescope cannot find file, e.g, when we are editing the init.lua within neovim, and we cannot find and open the telescope.lua using telescope, there must be something went wrong ..
@@ -54,8 +80,6 @@ colorschemes within telescopt.lua
 
 - indent lines in vim, tab and space in the default.lua ...
   Updated: the blank space canot work ...
-
-- git: gitsign, lazygit, scrollbar ... To get to know the detailed operations.
 
 - tree-sitter: folding (also related with lsp)
 
@@ -88,6 +112,9 @@ Pending:
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Solved:
+
+- keys conflict between <tab> in luasnip and nvim-cmp, making notes of resolving this issue.
+  Update: Done
 
 - cancel the vertical cursor line and wrap when we are writting md and tex ...
   Update: Done
