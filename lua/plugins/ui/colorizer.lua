@@ -1,7 +1,8 @@
 return
 {
     "NvChad/nvim-colorizer.lua",
-    event = "VeryLazy",
+    -- Disable lazy loading
+    -- lazy = true,
 
     opts = {
         filetypes = { "*" },
