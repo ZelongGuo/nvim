@@ -77,6 +77,9 @@ require("lazy").setup({
     require("plugins.ui.lualine"),
     require("plugins.ui.startup"),
     require("plugins.ui.dropbar"),
+    require("plugins.ui.gitsigns"),
+    require("plugins.ui.lazygit"),
+    require("plugins.ui.marks"),
 
     -- EDITOR
     -- { import = "plugins.editor" },
@@ -94,10 +97,6 @@ require("lazy").setup({
     -- LSP
     -- { import = "plugins.lsp" },
     require("plugins.lsp.lspconfig"),
-
-    -- GIT
-    require("plugins.git.gitsigns"),
-    require("plugins.git.lazygit"),
 
     -- Searching files and text
     require("plugins.nvim-tree"), -- TODO
