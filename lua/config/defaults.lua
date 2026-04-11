@@ -106,7 +106,7 @@ vim.opt.mouse = "nv"
 -- Line nr
 vim.opt.number = true
 vim.opt.relativenumber = true
-
+vim.opt.signcolumn = "yes" -- Always show signcolumn for gitsigns and markers
 
 -- Disable Timeout Waiting
 vim.opt.timeout = false

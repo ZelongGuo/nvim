@@ -6,4 +6,3 @@ vim.bo.softtabstop = 4
 vim.bo.shiftwidth  = 4
 vim.wo.foldmethod  = 'indent'
 vim.wo.foldlevel   = 99
-vim.wo.signcolumn  = 'yes'
