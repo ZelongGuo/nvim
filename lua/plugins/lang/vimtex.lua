@@ -5,7 +5,20 @@ return {
     lazy = false,
     priority = 1100,
     init = function()
-        vim.g.vimtex_view_method = "skim"
+        -- Detect OS and choose the proper PDF viewer
+        local function setup_vimtex_viewer()
+            local os_name = vim.loop.os_uname().sysname
+
+            if os_name == "Darwin" then
+                return "skim"
+            elseif os_name == "Linux" then
+                return "zathura"
+            else
+                return "general"
+            end
+        end
+        vim.g.vimtex_view_method = setup_vimtex_viewer()
+
         -- vim.g.vimtex_mappings_enabled = 0
         -- vim.g.vimtex_quickfix_open_on_warning = 0  -- 0 for not opening quickfix for warnings
         vim.g.vimtex_quickfix_ignore_filters = {
