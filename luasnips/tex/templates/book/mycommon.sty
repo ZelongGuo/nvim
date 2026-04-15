@@ -50,119 +50,32 @@
 % Theorem
 \newtheorem{theorem}{Theorem}
 
-% ----------------------------------------------------------------------
-% Font path for non-macOS systems
+% ==================================================
+% Font Settings
+% ==================================================
+
 \newcommand{\myfontspath}{/home/zelong/.config/fonts/}
 
-% ----------------------------------------------------------------------
-% macOS font setup
-\newcommand{\setupfonts@mac}{%
-  % English
-  \setmainfont{Times New Roman}
+% -------------------------------------------------
+% For English fonts setting
+\IfFontExistsTF{Times} % if Times exists, use Times
+    { \setmainfont{Times} }% otherwise use TimesNewRoman under the specified path
+    { \setmainfont[Path = \myfontspath english/, AutoFakeSlant=0.3, AutoFakeBold=2 ]{TimesNewRoman.ttf} }
 
-  % Chinese families
-  \setCJKfamilyfont{zhsong}[
-    UprightFont = * Light,
-    BoldFont    = * Bold,
-    AutoFakeSlant = 0.2
-  ]{Songti SC}
-
-  \setCJKfamilyfont{zhkai}[
-    BoldFont = * Black,
-    AutoFakeSlant = 0.2
-  ]{Kaiti SC}
-
-  % Default Chinese main font
-  \setCJKmainfont[
-    BoldFont = * Black,
-    AutoFakeSlant = 0.2
-  ]{Kaiti SC}
+% For Chinese fonts setting
+% if you want use kaiti, uncomment below
+\AtBeginDocument{
+    \IfFontExistsTF{STKaiti}
+        { \setCJKmainfont[ AutoFakeBold=2, AutoFakeSlant = 0.2 ]{STKaiti} }
+        { \setCJKmainfont[ Path = \myfontspath chinese/, AutoFakeBold = 2, AutoFakeSlant = 0.2 ]{simkai.ttf} }
 }
 
-% ----------------------------------------------------------------------
-% Linux font setup
-\newcommand{\setupfonts@linux}{%
-  % English
-  \setmainfont[
-    Path = \myfontspath english/,
-    AutoFakeSlant=0.3,
-    AutoFakeBold=2,
-  ]{TimesNewRoman.ttf}
-
-  % Chinese families
-  \setCJKfamilyfont{zhsong}[
-    Path = \myfontspath chinese/,
-    AutoFakeBold = 2,
-    AutoFakeSlant = 0.2
-  ]{simsun.ttc}
-
-  \setCJKfamilyfont{zhkai}[
-    Path = \myfontspath chinese/,
-    AutoFakeBold = 2,
-    AutoFakeSlant = 0.2
-  ]{simkai.ttf}
-
-  % Default Chinese main font
-  \setCJKmainfont[
-    Path = \myfontspath chinese/,
-    AutoFakeBold = 2,
-    AutoFakeSlant = 0.2
-  ]{simkai.ttf}
-}
-
-% ----------------------------------------------------------------------
-% Other systems: same as Linux
-\newcommand{\setupfonts@other}{%
-  % English
-  \setmainfont[
-    Path = \myfontspath english/,
-    AutoFakeSlant=0.3,
-    AutoFakeBold=2,
-  ]{TimesNewRoman.ttf}
-
-  % Chinese families
-  \setCJKfamilyfont{zhsong}[
-    Path = \myfontspath chinese/,
-    AutoFakeBold = 2,
-    AutoFakeSlant = 0.2
-  ]{simsun.ttc}
-
-  \setCJKfamilyfont{zhkai}[
-    Path = \myfontspath chinese/,
-    AutoFakeBold = 2,
-    AutoFakeSlant = 0.2
-  ]{simkai.ttf}
-
-  % Default Chinese main font
-  \setCJKmainfont[
-    Path = \myfontspath chinese/,
-    AutoFakeBold = 2,
-    AutoFakeSlant = 0.2
-  ]{simkai.ttf}
-}
-
-% ----------------------------------------------------------------------
-% Detect OS and load fonts
-% Note: ifplatform may depend on shell-escape in some environments.
-\ifmacosx
-  \setupfonts@mac
-\else
-  \iflinux
-    \setupfonts@linux
-  \else
-    \setupfonts@other
-  \fi
-\fi
-
-% ----------------------------------------------------------------------
-% Chinese family switching commands
-\newcommand{\song}{\CJKfamily{zhsong}}
-\newcommand{\kai}{\CJKfamily{zhkai}}
-
-% Default body Chinese style: Kai
-\AtBeginDocument{%
-  \kai
-}
+% % if you want use songti , uncomment below
+% \AtBeginDocument{
+%     \IfFontExistsTF{Songti SC}
+%         { \setCJKmainfont[ AutoFakeBold=2, AutoFakeSlant = 0.2 ]{Songti SC} }
+%         { \setCJKmainfont[ Path = \myfontspath chinese/, AutoFakeBold = 2, AutoFakeSlant = 0.2 ]{simsun.ttc} }
+% }
 
 % ----------------------------------------------------------------------
 % Optional Nerd Font command
