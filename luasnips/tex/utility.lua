@@ -154,13 +154,13 @@ return {
         fmta([[
             \begin{figure}[htbp]
                 \centering
-                \includegraphics[width=<>\linewidth]{<>}
+                \includegraphics[width=0.<>\linewidth]{<>}
                 \caption{<>}
                 \label{fig:<>}
             \end{figure}
         ]],
             {
-                i(1, "0.8"),
+                i(1, "8"),
                 i(2, "FigPath"),
                 i(3),
                 f(function() return os.date("%Y%m%d_%H%M%S") end, {}) -- Current date and time as label
