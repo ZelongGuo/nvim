@@ -123,6 +123,9 @@ vim.opt.showcmd = true
 -- Command Completion Menu
 vim.opt.wildmenu = true
 
+-- Automatically reload files changed outside Neovim
+vim.opt.autoread = true
+vim.opt.updatetime = 500
 
 -- Others
 vim.opt.visualbell = true
